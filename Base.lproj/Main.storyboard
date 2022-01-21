@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Zr-fO-uAF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipersLogo" translatesAutoresizingMaskIntoConstraints="NO" id="czR-eS-6rK">
+                                <rect key="frame" x="9" y="101" width="396" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="EzR-om-huS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNu-cf-0an">
+                                <rect key="frame" x="90" y="198" width="234.5" height="28"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome to Swipers!">
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="ArialMT"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emp-hY-3Wg">
+                                <rect key="frame" x="43" y="236" width="328" height="19"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Buy or sell KSU swipes with other students!">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyQ-EO-bQO">
+                                <rect key="frame" x="54" y="259" width="306.5" height="19"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Swipers can be used on both campuses!">
+                                        <attributes>
+                                            <font key="NSFont" size="17" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVO-2k-0UF">
+                                <rect key="frame" x="25.5" y="677" width="363" height="68.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Sign Up" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Q3-Uc-KnW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ne3-qF-KHR">
+                                <rect key="frame" x="25.5" y="795" width="363" height="69"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Log In" backgroundImage="WhiteButton">
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYD-qJ-t22"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ne3-qF-KHR" firstAttribute="top" secondItem="jVO-2k-0UF" secondAttribute="bottom" constant="49.5" id="6fJ-fa-IiO"/>
+                            <constraint firstItem="HNu-cf-0an" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9x6-v4-0qz"/>
+                            <constraint firstItem="HNu-cf-0an" firstAttribute="top" secondItem="czR-eS-6rK" secondAttribute="bottom" constant="17" id="AFw-8K-kTU"/>
+                            <constraint firstItem="Ne3-qF-KHR" firstAttribute="top" secondItem="jVO-2k-0UF" secondAttribute="bottom" constant="49.5" id="HzE-J6-0J3"/>
+                            <constraint firstItem="jVO-2k-0UF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PfS-4d-rpP"/>
+                            <constraint firstItem="czR-eS-6rK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UUL-Ky-jxx"/>
+                            <constraint firstItem="jVO-2k-0UF" firstAttribute="top" secondItem="gyQ-EO-bQO" secondAttribute="bottom" constant="399" id="Vya-Lm-fKc"/>
+                            <constraint firstItem="Ne3-qF-KHR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Y0w-2z-2Yl"/>
+                            <constraint firstItem="emp-hY-3Wg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cva-Kp-QFO"/>
+                            <constraint firstItem="emp-hY-3Wg" firstAttribute="top" secondItem="HNu-cf-0an" secondAttribute="bottom" constant="10" id="k7p-TH-S1K"/>
+                            <constraint firstItem="gyQ-EO-bQO" firstAttribute="top" secondItem="emp-hY-3Wg" secondAttribute="bottom" constant="4" id="pIc-bX-B5t"/>
+                            <constraint firstItem="czR-eS-6rK" firstAttribute="centerX" secondItem="HNu-cf-0an" secondAttribute="centerX" id="rPm-WZ-cZB"/>
+                            <constraint firstItem="gyQ-EO-bQO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tix-eP-MIA"/>
+                            <constraint firstItem="czR-eS-6rK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="wUh-cG-9wu"/>
+                            <constraint firstAttribute="bottom" secondItem="Ne3-qF-KHR" secondAttribute="bottom" constant="32" id="yIp-ln-ahG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cd9-zi-Fav"/>
+                    <connections>
+                        <segue destination="ItE-ao-5Wl" kind="show" identifier="LoginViewShow" id="ZnT-UA-poI"/>
+                        <segue destination="jte-GZ-Lr9" kind="show" identifier="SignUpViewShow" id="QVI-7V-Kdx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="66.964285714285708"/>
+        </scene>
+        <!--Log In-->
+        <scene sceneID="nv8-lh-PtW">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="ItE-ao-5Wl" customClass="LoginViewController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GSn-uP-3A0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipersLogo" translatesAutoresizingMaskIntoConstraints="NO" id="5H9-0e-UCj">
+                                <rect key="frame" x="9" y="101" width="396" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="68a-S6-uGg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t3R-jE-B1e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5H9-0e-UCj" firstAttribute="top" secondItem="t3R-jE-B1e" secondAttribute="top" constant="13" id="4Nb-yh-jEO"/>
+                            <constraint firstItem="5H9-0e-UCj" firstAttribute="centerX" secondItem="GSn-uP-3A0" secondAttribute="centerX" id="FVn-OQ-Wrl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Log In" id="fqq-GR-Ppg">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="cR0-pc-rIr"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4AM-dI-kCE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1697.1014492753625" y="66.964285714285708"/>
+        </scene>
+        <!--Sign Up-->
+        <scene sceneID="KGy-yw-tAN">
+            <objects>
+                <viewController id="jte-GZ-Lr9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Za3-lP-GkI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SwipersLogo" translatesAutoresizingMaskIntoConstraints="NO" id="MLs-Uf-2rC">
+                                <rect key="frame" x="9" y="101" width="396" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="pVx-Hs-ORm"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="5Bk-8v-EeZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MLs-Uf-2rC" firstAttribute="top" secondItem="5Bk-8v-EeZ" secondAttribute="top" constant="13" id="7KC-E3-6XA"/>
+                            <constraint firstItem="MLs-Uf-2rC" firstAttribute="centerX" secondItem="Za3-lP-GkI" secondAttribute="centerX" id="GgM-Ge-ARb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sign Up" id="Gbf-Uh-BLg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h5T-4Y-BLI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1697" y="771"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5f9-TK-Gtx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Zr-fO-uAF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mBL-2J-BQg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BxM-Xx-V6m"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Yp-Y9-iVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="66.964285714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BlueButton" width="363" height="68.5"/>
+        <image name="SwipersLogo" width="396" height="128.5"/>
+        <image name="WhiteButton" width="363" height="68.5"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
