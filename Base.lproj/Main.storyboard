@@ -210,37 +210,256 @@
             </objects>
             <point key="canvasLocation" x="1697.1014492753625" y="66.964285714285708"/>
         </scene>
+        <!--Kennesaw Campus-->
+        <scene sceneID="r9h-pu-xK1">
+            <objects>
+                <viewController storyboardIdentifier="BuyerKennesawController" id="EPl-Of-h2t" customClass="BuyerKennesawController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mh6-kx-LuS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="dgh-r4-ZVJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Kennesaw Campus" id="6r2-tf-rlg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Svr-RS-nR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4141" y="-1096"/>
+        </scene>
+        <!--Marietta Campus-->
+        <scene sceneID="Pvw-Mb-twQ">
+            <objects>
+                <viewController storyboardIdentifier="BuyerMariettaController" id="iYQ-Yn-uta" customClass="BuyerMariettaController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OzM-sB-SlP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="h9g-Px-Ctc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Marietta Campus" id="jDf-hB-RS2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="goC-pl-mZW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4141" y="-308"/>
+        </scene>
         <!--Buy-->
         <scene sceneID="zRQ-gZ-3n9">
             <objects>
-                <viewController title="Buy" id="nrI-KV-td7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BuyerController" title="Buy" id="nrI-KV-td7" customClass="BuyerController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r6d-fT-PK4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ3-go-brU">
+                                <rect key="frame" x="42" y="249" width="330" height="28"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Looking for something to eat?">
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdf-6X-Vnq">
+                                <rect key="frame" x="89" y="298.5" width="236" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="8uZ-xE-3rl"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Which dining hall is nearest to you?">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-3K-4QN">
+                                <rect key="frame" x="25.5" y="413" width="363" height="68.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="The Commons" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="esi-Hy-x5W"/>
+                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yjd-vb-Ure"/>
+                                    <action selector="theCommonsButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="5Q7-dN-bYv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKi-FT-uFd">
+                                <rect key="frame" x="25.5" y="525" width="363" height="69.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69.5" id="K29-bJ-wu7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Stingers" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="HrO-qp-amU"/>
+                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huJ-gg-oE8"/>
+                                    <action selector="stingersButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="uvK-2T-pnv"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="XRU-0q-6F8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Zw-3K-4QN" firstAttribute="top" secondItem="gdf-6X-Vnq" secondAttribute="bottom" constant="29.5" id="4L9-6S-fkw"/>
+                            <constraint firstItem="gdf-6X-Vnq" firstAttribute="centerX" secondItem="r6d-fT-PK4" secondAttribute="centerX" id="CTf-iv-X1M"/>
+                            <constraint firstItem="YZ3-go-brU" firstAttribute="top" secondItem="XRU-0q-6F8" secondAttribute="top" constant="161" id="DxE-Zh-HgP"/>
+                            <constraint firstItem="TKi-FT-uFd" firstAttribute="top" secondItem="9Zw-3K-4QN" secondAttribute="bottom" constant="43.5" id="Nml-Fb-8Ds"/>
+                            <constraint firstItem="XRU-0q-6F8" firstAttribute="bottom" secondItem="TKi-FT-uFd" secondAttribute="bottom" constant="218.5" id="U8t-UE-y7R"/>
+                            <constraint firstItem="gdf-6X-Vnq" firstAttribute="top" secondItem="YZ3-go-brU" secondAttribute="bottom" constant="21.5" id="YAm-KZ-F15"/>
+                            <constraint firstItem="YZ3-go-brU" firstAttribute="centerX" secondItem="r6d-fT-PK4" secondAttribute="centerX" id="fsR-Vx-Bhz"/>
+                            <constraint firstItem="TKi-FT-uFd" firstAttribute="centerX" secondItem="r6d-fT-PK4" secondAttribute="centerX" id="ma4-NP-QlF"/>
+                            <constraint firstItem="9Zw-3K-4QN" firstAttribute="centerX" secondItem="r6d-fT-PK4" secondAttribute="centerX" id="onB-c0-gEu"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Buy" id="q5F-Ya-1cu" userLabel="Buy"/>
+                    <connections>
+                        <segue destination="EPl-Of-h2t" kind="show" identifier="BuyerKennesawSegue" id="ZUg-VD-Umw"/>
+                        <segue destination="iYQ-Yn-uta" kind="show" identifier="BuyerMariettaSegue" id="1J8-go-TcD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vox-Wr-VNx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="-1414"/>
+            <point key="canvasLocation" x="3294" y="-628"/>
+        </scene>
+        <!--Kennesaw Campus-->
+        <scene sceneID="odg-yO-M7X">
+            <objects>
+                <viewController id="i4q-NN-HoO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m5l-OX-2bS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="81h-L1-D4i"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Kennesaw Campus" id="He6-cZ-RgC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JxJ-YQ-YL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4141" y="-2479"/>
+        </scene>
+        <!--Marietta Campus-->
+        <scene sceneID="1mq-2T-Hde">
+            <objects>
+                <viewController id="7ib-3Y-Sa1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R5h-pk-G0k">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="AfX-IW-nhO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Marietta Campus" id="Wg6-yd-eVf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="19X-g0-rnq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4141" y="-1782"/>
         </scene>
         <!--Sell-->
         <scene sceneID="SNn-AA-AJv">
             <objects>
-                <viewController title="Sell" id="jQE-TQ-IlD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SellerController" title="Sell" id="jQE-TQ-IlD" customClass="SellerController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GIO-PS-ZyH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wuw-5r-Oe5">
+                                <rect key="frame" x="44.5" y="249" width="340.5" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="ixV-d5-kD1"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Looking to sell some swipes?">
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YF4-Je-wLC">
+                                <rect key="frame" x="89" y="300" width="236" height="85.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Which dining hall is nearest to you?">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNb-rf-28n">
+                                <rect key="frame" x="25.5" y="525" width="363" height="69.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69.5" id="Bjt-Wk-41F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Stingers" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="9S3-Tg-I07"/>
+                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NK8-DQ-faK"/>
+                                    <action selector="stingersButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="2Ba-c1-fr9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0l-1R-8TS">
+                                <rect key="frame" x="25.5" y="417.5" width="363" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="KMp-4v-qSs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="The Commons" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="ifb-5A-vsH"/>
+                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1s-qX-ejw"/>
+                                    <action selector="theCommonsButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="dxt-cY-Ke1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rbe-l3-TGT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="top" secondItem="rbe-l3-TGT" secondAttribute="top" constant="161" id="8uV-CU-Mbs"/>
+                            <constraint firstItem="L0l-1R-8TS" firstAttribute="leading" secondItem="rNb-rf-28n" secondAttribute="leading" id="FG1-0I-sm8"/>
+                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="centerX" secondItem="YF4-Je-wLC" secondAttribute="centerX" constant="7.75" id="Txt-9o-b3N"/>
+                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="centerX" secondItem="GIO-PS-ZyH" secondAttribute="centerX" constant="7.75" id="V1W-da-v4c"/>
+                            <constraint firstItem="YF4-Je-wLC" firstAttribute="centerX" secondItem="L0l-1R-8TS" secondAttribute="centerX" id="bOp-hZ-T5p"/>
+                            <constraint firstItem="rbe-l3-TGT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rNb-rf-28n" secondAttribute="trailing" symbolic="YES" id="bY2-62-BzL"/>
+                            <constraint firstItem="YF4-Je-wLC" firstAttribute="top" secondItem="Wuw-5r-Oe5" secondAttribute="bottom" constant="23" id="dOi-Q6-Ncq"/>
+                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="leading" secondItem="rbe-l3-TGT" secondAttribute="leading" constant="44.5" id="keX-8x-iSg"/>
+                            <constraint firstItem="L0l-1R-8TS" firstAttribute="top" secondItem="YF4-Je-wLC" secondAttribute="bottom" constant="32" id="mQQ-tz-Pg0"/>
+                            <constraint firstItem="rbe-l3-TGT" firstAttribute="bottom" secondItem="rNb-rf-28n" secondAttribute="bottom" constant="218.5" id="nKv-gL-QeQ"/>
+                            <constraint firstItem="rNb-rf-28n" firstAttribute="top" secondItem="L0l-1R-8TS" secondAttribute="bottom" constant="43.5" id="zLA-zp-209"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sell" id="GOn-Ac-DCl" userLabel="Sell"/>
+                    <connections>
+                        <segue destination="i4q-NN-HoO" kind="show" identifier="SellerKennesawSegue" id="fWu-IP-TnZ"/>
+                        <segue destination="7ib-3Y-Sa1" kind="show" identifier="SellerMariettaSegue" id="uyq-Ej-mpw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EF8-Fa-83t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1697" y="-1414"/>
+            <point key="canvasLocation" x="3292.753623188406" y="-2110.0446428571427"/>
         </scene>
         <!--Support-->
         <scene sceneID="6pN-Ps-j8p">
@@ -256,7 +475,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaY-Ed-CrC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2532" y="-1414"/>
+            <point key="canvasLocation" x="1672" y="-1348"/>
         </scene>
         <!--Home-->
         <scene sceneID="L07-hE-ZRm">
@@ -499,24 +718,6 @@
                                     <constraint firstAttribute="height" constant="80" id="Vfp-cR-gev"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCA-al-2jT">
-                                <rect key="frame" x="87" y="203" width="240" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="r03-lq-WiQ"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Currently, Swipers is exclusive only to students and alumni of KSU. To ensure it stays this way we request a picture of the front of your talon card.</string>
-                                        <attributes>
-                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="15" name="ArialMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="talonCardOutline" translatesAutoresizingMaskIntoConstraints="NO" id="002-fQ-VG8">
                                 <rect key="frame" x="26" y="355" width="362" height="300"/>
                                 <constraints>
@@ -537,6 +738,15 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ua-pe-q9R">
+                                <rect key="frame" x="26" y="607" width="362" height="69"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Take Photo" backgroundImage="WhiteButton"/>
+                                <connections>
+                                    <action selector="importImage:" destination="jte-GZ-Lr9" eventType="touchUpInside" id="Ccb-Qg-NiV"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCu-Oo-m2b">
                                 <rect key="frame" x="26" y="747" width="362" height="69"/>
                                 <constraints>
@@ -553,22 +763,31 @@
                                     <action selector="submitButtonPressed:" destination="VKw-hg-7hP" eventType="touchUpInside" id="Rcd-Ey-UvY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ua-pe-q9R">
-                                <rect key="frame" x="26" y="607" width="362" height="69"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Take Photo" backgroundImage="WhiteButton"/>
-                                <connections>
-                                    <action selector="importImage:" destination="jte-GZ-Lr9" eventType="touchUpInside" id="Ccb-Qg-NiV"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCA-al-2jT">
+                                <rect key="frame" x="87" y="189" width="240" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="85" id="r03-lq-WiQ"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Currently, Swipers is exclusive only to students and alumni of KSU. To ensure it stays this way we request a picture of the front of your talon card.</string>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="15" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T2c-KK-Cqo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="CCu-Oo-m2b" firstAttribute="top" secondItem="6Ua-pe-q9R" secondAttribute="bottom" constant="71" id="4H2-SU-BLY"/>
                             <constraint firstItem="T2c-KK-Cqo" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="71N-cQ-nfc" secondAttribute="trailing" id="6W0-hv-mM2"/>
-                            <constraint firstItem="71N-cQ-nfc" firstAttribute="top" secondItem="nCA-al-2jT" secondAttribute="bottom" constant="22.5" id="8gu-Kw-Fnm"/>
+                            <constraint firstItem="71N-cQ-nfc" firstAttribute="top" secondItem="nCA-al-2jT" secondAttribute="bottom" constant="2.5" id="8gu-Kw-Fnm"/>
                             <constraint firstItem="T2c-KK-Cqo" firstAttribute="trailing" secondItem="nCA-al-2jT" secondAttribute="trailing" constant="87" id="DzI-Zc-I0w"/>
                             <constraint firstItem="DJo-vP-CXv" firstAttribute="top" secondItem="T2c-KK-Cqo" secondAttribute="top" constant="13" id="Kgz-OH-QmR"/>
                             <constraint firstItem="6Ua-pe-q9R" firstAttribute="leading" secondItem="002-fQ-VG8" secondAttribute="leading" id="KrW-4t-3LY"/>
@@ -579,7 +798,7 @@
                             <constraint firstItem="002-fQ-VG8" firstAttribute="leading" secondItem="T2c-KK-Cqo" secondAttribute="leading" constant="26" id="VMQ-J5-QD9"/>
                             <constraint firstItem="T2c-KK-Cqo" firstAttribute="bottom" secondItem="CCu-Oo-m2b" secondAttribute="bottom" constant="46" id="cv2-6v-K2Z"/>
                             <constraint firstItem="002-fQ-VG8" firstAttribute="centerX" secondItem="71N-cQ-nfc" secondAttribute="centerX" id="dnb-w2-6xW"/>
-                            <constraint firstItem="nCA-al-2jT" firstAttribute="top" secondItem="DJo-vP-CXv" secondAttribute="bottom" constant="22" id="gFw-2i-eRC"/>
+                            <constraint firstItem="nCA-al-2jT" firstAttribute="top" secondItem="DJo-vP-CXv" secondAttribute="bottom" constant="8" id="gFw-2i-eRC"/>
                             <constraint firstItem="002-fQ-VG8" firstAttribute="top" secondItem="fwl-ph-2rV" secondAttribute="top" constant="355" id="hMK-ei-VLL"/>
                             <constraint firstItem="CCu-Oo-m2b" firstAttribute="centerX" secondItem="fwl-ph-2rV" secondAttribute="centerX" id="l5S-dR-M0Q"/>
                             <constraint firstItem="DJo-vP-CXv" firstAttribute="centerX" secondItem="fwl-ph-2rV" secondAttribute="centerX" id="o0a-ME-GPV"/>
