@@ -18,7 +18,9 @@
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
 					<key>NSPhotoLibraryUsageDescription</key>
-					<string>Test test</string>
+					<string>Please allow access for avatar photo selection.</string>
+					<key>NSCameraUsageDescription</key>
+					<string>Please allow access for talon card photo capture.</string>
 				</dict>
 			</array>
 		</dict>

@@ -19,19 +19,21 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
     
     @IBOutlet weak var errorLabel: UILabel!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Make UIImage circular
         circularImageView.layer.cornerRadius = circularImageView.frame.size.width/2
         circularImageView.clipsToBounds = true
         
+        //field delegates
         firstNameField.delegate = self
         lastNameField.delegate = self
         emailField.delegate = self
         phonenumberField.delegate = self
         passwordField.delegate = self
+        
+        elementsSetup()
     }
     
     func validateFields() -> String? {
@@ -123,6 +125,10 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
         }
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func elementsSetup(){
+        errorLabel.alpha = 0
     }
 }
 

@@ -18,6 +18,8 @@ class SignUpViewController2: UIViewController {
     @IBOutlet var imageView: UIImageView?
     @IBOutlet var button: UIButton?
     
+    @IBOutlet weak var errorLabel: UILabel!
+    
     var firstName: String = ""
     var lastName: String = ""
     var email: String = ""
@@ -27,6 +29,12 @@ class SignUpViewController2: UIViewController {
     var delegate: ErrorProtocol?
     
     //camera talon card picture function here
+    
+    //show error message if for some reason there is an error
+    func showError(_ message:String) {
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
 
     @IBAction func submitButtonPressed(_ sender: Any)
     {
@@ -35,9 +43,10 @@ class SignUpViewController2: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { result, err in
             
             //Check for errors
-            if let err = err {
+            if err != nil {
+                
+                self.showError("Error creating user")
                 //There was an issue creating the user
-                self.delegate?.showError("Error creating user")
             }
             else {
                 //User can be created, store the data
@@ -57,12 +66,36 @@ class SignUpViewController2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        elementsSetup()
+    }
+    
+    func elementsSetup(){
+        errorLabel.alpha = 0
     }
     
     @IBAction func didTapTakePhoto(){
-        
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.delegate = self
+        present(picker, animated: true)
     }
+}
 
-
+extension SignUpViewController2 : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else
+        {
+            return
+        }
+        imageView?.image = image
+    }
 }
