@@ -529,24 +529,24 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9le-0N-tqk">
-                                <rect key="frame" x="87" y="210" width="97" height="18.5"/>
+                                <rect key="frame" x="87" y="210" width="240" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OIM-Jm-gbh">
-                                <rect key="frame" x="87" y="258.5" width="97" height="18.5"/>
+                                <rect key="frame" x="87" y="258.5" width="240" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WkY-U9-zsD">
-                                <rect key="frame" x="87" y="346" width="97" height="18.5"/>
+                                <rect key="frame" x="87" y="346" width="240" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uz2-7R-xrw">
-                                <rect key="frame" x="87" y="394.5" width="97" height="18.5"/>
+                                <rect key="frame" x="87" y="394.5" width="240" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxd-HQ-mVJ">
                                 <rect key="frame" x="87" y="295.5" width="240" height="34"/>
@@ -572,9 +572,9 @@
                                 <rect key="frame" x="87" y="220" width="240" height="128"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rpi-Uf-Rci">
-                                <rect key="frame" x="87" y="443" width="97" height="18.5"/>
+                                <rect key="frame" x="87" y="443" width="240" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueLine" translatesAutoresizingMaskIntoConstraints="NO" id="0fG-Nh-AcN">
                                 <rect key="frame" x="87" y="307" width="240" height="128"/>
@@ -641,13 +641,13 @@
                             <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="Lxd-HQ-mVJ" secondAttribute="trailing" constant="87" id="24s-Db-Xeh"/>
                             <constraint firstItem="J7P-Sg-VpW" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="26" id="2ue-QX-Nbl"/>
                             <constraint firstItem="Ifp-YJ-h5p" firstAttribute="centerX" secondItem="J7P-Sg-VpW" secondAttribute="centerX" id="5At-hw-nFh"/>
-                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="uz2-7R-xrw" secondAttribute="trailing" constant="230" id="6ux-jr-G7O"/>
+                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="uz2-7R-xrw" secondAttribute="trailing" constant="87" id="6ux-jr-G7O"/>
                             <constraint firstItem="oOv-H8-10X" firstAttribute="centerX" secondItem="Za3-lP-GkI" secondAttribute="centerX" id="6wH-C3-v6a"/>
                             <constraint firstItem="Rpi-Uf-Rci" firstAttribute="top" secondItem="0fG-Nh-AcN" secondAttribute="bottom" constant="8" symbolic="YES" id="6wN-lf-BJC"/>
                             <constraint firstItem="MLs-Uf-2rC" firstAttribute="top" secondItem="5Bk-8v-EeZ" secondAttribute="top" constant="13" id="7KC-E3-6XA"/>
                             <constraint firstItem="J7P-Sg-VpW" firstAttribute="top" secondItem="eIA-iR-eXR" secondAttribute="bottom" constant="18.5" id="7wr-EO-zFu"/>
                             <constraint firstAttribute="bottom" secondItem="Aos-S2-K9n" secondAttribute="bottom" constant="244" id="9L3-bb-hXr"/>
-                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="OIM-Jm-gbh" secondAttribute="trailing" constant="230" id="9l0-QI-mFV"/>
+                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="OIM-Jm-gbh" secondAttribute="trailing" constant="87" id="9l0-QI-mFV"/>
                             <constraint firstItem="5Bk-8v-EeZ" firstAttribute="bottom" secondItem="oOv-H8-10X" secondAttribute="bottom" constant="225" id="BJ0-cS-Rio"/>
                             <constraint firstItem="uz2-7R-xrw" firstAttribute="top" secondItem="WkY-U9-zsD" secondAttribute="bottom" constant="30" id="Eln-nt-2hA"/>
                             <constraint firstItem="MLs-Uf-2rC" firstAttribute="centerX" secondItem="Za3-lP-GkI" secondAttribute="centerX" id="GgM-Ge-ARb"/>
@@ -670,15 +670,15 @@
                             <constraint firstItem="oOv-H8-10X" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="133" id="TG4-9W-hEj"/>
                             <constraint firstItem="OIM-Jm-gbh" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="87" id="UYI-j2-uM0"/>
                             <constraint firstItem="Ifp-YJ-h5p" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="74" id="Vlg-5c-cl8"/>
-                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="WkY-U9-zsD" secondAttribute="trailing" constant="230" id="Xr0-88-Hgm"/>
+                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="WkY-U9-zsD" secondAttribute="trailing" constant="87" id="Xr0-88-Hgm"/>
                             <constraint firstItem="Rpi-Uf-Rci" firstAttribute="top" secondItem="uz2-7R-xrw" secondAttribute="bottom" constant="30" id="XrE-3N-lBW"/>
                             <constraint firstItem="Ifp-YJ-h5p" firstAttribute="top" secondItem="oOv-H8-10X" secondAttribute="bottom" constant="2" id="bwb-jZ-aXf"/>
-                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="9le-0N-tqk" secondAttribute="trailing" constant="230" id="e1t-ek-0mm"/>
+                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="9le-0N-tqk" secondAttribute="trailing" constant="87" id="e1t-ek-0mm"/>
                             <constraint firstItem="0fG-Nh-AcN" firstAttribute="top" secondItem="b1q-ea-gdT" secondAttribute="bottom" constant="8" id="eqn-1Q-wAJ"/>
                             <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="Huf-K0-jhj" secondAttribute="trailing" constant="87" id="fBm-Uf-Zec"/>
                             <constraint firstItem="eIA-iR-eXR" firstAttribute="top" secondItem="oOv-H8-10X" secondAttribute="bottom" constant="50" id="faf-3G-ImH"/>
                             <constraint firstItem="Huf-K0-jhj" firstAttribute="top" secondItem="WkY-U9-zsD" secondAttribute="bottom" constant="99.5" id="geS-MR-l84"/>
-                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="Rpi-Uf-Rci" secondAttribute="trailing" constant="230" id="gpU-FM-RPf"/>
+                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="Rpi-Uf-Rci" secondAttribute="trailing" constant="87" id="gpU-FM-RPf"/>
                             <constraint firstItem="Lxd-HQ-mVJ" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="87" id="hJt-V0-3f1"/>
                             <constraint firstItem="oOv-H8-10X" firstAttribute="centerX" secondItem="Hg0-UA-og8" secondAttribute="centerX" id="kGx-5M-Djt"/>
                             <constraint firstItem="Lxd-HQ-mVJ" firstAttribute="top" secondItem="9le-0N-tqk" secondAttribute="bottom" constant="67" id="khM-50-r6x"/>
@@ -697,6 +697,11 @@
                     <navigationItem key="navigationItem" title="Sign Up" id="Gbf-Uh-BLg"/>
                     <connections>
                         <outlet property="circularImageView" destination="oOv-H8-10X" id="fPK-iq-Gmz"/>
+                        <outlet property="emailField" destination="WkY-U9-zsD" id="4wo-dQ-QrU"/>
+                        <outlet property="firstNameField" destination="9le-0N-tqk" id="NEM-c3-ztn"/>
+                        <outlet property="lastNameField" destination="OIM-Jm-gbh" id="3JF-Cp-LF0"/>
+                        <outlet property="passwordField" destination="Rpi-Uf-Rci" id="aiP-yE-4pJ"/>
+                        <outlet property="phonenumberField" destination="uz2-7R-xrw" id="UDZ-5k-wlh"/>
                         <segue destination="VKw-hg-7hP" kind="show" identifier="SignUpViewShow2" id="LBG-mT-Tel"/>
                     </connections>
                 </viewController>
@@ -760,6 +765,7 @@
                                 <connections>
                                     <action selector="nextStepButtonPressed:" destination="jte-GZ-Lr9" eventType="touchUpInside" id="z8F-IT-u0q"/>
                                     <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Of-mR-FXI"/>
+                                    <action selector="submitButtonPressed:" destination="f2A-ED-iOd" eventType="touchUpInside" id="Oga-qa-h9T"/>
                                     <action selector="submitButtonPressed:" destination="VKw-hg-7hP" eventType="touchUpInside" id="Rcd-Ey-UvY"/>
                                 </connections>
                             </button>
@@ -814,6 +820,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8Q-Bp-Saf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="f2A-ED-iOd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1695.6521739130435" y="780.80357142857144"/>
         </scene>
