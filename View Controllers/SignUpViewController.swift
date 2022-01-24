@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, ErrorProtocol {
+class SignUpViewController: UIViewController, UINavigationControllerDelegate, ErrorProtocol {
     
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -22,9 +22,10 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //SAVING THIS FOR PROFILE PAGE HOME PAGE
         //Make UIImage circular
-        circularImageView.layer.cornerRadius = circularImageView.frame.size.width/2
-        circularImageView.clipsToBounds = true
+        //circularImageView.layer.cornerRadius = circularImageView.frame.size.width/2
+        //circularImageView.clipsToBounds = true
         
         //field delegates
         firstNameField.delegate = self
@@ -49,10 +50,24 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
         }
         
         let cleanedPassword = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleanedEmail = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let phonenumber = phonenumberField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        //Ensure password is valid
         if Utilities.isPasswordValid(cleanedPassword) == false {
             
             return "Please make sure password is at least 8 characters, contains a special character and a number!"
+        }
+        
+        //Ensure email is valid
+        if Utilities.isEmailValid(cleanedEmail) == false{
+            
+            return "Please enter a valid email!"
+        }
+        
+        if Utilities.isPhoneNumberValid(phonenumber) == false {
+            
+            return "Please enter a valid phone number!"
         }
         
         return nil
@@ -88,6 +103,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
         vc.phoneNumber = phonenumberField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         vc.password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         vc.delegate = self
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -95,8 +111,9 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
     }
     
     //Makes the users avatar appear circular
-    @IBOutlet weak var circularImageView: UIImageView!
+    //@IBOutlet weak var circularImageView: UIImageView!
     
+    /*
     @IBAction func importImage(_ sender: Any)
     {
         let image = UIImagePickerController()
@@ -126,6 +143,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
         
         self.dismiss(animated: true, completion: nil)
     }
+     */
     
     func elementsSetup(){
         errorLabel.alpha = 0

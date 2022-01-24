@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.739776494433-kommah8mvu8gdl6481pt6ad4r7ri1ubs</string>
+			</array>
+		</dict>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -11,16 +22,16 @@
 			<key>UIWindowSceneSessionRoleApplication</key>
 			<array>
 				<dict>
+					<key>NSCameraUsageDescription</key>
+					<string>Please allow access for talon card photo capture.</string>
+					<key>NSPhotoLibraryUsageDescription</key>
+					<string>Please allow access for avatar photo selection.</string>
 					<key>UISceneConfigurationName</key>
 					<string>Default Configuration</string>
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
 					<string>Main</string>
-					<key>NSPhotoLibraryUsageDescription</key>
-					<string>Please allow access for avatar photo selection.</string>
-					<key>NSCameraUsageDescription</key>
-					<string>Please allow access for talon card photo capture.</string>
 				</dict>
 			</array>
 		</dict>

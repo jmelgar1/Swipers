@@ -49,4 +49,17 @@ class Utilities {
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
     }
+    
+    static func isEmailValid(_ email : String) -> Bool{
+        let emailTest = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailTest)
+        return emailPred.evaluate(with: email)
+    }
+    
+    static func isPhoneNumberValid(_ phonenumber: String) -> Bool {
+        let PHONE_REGEX = "^[0-9+]{0,1}+[0-9]{5,16}$"
+        let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
+        return phoneTest.evaluate(with: phonenumber)
+    }
 }

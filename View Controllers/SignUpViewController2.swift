@@ -28,6 +28,8 @@ class SignUpViewController2: UIViewController {
     
     var delegate: ErrorProtocol?
     
+    let userDefault = UserDefaults.standard
+    
     //camera talon card picture function here
     
     //show error message if for some reason there is an error
@@ -40,7 +42,7 @@ class SignUpViewController2: UIViewController {
     {
         
         //Create the user
-        Auth.auth().createUser(withEmail: email, password: password) { result, err in
+        Auth.auth().createUser(withEmail: email, password: password) { [self] result, err in
             
             //Check for errors
             if err != nil {
@@ -58,8 +60,20 @@ class SignUpViewController2: UIViewController {
                         self.delegate?.showError("Error saving user data")
                     }
                 }
+                PhoneAuthProvider.provider().verifyPhoneNumber("+1\(phoneNumber)", uiDelegate: nil) { verificationId, error in
+                    if error == nil {
+                        
+                        print(verificationId)
+                        guard let verifyId = verificationId else { return }
+                        self.userDefault.set(verifyId, forKey: "verificationId")
+                        self.userDefault.synchronize()
+                        
+                    } else {
+                        self.delegate?.showError("Unable to get secret verification code from firebase")
+                    }
+                }
                 
-                self.performSegue(withIdentifier: "SignUpCompletedShow", sender: self)
+                self.performSegue(withIdentifier: "VerifySegue", sender: self)
             }
         }
     }

@@ -18,13 +18,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any)
     {
-        
         //Validate text fields
         
         
         //Create clean versions of text field
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         //Signing in the user
