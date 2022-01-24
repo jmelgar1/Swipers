@@ -25,6 +25,7 @@ class SignUpViewController2: UIViewController {
     var email: String = ""
     var phoneNumber: String = ""
     var password: String = ""
+    var verificationId: String = ""
     
     var delegate: ErrorProtocol?
     
@@ -51,6 +52,7 @@ class SignUpViewController2: UIViewController {
                 //There was an issue creating the user
             }
             else {
+                
                 //User can be created, store the data
                 let db = Firestore.firestore()
                 
@@ -60,6 +62,8 @@ class SignUpViewController2: UIViewController {
                         self.delegate?.showError("Error saving user data")
                     }
                 }
+                
+                //send SMS code to user
                 PhoneAuthProvider.provider().verifyPhoneNumber("+1\(phoneNumber)", uiDelegate: nil) { verificationId, error in
                     if error == nil {
                         
@@ -73,6 +77,7 @@ class SignUpViewController2: UIViewController {
                     }
                 }
                 
+                //switch to next view controller
                 self.performSegue(withIdentifier: "VerifySegue", sender: self)
             }
         }

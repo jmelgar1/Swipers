@@ -12,26 +12,34 @@ class SMSVerifyViewController: UIViewController {
     
     @IBOutlet weak var SMSCodeTextField: UITextField!
     
-    var verificationId: String = ""
+    let userDefault = UserDefaults.standard
     
     @IBAction func resendButtonPressed(_ sender: Any)
     {
         
     }
-    
+
     @IBAction func confirmButtonPressed(_ sender: Any)
     {
         guard let SMSCode = SMSCodeTextField.text else { return }
         
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: <#T##String#>, verificationCode: <#T##String#>)
+        guard let verificationId = userDefault.string(forKey: "verificationId") else { return }
         
-        Auth.auth().signInAndRetrieveData(with: <#T##FIRAuthCredential#>) { success, error in
-            <#code#>
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId, verificationCode: SMSCode)
+        
+        Auth.auth().signInAndRetrieveData(with: credential) { success, error in
+            if error == nil {
+                print(success)
+                print("User Signed Up")
+                self.performSegue(withIdentifier: "CompletedSegue", sender: self)
+            } else {
+                print("Something went wrong... \(error?.localizedDescription)")
+            }
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
-
-
 }

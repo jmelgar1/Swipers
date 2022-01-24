@@ -981,25 +981,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFv-x3-Ery">
-                                <rect key="frame" x="25.5" y="479" width="363" height="69"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="69" id="gZM-Jx-b9Y"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Confirm" backgroundImage="BlueButton">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="confirmButton:" destination="0V1-TI-5Ii" eventType="touchUpInside" id="Bvv-LD-3GW"/>
-                                    <action selector="confirmButtonPressed:" destination="0V1-TI-5Ii" eventType="touchUpInside" id="gdZ-d6-rcx"/>
-                                    <action selector="nextStepButtonPressed:" destination="jte-GZ-Lr9" eventType="touchUpInside" id="RdH-Tv-Yp0"/>
-                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kez-ps-Ix8"/>
-                                    <action selector="submitButtonPressed:" destination="VKw-hg-7hP" eventType="touchUpInside" id="4Zg-ye-7P2"/>
-                                    <action selector="submitButtonPressed:" destination="f2A-ED-iOd" eventType="touchUpInside" id="oz3-4F-nEW"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY6-qo-nMH">
                                 <rect key="frame" x="143" y="576" width="128" height="31"/>
                                 <constraints>
@@ -1026,22 +1007,41 @@
                                     <constraint firstAttribute="height" constant="21" id="B3k-6Y-W2s"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfM-uS-Vgb">
+                                <rect key="frame" x="26" y="476" width="362" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="IGI-Ua-LGY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Confirm" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmButtonPressed:" destination="0V1-TI-5Ii" eventType="touchUpInside" id="mPf-We-a7D"/>
+                                    <action selector="nextStepButtonPressed:" destination="jte-GZ-Lr9" eventType="touchUpInside" id="IRR-o1-rY3"/>
+                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dBJ-Bg-fks"/>
+                                    <action selector="submitButtonPressed:" destination="VKw-hg-7hP" eventType="touchUpInside" id="4yu-hJ-aFS"/>
+                                    <action selector="submitButtonPressed:" destination="f2A-ED-iOd" eventType="touchUpInside" id="DD0-4W-Htk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a9q-m6-Ly5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SY6-qo-nMH" firstAttribute="top" secondItem="KFv-x3-Ery" secondAttribute="bottom" constant="28" id="AoH-2f-5AC"/>
+                            <constraint firstItem="NfM-uS-Vgb" firstAttribute="leading" secondItem="a9q-m6-Ly5" secondAttribute="leading" constant="26" id="0g9-dL-kkT"/>
                             <constraint firstItem="JEL-dz-FnY" firstAttribute="leading" secondItem="a9q-m6-Ly5" secondAttribute="leading" constant="39" id="BKy-cs-lrr"/>
+                            <constraint firstItem="a9q-m6-Ly5" firstAttribute="trailing" secondItem="NfM-uS-Vgb" secondAttribute="trailing" constant="26" id="Baf-tK-sro"/>
+                            <constraint firstItem="SY6-qo-nMH" firstAttribute="top" secondItem="NfM-uS-Vgb" secondAttribute="bottom" constant="31" id="N48-ZF-M2D"/>
                             <constraint firstItem="JEL-dz-FnY" firstAttribute="top" secondItem="6qw-e7-X2E" secondAttribute="bottom" constant="1.5" id="N7H-NB-bYG"/>
                             <constraint firstItem="lWG-jj-u7c" firstAttribute="top" secondItem="a9q-m6-Ly5" secondAttribute="top" constant="165" id="Nz1-cR-L5d"/>
                             <constraint firstItem="SY6-qo-nMH" firstAttribute="centerX" secondItem="sJT-Cy-4y2" secondAttribute="centerX" id="PeX-kh-Bjl"/>
                             <constraint firstItem="6qw-e7-X2E" firstAttribute="trailing" secondItem="JEL-dz-FnY" secondAttribute="trailing" id="Y5y-9R-oPN"/>
+                            <constraint firstItem="NfM-uS-Vgb" firstAttribute="top" secondItem="JEL-dz-FnY" secondAttribute="bottom" constant="37" id="bqZ-wj-yKf"/>
                             <constraint firstItem="6qw-e7-X2E" firstAttribute="leading" secondItem="JEL-dz-FnY" secondAttribute="leading" id="bxn-Gw-1vi"/>
-                            <constraint firstItem="KFv-x3-Ery" firstAttribute="top" secondItem="JEL-dz-FnY" secondAttribute="bottom" constant="40" id="c3u-KR-uID"/>
                             <constraint firstItem="a9q-m6-Ly5" firstAttribute="bottom" secondItem="SY6-qo-nMH" secondAttribute="bottom" constant="255" id="fFl-Ij-YeO"/>
                             <constraint firstItem="a9q-m6-Ly5" firstAttribute="trailing" secondItem="JEL-dz-FnY" secondAttribute="trailing" constant="35" id="hXv-uq-OHL"/>
                             <constraint firstItem="lWG-jj-u7c" firstAttribute="centerX" secondItem="sJT-Cy-4y2" secondAttribute="centerX" id="lpJ-TJ-JnD"/>
-                            <constraint firstItem="KFv-x3-Ery" firstAttribute="centerX" secondItem="sJT-Cy-4y2" secondAttribute="centerX" id="pNw-cJ-LYT"/>
                             <constraint firstItem="6qw-e7-X2E" firstAttribute="top" secondItem="lWG-jj-u7c" secondAttribute="bottom" constant="65" id="zSU-lm-QbW"/>
                         </constraints>
                     </view>
