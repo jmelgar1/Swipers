@@ -67,26 +67,4 @@ class LoginViewController: UIViewController {
     func elementsSetup(){
         errorLabel.alpha = 0
     }
-    /*
-    func userSignIn(email: String, password: String){
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            
-            if error != nil {
-                
-                self.errorLabel.text = error!.localizedDescription
-                self.errorLabel.alpha = 1
-                
-            } else if (self.isVerified == "1"){
-                
-                self.performSegue(withIdentifier: "TabBarShow", sender: self)
-                
-            } else {
-                
-                self.errorLabel.text = "Your account is not verified yet!"
-                self.errorLabel.alpha = 1
-
-            }
-        }
-    }
-     */
 }
