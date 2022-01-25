@@ -41,28 +41,6 @@ class SignUpViewController2: UIViewController {
 
     @IBAction func submitButtonPressed(_ sender: Any)
     {
-        
-        //Create the user
-        Auth.auth().createUser(withEmail: email, password: password) { [self] result, err in
-            
-            //Check for errors
-            if err != nil {
-                
-                self.showError("Error creating user")
-                //There was an issue creating the user
-            }
-            else {
-                
-                //User can be created, store the data
-                let db = Firestore.firestore()
-                
-                db.collection("users").addDocument(data: ["first_name":self.firstName,"last_name":self.lastName, "uid": result!.user.uid]) { (error) in
-                    
-                    if error != nil {
-                        self.delegate?.showError("Error saving user data")
-                    }
-                }
-                
                 //send SMS code to user
                 PhoneAuthProvider.provider().verifyPhoneNumber("+1\(phoneNumber)", uiDelegate: nil) { verificationId, error in
                     if error == nil {
@@ -77,11 +55,9 @@ class SignUpViewController2: UIViewController {
                     }
                 }
                 
-                //switch to next view controller
+                //switch to sms confirm view controller
                 self.performSegue(withIdentifier: "VerifySegue", sender: self)
-            }
         }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +74,16 @@ class SignUpViewController2: UIViewController {
         picker.sourceType = .camera
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SMSVerifyViewController
+        vc.firstName = firstName
+        vc.lastName = lastName
+        vc.email = email
+        vc.phoneNumber = phoneNumber
+        vc.password = password
+
     }
 }
 

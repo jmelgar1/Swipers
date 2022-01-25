@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class LoginViewController: UIViewController {
 
@@ -18,23 +19,40 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any)
     {
-        //Validate text fields
-        
         
         //Create clean versions of text field
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        //Signing in the user
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            
-            if error != nil {
+        //Get is_verified value from users data document from firebase
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Auth.auth().currentUser?.uid ?? "")
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let isVerified = document.get("is_verified") as? Int
                 
-                self.errorLabel.text = error!.localizedDescription
-                self.errorLabel.alpha = 1
-            }
-            else {
-                self.performSegue(withIdentifier: "TabBarShow", sender: self)
+                //sign in the user and check for verification
+                Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                    
+                    if error != nil {
+                        
+                        self.errorLabel.text = error!.localizedDescription
+                        self.errorLabel.alpha = 1
+                        
+                        //1 is true 0 is false
+                    } else if (isVerified! == 1){
+                        
+                        self.performSegue(withIdentifier: "TabBarShow", sender: self)
+                        
+                    } else {
+                        
+                        self.errorLabel.text = "Your account is not verified yet!"
+                        self.errorLabel.alpha = 1
+
+                    }
+                }
+            } else {
+                print("Document does not exist in cache")
             }
         }
     }
@@ -49,6 +67,26 @@ class LoginViewController: UIViewController {
     func elementsSetup(){
         errorLabel.alpha = 0
     }
+    /*
+    func userSignIn(email: String, password: String){
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            
+            if error != nil {
+                
+                self.errorLabel.text = error!.localizedDescription
+                self.errorLabel.alpha = 1
+                
+            } else if (self.isVerified == "1"){
+                
+                self.performSegue(withIdentifier: "TabBarShow", sender: self)
+                
+            } else {
+                
+                self.errorLabel.text = "Your account is not verified yet!"
+                self.errorLabel.alpha = 1
 
-
+            }
+        }
+    }
+     */
 }
