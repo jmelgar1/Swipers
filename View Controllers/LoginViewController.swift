@@ -8,14 +8,13 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import ProgressHUD
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    @IBOutlet weak var errorLabel: UILabel!
     
     @IBAction func loginButtonPressed(_ sender: Any)
     {
@@ -36,8 +35,7 @@ class LoginViewController: UIViewController {
                     
                     if error != nil {
                         
-                        self.errorLabel.text = error!.localizedDescription
-                        self.errorLabel.alpha = 1
+                        ProgressHUD.showError(error!.localizedDescription)
                         
                         //1 is true 0 is false
                     } else if (isVerified! == 1){
@@ -46,25 +44,23 @@ class LoginViewController: UIViewController {
                         
                     } else {
                         
-                        self.errorLabel.text = "Your account is not verified yet!"
-                        self.errorLabel.alpha = 1
+                        ProgressHUD.showError("Your account is not verified yet!")
 
                     }
                 }
             } else {
-                print("Document does not exist in cache")
+                ProgressHUD.showError("User does not exist.")
             }
         }
+    }
+    
+    @IBAction func passwordResetPressed(_ sender: Any)
+    {
+        self.performSegue(withIdentifier: "forgotPasswordSegue", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        elementsSetup()
-    }
-    
-    func elementsSetup(){
-        errorLabel.alpha = 0
     }
 }

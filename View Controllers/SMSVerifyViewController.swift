@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseFirestore
+import ProgressHUD
 
 class SMSVerifyViewController: UIViewController {
     
@@ -21,8 +22,6 @@ class SMSVerifyViewController: UIViewController {
     
     let userDefault = UserDefaults.standard
     
-    var delegate: ErrorProtocol?
-    
     @IBAction func resendButtonPressed(_ sender: Any)
     {
         //send SMS code to user again
@@ -35,7 +34,7 @@ class SMSVerifyViewController: UIViewController {
                 self.userDefault.synchronize()
                 
             } else {
-                self.delegate?.showError("Unable to get secret verification code from firebase")
+                self.showError("Unable to get secret verification code from firebase")
             }
         }
     }
@@ -51,11 +50,9 @@ class SMSVerifyViewController: UIViewController {
         Auth.auth().signInAndRetrieveData(with: credential) { success, error in
             if error == nil {
                 
-                //store user data
+                //store user data and determine which view to go to
                 self.storeUserData()
                 
-                //Go to completed sign up page
-                self.performSegue(withIdentifier: "CompletedSegue", sender: self)
             } else {
                 print("Something went wrong... \(error?.localizedDescription)")
             }
@@ -70,7 +67,7 @@ class SMSVerifyViewController: UIViewController {
             //Check for errors
             if err != nil {
                 
-                self.delegate?.showError("Error creating user")
+                showError("Error creating user")
                 //There was an issue creating the user
             }
             else {
@@ -81,11 +78,22 @@ class SMSVerifyViewController: UIViewController {
                 db.collection("users").document(result!.user.uid).setData(["first_name":self.firstName,"last_name":self.lastName,"is_verified":false,"email":email,"phone_number":phoneNumber]) { (error) in
                     
                     if error != nil {
-                        self.delegate?.showError("Error saving user data")
+                        
+                        //go back to login page if user data is already stored
+                        showError("Error saving user data")
+                        self.performSegue(withIdentifier: "userAlreadyCreatedSegue", sender: self)
+                    } else {
+                        
+                        //go to signup completed page
+                        self.performSegue(withIdentifier: "CompletedSegue", sender: self)
                     }
                 }
             }
         }
+    }
+    
+    func showError(_ message:String) {
+        ProgressHUD.showError(message)
     }
     
     override func viewDidLoad() {

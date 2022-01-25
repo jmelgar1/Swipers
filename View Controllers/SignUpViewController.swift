@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import ProgressHUD
+import FirebaseFirestore
+import FirebaseAuth
 
 class SignUpViewController: UIViewController, UINavigationControllerDelegate, ErrorProtocol {
     
@@ -16,8 +19,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
     @IBOutlet weak var passwordField: UITextField!
     
     @IBOutlet weak var textView: UITextView!
-    
-    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,19 +34,16 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
         emailField.delegate = self
         phonenumberField.delegate = self
         passwordField.delegate = self
-        
-        elementsSetup()
     }
     
     func validateFields() -> String? {
-    
+
     if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         lastNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         passwordField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         phonenumberField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
-        
             return "Please fill in all fields."
         }
         
@@ -55,43 +53,34 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
         
         //Ensure password is valid
         if Utilities.isPasswordValid(cleanedPassword) == false {
-            
             return "Please make sure password is at least 8 characters, contains a special character and a number!"
-        }
-        
-        //Ensure email is valid
-        if Utilities.isEmailValid(cleanedEmail) == false{
             
+        //Ensure phone number is valid
+        } else if Utilities.isPhoneNumberValid(phonenumber) == false {
+            return "Please enter a valid phone number!"
+            
+        //Ensure email is valid
+        } else if Utilities.isEmailValid(cleanedEmail) == false{
             return "Please enter a valid email!"
         }
-        
-        if Utilities.isPhoneNumberValid(phonenumber) == false {
-            
-            return "Please enter a valid phone number!"
-        }
-        
         return nil
     }
     
     //Brings user to secord screen for signing up
     @IBAction func nextStepButtonPressed(_ sender: Any)
     {
-        
         let error = validateFields()
-        
+
         if error != nil {
-            
             //If something is wrong with the fields this shows up
             showError(error!)
-        }
-        else {
+        } else {
             self.performSegue(withIdentifier: "SignUpViewShow2", sender: self)
         }
     }
     
     func showError(_ message:String) {
-        errorLabel.text = message
-        errorLabel.alpha = 1
+        ProgressHUD.showError(message)
     }
     
     //allow signupviewcontroller2 to access textfield variables
@@ -144,10 +133,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
         self.dismiss(animated: true, completion: nil)
     }
      */
-    
-    func elementsSetup(){
-        errorLabel.alpha = 0
-    }
 }
 
 extension SignUpViewController : UITextFieldDelegate {

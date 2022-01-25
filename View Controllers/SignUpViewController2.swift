@@ -12,13 +12,12 @@ import FirebaseStorage
 import FirebaseCore
 import FirebaseDatabase
 import FirebaseFirestore
+import ProgressHUD
 
 class SignUpViewController2: UIViewController {
     
     @IBOutlet var imageView: UIImageView?
     @IBOutlet var button: UIButton?
-    
-    @IBOutlet weak var errorLabel: UILabel!
     
     var firstName: String = ""
     var lastName: String = ""
@@ -35,8 +34,7 @@ class SignUpViewController2: UIViewController {
     
     //show error message if for some reason there is an error
     func showError(_ message:String) {
-        errorLabel.text = message
-        errorLabel.alpha = 1
+        ProgressHUD.showError(message)
     }
 
     @IBAction func submitButtonPressed(_ sender: Any)
@@ -45,7 +43,7 @@ class SignUpViewController2: UIViewController {
                 PhoneAuthProvider.provider().verifyPhoneNumber("+1\(phoneNumber)", uiDelegate: nil) { verificationId, error in
                     if error == nil {
                         
-                        print(verificationId)
+                        print(verificationId!)
                         guard let verifyId = verificationId else { return }
                         self.userDefault.set(verifyId, forKey: "verificationId")
                         self.userDefault.synchronize()
@@ -59,21 +57,15 @@ class SignUpViewController2: UIViewController {
                 self.performSegue(withIdentifier: "VerifySegue", sender: self)
         }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        elementsSetup()
-    }
-    
-    func elementsSetup(){
-        errorLabel.alpha = 0
-    }
-    
     @IBAction func didTapTakePhoto(){
         let picker = UIImagePickerController()
         picker.sourceType = .camera
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -83,7 +75,6 @@ class SignUpViewController2: UIViewController {
         vc.email = email
         vc.phoneNumber = phoneNumber
         vc.password = password
-
     }
 }
 
