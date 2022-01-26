@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
                     }
                 }
             } else {
-                ProgressHUD.showError("User does not exist.")
+                ProgressHUD.showError("Incorrect login details")
             }
         }
     }

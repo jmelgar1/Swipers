@@ -95,6 +95,15 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
 
     }
     
+    @IBAction func showPasswordSwitch(_ sender: Any)
+    {
+        if ((sender as AnyObject).isOn == true){
+            passwordField.isSecureTextEntry = false
+        } else {
+            passwordField.isSecureTextEntry = true
+        }
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         phonenumberField.resignFirstResponder()
     }
