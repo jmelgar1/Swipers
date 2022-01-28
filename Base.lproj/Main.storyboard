@@ -368,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svr-RS-nR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141" y="-1096"/>
+            <point key="canvasLocation" x="5246" y="-1091"/>
         </scene>
         <!--Marietta Campus-->
         <scene sceneID="Pvw-Mb-twQ">
@@ -384,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goC-pl-mZW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141" y="-308"/>
+            <point key="canvasLocation" x="5246" y="-303"/>
         </scene>
         <!--Buy-->
         <scene sceneID="zRQ-gZ-3n9">
@@ -394,20 +394,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ3-go-brU">
-                                <rect key="frame" x="42" y="249" width="330" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZ3-go-brU">
+                                <rect key="frame" x="89" y="215" width="236" height="89"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="89" id="Ih2-YG-TaB"/>
+                                    <constraint firstAttribute="width" constant="236" id="zPm-9z-YN2"/>
+                                </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="Looking for something to eat?">
+                                    <fragment content="Where do you need to be swiped in?">
                                         <attributes>
                                             <font key="NSFont" size="25" name="ArialMT"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdf-6X-Vnq">
-                                <rect key="frame" x="89" y="298.5" width="236" height="85"/>
+                                <rect key="frame" x="89" y="325" width="236" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="8uZ-xE-3rl"/>
                                 </constraints>
@@ -424,7 +428,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-3K-4QN">
-                                <rect key="frame" x="25.5" y="413" width="363" height="68.5"/>
+                                <rect key="frame" x="26" y="443" width="363" height="66"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="The Commons" backgroundImage="BlueButton">
@@ -434,12 +438,13 @@
                                     <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="esi-Hy-x5W"/>
                                     <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yjd-vb-Ure"/>
                                     <action selector="theCommonsButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="5Q7-dN-bYv"/>
+                                    <action selector="theCommonsButtonPressed:" destination="5ax-nV-TMX" eventType="touchUpInside" id="ejy-ed-q0S"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKi-FT-uFd">
-                                <rect key="frame" x="25.5" y="525" width="363" height="69.5"/>
+                                <rect key="frame" x="25.5" y="552" width="363" height="69.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="69.5" id="K29-bJ-wu7"/>
+                                    <constraint firstAttribute="height" constant="69.5" id="pp0-IX-pW8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -449,6 +454,7 @@
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="HrO-qp-amU"/>
                                     <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="huJ-gg-oE8"/>
+                                    <action selector="stingersButtonPressed:" destination="5ax-nV-TMX" eventType="touchUpInside" id="RuF-me-nbh"/>
                                     <action selector="stingersButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="uvK-2T-pnv"/>
                                 </connections>
                             </button>
@@ -456,15 +462,18 @@
                         <viewLayoutGuide key="safeArea" id="XRU-0q-6F8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9Zw-3K-4QN" firstAttribute="top" secondItem="gdf-6X-Vnq" secondAttribute="bottom" constant="29.5" id="4L9-6S-fkw"/>
+                            <constraint firstItem="YZ3-go-brU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gdf-6X-Vnq" secondAttribute="leading" id="16m-52-bUZ"/>
                             <constraint firstItem="gdf-6X-Vnq" firstAttribute="centerX" secondItem="r6d-fT-PK4" secondAttribute="centerX" id="CTf-iv-X1M"/>
-                            <constraint firstItem="YZ3-go-brU" firstAttribute="top" secondItem="XRU-0q-6F8" secondAttribute="top" constant="161" id="DxE-Zh-HgP"/>
-                            <constraint firstItem="TKi-FT-uFd" firstAttribute="top" secondItem="9Zw-3K-4QN" secondAttribute="bottom" constant="43.5" id="Nml-Fb-8Ds"/>
-                            <constraint firstItem="XRU-0q-6F8" firstAttribute="bottom" secondItem="TKi-FT-uFd" secondAttribute="bottom" constant="218.5" id="U8t-UE-y7R"/>
-                            <constraint firstItem="gdf-6X-Vnq" firstAttribute="top" secondItem="YZ3-go-brU" secondAttribute="bottom" constant="21.5" id="YAm-KZ-F15"/>
-                            <constraint firstItem="YZ3-go-brU" firstAttribute="centerX" secondItem="r6d-fT-PK4" secondAttribute="centerX" id="fsR-Vx-Bhz"/>
+                            <constraint firstItem="XRU-0q-6F8" firstAttribute="trailing" secondItem="YZ3-go-brU" secondAttribute="trailing" constant="89" id="SAP-fD-Iz6"/>
+                            <constraint firstItem="YZ3-go-brU" firstAttribute="top" secondItem="XRU-0q-6F8" secondAttribute="top" constant="127" id="XYC-Kr-NJX"/>
+                            <constraint firstItem="XRU-0q-6F8" firstAttribute="bottom" secondItem="TKi-FT-uFd" secondAttribute="bottom" constant="191.5" id="YjE-dz-0qJ"/>
+                            <constraint firstItem="9Zw-3K-4QN" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TKi-FT-uFd" secondAttribute="trailing" id="d9Y-cF-ebQ"/>
+                            <constraint firstItem="9Zw-3K-4QN" firstAttribute="leading" secondItem="XRU-0q-6F8" secondAttribute="leading" constant="26" id="gu8-gK-3Ki"/>
+                            <constraint firstItem="TKi-FT-uFd" firstAttribute="top" secondItem="9Zw-3K-4QN" secondAttribute="bottom" constant="43" id="kAi-pT-ix3"/>
                             <constraint firstItem="TKi-FT-uFd" firstAttribute="centerX" secondItem="r6d-fT-PK4" secondAttribute="centerX" id="ma4-NP-QlF"/>
-                            <constraint firstItem="9Zw-3K-4QN" firstAttribute="centerX" secondItem="r6d-fT-PK4" secondAttribute="centerX" id="onB-c0-gEu"/>
+                            <constraint firstItem="9Zw-3K-4QN" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TKi-FT-uFd" secondAttribute="leading" id="pSO-YC-Se9"/>
+                            <constraint firstItem="9Zw-3K-4QN" firstAttribute="top" secondItem="gdf-6X-Vnq" secondAttribute="bottom" constant="33" id="yGI-MB-W63"/>
+                            <constraint firstItem="gdf-6X-Vnq" firstAttribute="top" secondItem="YZ3-go-brU" secondAttribute="bottom" constant="21" id="yfC-yh-LcE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Buy" id="q5F-Ya-1cu" userLabel="Buy"/>
@@ -474,40 +483,185 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vox-Wr-VNx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="5ax-nV-TMX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3294" y="-628"/>
+            <point key="canvasLocation" x="4399" y="-623"/>
         </scene>
         <!--Kennesaw Campus-->
         <scene sceneID="odg-yO-M7X">
             <objects>
-                <viewController id="i4q-NN-HoO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SellerKennesawController" id="i4q-NN-HoO" customClass="SellerKennesawController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m5l-OX-2bS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mT-H7-vZG">
+                                <rect key="frame" x="89" y="279" width="236" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="U8t-yz-mKp"/>
+                                    <constraint firstAttribute="width" constant="236" id="x8P-lo-EAL"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Current average price">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="21" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMG-7N-snq">
+                                <rect key="frame" x="89" y="489" width="236" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="LH3-Ig-0yh"/>
+                                    <constraint firstAttribute="height" constant="22" id="NnI-cE-jiH"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Enter a price">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="21" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnO-xh-1B5">
+                                <rect key="frame" x="25.5" y="736" width="363" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="dmY-3Y-dVz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Start Selling" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="nYg-bW-mYH"/>
+                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FzE-HH-CiV"/>
+                                    <action selector="startSellingPressed:" destination="i4q-NN-HoO" eventType="touchUpInside" id="z62-b8-9Mx"/>
+                                    <action selector="theCommonsButtonPressed:" destination="jQE-TQ-IlD" eventType="touchUpInside" id="52t-7R-z0G"/>
+                                    <action selector="theCommonsButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="e44-nV-TTa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zS7-lQ-vBr">
+                                <rect key="frame" x="89" y="191" width="236" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="SXf-DF-LEF"/>
+                                    <constraint firstAttribute="height" constant="22" id="Yaa-ib-Ebi"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="All prices are in USD">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.62461773269485088" green="0.63080206668192862" blue="0.63080206668192862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Arial-ItalicMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKw-YT-00k">
+                                <rect key="frame" x="36.5" y="125" width="341" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="341" id="7QO-8G-hab"/>
+                                    <constraint firstAttribute="height" constant="58" id="hcH-vJ-4nJ"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="At what price do you want to sell each swipe for?">
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="KoW-nm-0Ln">
+                                <rect key="frame" x="87" y="309" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="cYv-xY-Fun"/>
+                                    <constraint firstAttribute="width" constant="240" id="rE4-hM-nYp"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="10.50">
+                                        <attributes>
+                                            <color key="NSColor" red="0.31806585189999997" green="0.47736334800000002" blue="0.99836248159999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="43" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="swipePriceField" translatesAutoresizingMaskIntoConstraints="NO" id="ifp-1i-epo">
+                                <rect key="frame" x="87" y="519" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="RNc-AP-Fis"/>
+                                    <constraint firstAttribute="height" constant="128" id="qe2-z0-ATS"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="10.50">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="43" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="81h-L1-D4i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KoW-nm-0Ln" firstAttribute="centerX" secondItem="m5l-OX-2bS" secondAttribute="centerX" id="C4h-P5-rqU"/>
+                            <constraint firstItem="wMG-7N-snq" firstAttribute="centerX" secondItem="m5l-OX-2bS" secondAttribute="centerX" id="D9e-d5-rF2"/>
+                            <constraint firstItem="DnO-xh-1B5" firstAttribute="top" secondItem="ifp-1i-epo" secondAttribute="bottom" constant="89" id="FQL-IV-emH"/>
+                            <constraint firstItem="ifp-1i-epo" firstAttribute="centerX" secondItem="m5l-OX-2bS" secondAttribute="centerX" id="QwK-Fj-fYx"/>
+                            <constraint firstItem="zS7-lQ-vBr" firstAttribute="centerX" secondItem="m5l-OX-2bS" secondAttribute="centerX" id="TSP-qV-c0w"/>
+                            <constraint firstItem="0mT-H7-vZG" firstAttribute="centerX" secondItem="m5l-OX-2bS" secondAttribute="centerX" id="VCc-aG-ntk"/>
+                            <constraint firstItem="DnO-xh-1B5" firstAttribute="centerX" secondItem="m5l-OX-2bS" secondAttribute="centerX" id="XeR-mB-3LH"/>
+                            <constraint firstItem="wMG-7N-snq" firstAttribute="top" secondItem="KoW-nm-0Ln" secondAttribute="bottom" constant="52" id="bgd-TS-jXi"/>
+                            <constraint firstItem="0mT-H7-vZG" firstAttribute="top" secondItem="zS7-lQ-vBr" secondAttribute="bottom" constant="66" id="bj0-7e-YdJ"/>
+                            <constraint firstItem="hKw-YT-00k" firstAttribute="centerX" secondItem="m5l-OX-2bS" secondAttribute="centerX" id="goN-Ql-YAk"/>
+                            <constraint firstItem="ifp-1i-epo" firstAttribute="top" secondItem="wMG-7N-snq" secondAttribute="bottom" constant="8" id="nWQ-ni-RgG"/>
+                            <constraint firstItem="hKw-YT-00k" firstAttribute="top" secondItem="81h-L1-D4i" secondAttribute="top" constant="37" id="oFu-uT-Yg5"/>
+                            <constraint firstItem="zS7-lQ-vBr" firstAttribute="top" secondItem="hKw-YT-00k" secondAttribute="bottom" constant="8" id="p89-i8-lni"/>
+                            <constraint firstItem="KoW-nm-0Ln" firstAttribute="top" secondItem="0mT-H7-vZG" secondAttribute="bottom" constant="8" id="sWu-ev-iFr"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Kennesaw Campus" id="He6-cZ-RgC"/>
+                    <connections>
+                        <outlet property="averagePriceTextField" destination="KoW-nm-0Ln" id="zpe-An-9Ox"/>
+                        <outlet property="enterPriceTextField" destination="ifp-1i-epo" id="Df9-BX-zkA"/>
+                        <segue destination="vwX-7H-3YS" kind="showDetail" identifier="KennesawLFSSegue" id="jmC-6g-ig2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxJ-YQ-YL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141" y="-2479"/>
+            <point key="canvasLocation" x="5246" y="-2474"/>
         </scene>
-        <!--Marietta Campus-->
-        <scene sceneID="1mq-2T-Hde">
+        <!--View Controller-->
+        <scene sceneID="Z7M-dJ-HWN">
             <objects>
-                <viewController id="7ib-3Y-Sa1" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="R5h-pk-G0k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                <viewController id="vwX-7H-3YS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zVp-OW-bHp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="AfX-IW-nhO"/>
+                        <viewLayoutGuide key="safeArea" id="lvb-TE-s00"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Marietta Campus" id="Wg6-yd-eVf"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="19X-g0-rnq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G8V-Jw-W9q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4141" y="-1782"/>
+            <point key="canvasLocation" x="6117" y="-2475"/>
         </scene>
         <!--Sell-->
         <scene sceneID="SNn-AA-AJv">
@@ -518,9 +672,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wuw-5r-Oe5">
-                                <rect key="frame" x="44.5" y="249" width="340.5" height="28"/>
+                                <rect key="frame" x="45" y="276" width="340.5" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="ixV-d5-kD1"/>
+                                    <constraint firstAttribute="height" constant="28" id="ZCA-Qy-Ek4"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="Looking to sell some swipes?">
@@ -533,7 +687,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YF4-Je-wLC">
-                                <rect key="frame" x="89" y="300" width="236" height="85.5"/>
+                                <rect key="frame" x="89.5" y="327" width="236" height="85.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Which dining hall is nearest to you?">
                                         <attributes>
@@ -547,9 +701,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNb-rf-28n">
-                                <rect key="frame" x="25.5" y="525" width="363" height="69.5"/>
+                                <rect key="frame" x="26" y="552" width="363" height="69.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="69.5" id="Bjt-Wk-41F"/>
+                                    <constraint firstAttribute="height" constant="69.5" id="0yc-QU-HHK"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -560,12 +714,13 @@
                                     <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="9S3-Tg-I07"/>
                                     <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NK8-DQ-faK"/>
                                     <action selector="stingersButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="2Ba-c1-fr9"/>
+                                    <action selector="stingersButtonPressed:" destination="jQE-TQ-IlD" eventType="touchUpInside" id="Jwf-iB-d0u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0l-1R-8TS">
-                                <rect key="frame" x="25.5" y="417.5" width="363" height="64"/>
+                                <rect key="frame" x="26" y="444" width="363" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="KMp-4v-qSs"/>
+                                    <constraint firstAttribute="height" constant="64" id="wKA-bg-BRR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -575,6 +730,7 @@
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="ifb-5A-vsH"/>
                                     <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k1s-qX-ejw"/>
+                                    <action selector="theCommonsButtonPressed:" destination="jQE-TQ-IlD" eventType="touchUpInside" id="CAZ-l1-x0N"/>
                                     <action selector="theCommonsButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="dxt-cY-Ke1"/>
                                 </connections>
                             </button>
@@ -582,28 +738,29 @@
                         <viewLayoutGuide key="safeArea" id="rbe-l3-TGT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="top" secondItem="rbe-l3-TGT" secondAttribute="top" constant="161" id="8uV-CU-Mbs"/>
-                            <constraint firstItem="L0l-1R-8TS" firstAttribute="leading" secondItem="rNb-rf-28n" secondAttribute="leading" id="FG1-0I-sm8"/>
-                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="centerX" secondItem="YF4-Je-wLC" secondAttribute="centerX" constant="7.75" id="Txt-9o-b3N"/>
-                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="centerX" secondItem="GIO-PS-ZyH" secondAttribute="centerX" constant="7.75" id="V1W-da-v4c"/>
-                            <constraint firstItem="YF4-Je-wLC" firstAttribute="centerX" secondItem="L0l-1R-8TS" secondAttribute="centerX" id="bOp-hZ-T5p"/>
+                            <constraint firstItem="rNb-rf-28n" firstAttribute="top" secondItem="L0l-1R-8TS" secondAttribute="bottom" constant="44" id="03f-3E-QRG"/>
+                            <constraint firstItem="L0l-1R-8TS" firstAttribute="leading" secondItem="rbe-l3-TGT" secondAttribute="leading" constant="26" id="4Dj-US-iTT"/>
+                            <constraint firstItem="L0l-1R-8TS" firstAttribute="centerX" secondItem="rNb-rf-28n" secondAttribute="centerX" id="9UW-Tb-Gra"/>
+                            <constraint firstItem="rbe-l3-TGT" firstAttribute="trailing" secondItem="Wuw-5r-Oe5" secondAttribute="trailing" constant="28.5" id="Fat-Z8-stv"/>
+                            <constraint firstItem="YF4-Je-wLC" firstAttribute="top" secondItem="Wuw-5r-Oe5" secondAttribute="bottom" constant="23" id="Ser-z1-DOE"/>
                             <constraint firstItem="rbe-l3-TGT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rNb-rf-28n" secondAttribute="trailing" symbolic="YES" id="bY2-62-BzL"/>
-                            <constraint firstItem="YF4-Je-wLC" firstAttribute="top" secondItem="Wuw-5r-Oe5" secondAttribute="bottom" constant="23" id="dOi-Q6-Ncq"/>
-                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="leading" secondItem="rbe-l3-TGT" secondAttribute="leading" constant="44.5" id="keX-8x-iSg"/>
-                            <constraint firstItem="L0l-1R-8TS" firstAttribute="top" secondItem="YF4-Je-wLC" secondAttribute="bottom" constant="32" id="mQQ-tz-Pg0"/>
-                            <constraint firstItem="rbe-l3-TGT" firstAttribute="bottom" secondItem="rNb-rf-28n" secondAttribute="bottom" constant="218.5" id="nKv-gL-QeQ"/>
-                            <constraint firstItem="rNb-rf-28n" firstAttribute="top" secondItem="L0l-1R-8TS" secondAttribute="bottom" constant="43.5" id="zLA-zp-209"/>
+                            <constraint firstItem="L0l-1R-8TS" firstAttribute="top" secondItem="YF4-Je-wLC" secondAttribute="bottom" constant="31.5" id="dq5-sf-frB"/>
+                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="leading" secondItem="rbe-l3-TGT" secondAttribute="leading" constant="45" id="eB4-fP-Ecm"/>
+                            <constraint firstItem="Wuw-5r-Oe5" firstAttribute="top" secondItem="rbe-l3-TGT" secondAttribute="top" constant="188" id="mCm-ZE-icO"/>
+                            <constraint firstItem="rbe-l3-TGT" firstAttribute="bottom" secondItem="rNb-rf-28n" secondAttribute="bottom" constant="191.5" id="pJS-5g-iuh"/>
+                            <constraint firstItem="L0l-1R-8TS" firstAttribute="centerX" secondItem="YF4-Je-wLC" secondAttribute="centerX" id="vnX-ot-faf"/>
+                            <constraint firstItem="L0l-1R-8TS" firstAttribute="leading" secondItem="rNb-rf-28n" secondAttribute="leading" id="z6E-GF-HYE"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sell" id="GOn-Ac-DCl" userLabel="Sell"/>
                     <connections>
                         <segue destination="i4q-NN-HoO" kind="show" identifier="SellerKennesawSegue" id="fWu-IP-TnZ"/>
-                        <segue destination="7ib-3Y-Sa1" kind="show" identifier="SellerMariettaSegue" id="uyq-Ej-mpw"/>
+                        <segue destination="N83-Sf-qYu" kind="show" identifier="MariettaSellerSegue" id="heD-9o-cey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EF8-Fa-83t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3292.753623188406" y="-2110.0446428571427"/>
+            <point key="canvasLocation" x="4309" y="-2083"/>
         </scene>
         <!--Support-->
         <scene sceneID="6pN-Ps-j8p">
@@ -640,7 +797,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="MGX-KQ-YKw">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="RBP-Yb-xeY" customClass="TabBarController" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="RBP-Yb-xeY" customClass="TabBarController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kP2-Tl-ckz"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uqQ-sq-4EQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -789,7 +946,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flz-MJ-RT4">
-                                <rect key="frame" x="87" y="625" width="240" height="17"/>
+                                <rect key="frame" x="153" y="625" width="108" height="17"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Show Password">
                                         <attributes>
@@ -815,7 +972,7 @@
                             <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="qvl-jJ-wdK" secondAttribute="trailing" constant="89" id="87e-Pu-3jI"/>
                             <constraint firstItem="TSi-KV-TVX" firstAttribute="top" secondItem="9le-0N-tqk" secondAttribute="bottom" constant="0.5" id="8le-uH-VfS"/>
                             <constraint firstItem="flz-MJ-RT4" firstAttribute="centerX" secondItem="Za3-lP-GkI" secondAttribute="centerX" id="9VN-0O-Mhi"/>
-                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="flz-MJ-RT4" secondAttribute="trailing" constant="87" id="AWy-wu-Pzk"/>
+                            <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="flz-MJ-RT4" secondAttribute="trailing" id="AWy-wu-Pzk"/>
                             <constraint firstItem="OIM-Jm-gbh" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="87" id="Dph-Em-9og"/>
                             <constraint firstItem="Hb0-Yc-sTJ" firstAttribute="centerX" secondItem="Za3-lP-GkI" secondAttribute="centerX" id="Jck-bw-jBG"/>
                             <constraint firstItem="nmb-fd-Q9V" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="87" id="OgR-Qb-rhU"/>
@@ -839,7 +996,7 @@
                             <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="WkY-U9-zsD" secondAttribute="trailing" constant="87" id="eq2-Ih-tht"/>
                             <constraint firstItem="Lxd-HQ-mVJ" firstAttribute="top" secondItem="hQ7-9r-EJG" secondAttribute="bottom" constant="15.5" id="h1N-IG-UZM"/>
                             <constraint firstItem="lcs-Yx-Tdv" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="184" id="iRM-df-O3l"/>
-                            <constraint firstItem="flz-MJ-RT4" firstAttribute="leading" secondItem="5Bk-8v-EeZ" secondAttribute="leading" constant="87" id="iTW-Al-hV8"/>
+                            <constraint firstItem="flz-MJ-RT4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Bk-8v-EeZ" secondAttribute="leading" id="iTW-Al-hV8"/>
                             <constraint firstItem="5Bk-8v-EeZ" firstAttribute="trailing" secondItem="uz2-7R-xrw" secondAttribute="trailing" constant="87" id="lLg-ae-4PQ"/>
                             <constraint firstAttribute="trailing" secondItem="Aos-S2-K9n" secondAttribute="trailing" constant="228" id="mH1-DT-0LZ"/>
                             <constraint firstItem="TSi-KV-TVX" firstAttribute="top" secondItem="9le-0N-tqk" secondAttribute="bottom" constant="0.5" id="nWI-Ju-1Ky"/>
@@ -1194,16 +1351,177 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="66.964285714285708"/>
         </scene>
+        <!--Marietta Campus-->
+        <scene sceneID="ei2-vV-zgR">
+            <objects>
+                <viewController storyboardIdentifier="SellerMariettaController" id="N83-Sf-qYu" customClass="SellerMariettaController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="prj-mz-DPq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlU-lP-Lao">
+                                <rect key="frame" x="89" y="279" width="236" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="MIl-Ws-IGx"/>
+                                    <constraint firstAttribute="height" constant="22" id="dX3-Qw-shm"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Current average price">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="21" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ge-h3-n3J">
+                                <rect key="frame" x="89" y="489" width="236" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="236" id="K6e-Ty-DNV"/>
+                                    <constraint firstAttribute="height" constant="22" id="wt2-lW-Ydu"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Enter a price">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="21" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S70-xf-G8K">
+                                <rect key="frame" x="25.5" y="736" width="363" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="rTa-Zo-0Qf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Start Selling" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="ItE-ao-5Wl" eventType="touchUpInside" id="W3k-QX-1IV"/>
+                                    <action selector="signupViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mYb-el-Rxs"/>
+                                    <action selector="theCommonsButtonPressed:" destination="jQE-TQ-IlD" eventType="touchUpInside" id="V6d-SQ-1x6"/>
+                                    <action selector="theCommonsButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="WxZ-cK-hld"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncM-BV-fyd">
+                                <rect key="frame" x="89" y="191" width="236" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="7QC-WP-hAM"/>
+                                    <constraint firstAttribute="width" constant="236" id="aEG-UW-nR3"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="All prices are in USD">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="0.96602086347492544" green="1" blue="0.94777603729500381" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" red="0.62461773269485088" green="0.63080206668192862" blue="0.63080206668192862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="16" name="Arial-ItalicMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKI-aP-88J">
+                                <rect key="frame" x="36.5" y="125" width="341" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="Km6-R2-v8L"/>
+                                    <constraint firstAttribute="width" constant="341" id="W3l-qB-B30"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="At what price do you want to sell each swipe for?">
+                                        <attributes>
+                                            <font key="NSFont" size="25" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="lpm-jz-K89">
+                                <rect key="frame" x="87" y="309" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="AO7-Tr-NNX"/>
+                                    <constraint firstAttribute="height" constant="128" id="pGj-3e-uLn"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="10.50">
+                                        <attributes>
+                                            <color key="NSColor" red="0.31806585189999997" green="0.47736334800000002" blue="0.99836248159999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="43" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="swipePriceField" translatesAutoresizingMaskIntoConstraints="NO" id="y4B-G6-8DS">
+                                <rect key="frame" x="87" y="519" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="6LZ-RJ-PLv"/>
+                                    <constraint firstAttribute="height" constant="128" id="qJy-s0-mAb"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="10.50">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="43" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="clipping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Enw-9h-5Jz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Ge-h3-n3J" firstAttribute="top" secondItem="lpm-jz-K89" secondAttribute="bottom" constant="52" id="FhG-Xi-is0"/>
+                            <constraint firstItem="S70-xf-G8K" firstAttribute="centerX" secondItem="prj-mz-DPq" secondAttribute="centerX" id="GgI-id-UZV"/>
+                            <constraint firstItem="y4B-G6-8DS" firstAttribute="centerX" secondItem="prj-mz-DPq" secondAttribute="centerX" id="K7W-XL-9Is"/>
+                            <constraint firstItem="ncM-BV-fyd" firstAttribute="top" secondItem="dKI-aP-88J" secondAttribute="bottom" constant="8" id="QBP-aH-f6T"/>
+                            <constraint firstItem="5Ge-h3-n3J" firstAttribute="centerX" secondItem="prj-mz-DPq" secondAttribute="centerX" id="Y1t-JL-3zb"/>
+                            <constraint firstItem="S70-xf-G8K" firstAttribute="top" secondItem="y4B-G6-8DS" secondAttribute="bottom" constant="89" id="dNj-YX-cZC"/>
+                            <constraint firstItem="lpm-jz-K89" firstAttribute="top" secondItem="zlU-lP-Lao" secondAttribute="bottom" constant="8" id="fau-93-EKU"/>
+                            <constraint firstItem="dKI-aP-88J" firstAttribute="top" secondItem="Enw-9h-5Jz" secondAttribute="top" constant="37" id="iKg-qu-wdl"/>
+                            <constraint firstItem="zlU-lP-Lao" firstAttribute="centerX" secondItem="prj-mz-DPq" secondAttribute="centerX" id="iW2-ma-OQ1"/>
+                            <constraint firstItem="dKI-aP-88J" firstAttribute="centerX" secondItem="prj-mz-DPq" secondAttribute="centerX" id="nvz-tn-f8G"/>
+                            <constraint firstItem="zlU-lP-Lao" firstAttribute="top" secondItem="ncM-BV-fyd" secondAttribute="bottom" constant="66" id="qT6-HD-Obn"/>
+                            <constraint firstItem="y4B-G6-8DS" firstAttribute="top" secondItem="5Ge-h3-n3J" secondAttribute="bottom" constant="8" id="rUX-Iw-V5e"/>
+                            <constraint firstItem="ncM-BV-fyd" firstAttribute="centerX" secondItem="prj-mz-DPq" secondAttribute="centerX" id="wPV-vp-62K"/>
+                            <constraint firstItem="lpm-jz-K89" firstAttribute="centerX" secondItem="prj-mz-DPq" secondAttribute="centerX" id="xgB-xt-jWR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Marietta Campus" id="0rX-9S-wOL"/>
+                    <connections>
+                        <outlet property="averagePriceTextField" destination="lpm-jz-K89" id="aqF-3t-L7k"/>
+                        <outlet property="enterPriceTextField" destination="y4B-G6-8DS" id="zRy-8U-G1F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ca-F5-1kX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5246" y="-1756"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="uZD-2U-NK6"/>
-        <segue reference="RPc-gq-7PH"/>
+        <segue reference="ZnT-UA-poI"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="BlueButton" width="363" height="68.5"/>
         <image name="SwipersLogo" width="396" height="128.5"/>
         <image name="WhiteButton" width="363" height="68.5"/>
         <image name="blueLine" width="363" height="4.5"/>
+        <image name="priceField" width="363" height="162.5"/>
+        <image name="swipePriceField" width="363" height="163"/>
         <image name="talonCardOutline" width="363" height="199.5"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
