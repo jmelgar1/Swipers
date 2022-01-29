@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SellerMariettaController: UIViewController {
+class SellerMariettaController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var averagePriceTextField: UITextField!
     
@@ -20,7 +20,15 @@ class SellerMariettaController: UIViewController {
         averagePriceTextField.background = UIImage(named: "priceField.png")
         
         enterPriceTextField.background = UIImage(named: "swipePriceField.png")
+        
+        enterPriceTextField.delegate = self
     }
-
-
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,   replacementString string: String) -> Bool {
+        let s = NSString(string: textField.text ?? "").replacingCharacters(in: range, with: string)
+        guard !s.isEmpty else { return true }
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .none
+        return numberFormatter.number(from: s)?.intValue != nil
+     }
 }

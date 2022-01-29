@@ -615,7 +615,7 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="81h-L1-D4i"/>
@@ -641,27 +641,28 @@
                     <connections>
                         <outlet property="averagePriceTextField" destination="KoW-nm-0Ln" id="zpe-An-9Ox"/>
                         <outlet property="enterPriceTextField" destination="ifp-1i-epo" id="Df9-BX-zkA"/>
-                        <segue destination="vwX-7H-3YS" kind="showDetail" identifier="KennesawLFSSegue" id="jmC-6g-ig2"/>
+                        <segue destination="MPb-ZG-gFM" kind="show" identifier="KennesawSearchSegue" id="zn8-Fc-bgT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxJ-YQ-YL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5246" y="-2474"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Z7M-dJ-HWN">
+        <!--Searching for a seller-->
+        <scene sceneID="78U-Tk-lDs">
             <objects>
-                <viewController id="vwX-7H-3YS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zVp-OW-bHp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                <viewController id="MPb-ZG-gFM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jts-O2-pXb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="lvb-TE-s00"/>
+                        <viewLayoutGuide key="safeArea" id="dcV-T0-ASY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Searching for a seller" id="ugt-RT-2k1"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G8V-Jw-W9q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DtX-S6-wPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6117" y="-2475"/>
+            <point key="canvasLocation" x="6312" y="-2474"/>
         </scene>
         <!--Sell-->
         <scene sceneID="SNn-AA-AJv">
@@ -1478,7 +1479,7 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Enw-9h-5Jz"/>
