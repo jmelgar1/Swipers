@@ -83,7 +83,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
         ProgressHUD.showError(message)
     }
     
-    //allow signupviewcontroller2 to access textfield variables
+    //pass string variables to signupviewcontroller2
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SignUpViewController2
         vc.firstName = firstNameField.text!.trimmingCharacters(in: .whitespacesAndNewlines)

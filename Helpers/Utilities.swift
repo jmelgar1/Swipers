@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import CoreLocation
 
 class Utilities {
     
@@ -72,5 +73,17 @@ class Utilities {
                 onError(error!.localizedDescription)
             }
         }
+    }
+    
+    //gets latitude/longitude for the commons
+    static func getKennesawCampusCoords() -> CLCircularRegion {
+        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 34.039902, longitude: -84.581810), radius: 400, identifier: "The Commons")
+        return geoFenceRegion
+    }
+    
+    //gets latitude/longitude for stingers
+    static func getMariettaCampusCoords() -> CLCircularRegion {
+        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 33.937379, longitude: -84.522307), radius: 400, identifier: "Stingers")
+        return geoFenceRegion
     }
 }

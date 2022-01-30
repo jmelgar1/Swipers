@@ -8,13 +8,15 @@
 import UIKit
 import CoreLocation
 
-class SellerKennesawController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
+class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     let locationManager: CLLocationManager = CLLocationManager()
-
+    
     @IBOutlet weak var averagePriceTextField: UITextField!
     
     @IBOutlet weak var enterPriceTextField: UITextField!
+    
+    var campusType: String = ""
     
     //go to finding buyer screen when start selling button pressed
     @IBAction func startSellingPressed(_ sender: Any)
@@ -31,9 +33,7 @@ class SellerKennesawController: UIViewController, UITextFieldDelegate, CLLocatio
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100
         
-        let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 34.039902, longitude: -84.581810), radius: 400, identifier: "The Commons")
-        
-        locationManager.startMonitoring(for: geoFenceRegion)
+        locationManager.startMonitoring(for: Utilities.getKennesawCampusCoords())
         
         //set background of text fields
         averagePriceTextField.background = UIImage(named: "priceField.png")
@@ -41,9 +41,11 @@ class SellerKennesawController: UIViewController, UITextFieldDelegate, CLLocatio
         enterPriceTextField.background = UIImage(named: "swipePriceField.png")
         
         enterPriceTextField.delegate = self
+        
+        self.title = campusType
     }
     
-    func locationManager(_ manager: CLLocation, didUpdateLocations locations: [CLLocation]){
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         for currentLocation in locations{
             print("\(index): \(currentLocation)")
         }

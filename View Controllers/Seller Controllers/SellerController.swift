@@ -8,21 +8,32 @@
 import UIKit
 
 class SellerController: UIViewController {
+    
+    var diningHallType: String = ""
 
     @IBAction func theCommonsButtonPressed(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "SellerKennesawSegue", sender: self)
+        diningHallType = "The Commons"
+                
+        self.performSegue(withIdentifier: "SellerCampusSegue", sender: self)
     }
-    
+
     @IBAction func stingersButtonPressed(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "SellerKennesawSegue", sender: self)
+        diningHallType = "Stingers"
+                
+        self.performSegue(withIdentifier: "SellerCampusSegue", sender: self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SellerCampusController
+        
+        vc.campusType = diningHallType
 
-
+    }
 }
