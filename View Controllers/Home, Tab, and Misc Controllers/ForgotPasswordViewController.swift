@@ -16,6 +16,7 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     
+    //Sends user an email if forgot password is clicked
     @IBAction func resetButtonPressed(_ sender: Any)
     {
         let email = emailTextField.text!

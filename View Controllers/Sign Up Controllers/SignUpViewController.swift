@@ -38,6 +38,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
     
     func validateFields() -> String? {
 
+        //Ensure all fields are filled in
     if firstNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         lastNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
         emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -47,6 +48,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
             return "Please fill in all fields."
         }
         
+        //get cleaned strings from text fields
         let cleanedPassword = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanedEmail = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let phonenumber = phonenumberField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -79,10 +81,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
         }
     }
     
-    func showError(_ message:String) {
-        ProgressHUD.showError(message)
-    }
-    
     //pass string variables to signupviewcontroller2
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SignUpViewController2
@@ -106,6 +104,10 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         phonenumberField.resignFirstResponder()
+    }
+    
+    func showError(_ message:String) {
+        ProgressHUD.showError(message)
     }
     
     //Makes the users avatar appear circular

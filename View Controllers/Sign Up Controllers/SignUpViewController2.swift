@@ -57,6 +57,7 @@ class SignUpViewController2: UIViewController {
                 self.performSegue(withIdentifier: "VerifySegue", sender: self)
         }
     
+    //Waits for user to click take a photo
     @IBAction func didTapTakePhoto(){
         let picker = UIImagePickerController()
         picker.sourceType = .camera
@@ -68,6 +69,7 @@ class SignUpViewController2: UIViewController {
         super.viewDidLoad()
     }
     
+    //Pass on variables to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SMSVerifyViewController
         vc.firstName = firstName

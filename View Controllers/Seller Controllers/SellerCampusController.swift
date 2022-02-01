@@ -59,6 +59,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         self.title = campusType
     }
     
+    //gets current location (coordinates) of user
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
         
         for currentLocation in locations{
@@ -94,6 +95,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         }
     }
     
+    //Only allow decimal numbers in the price text fields
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
           let s = NSString(string: textField.text ?? "").replacingCharacters(in: range, with: string)
           guard !s.isEmpty else { return true }

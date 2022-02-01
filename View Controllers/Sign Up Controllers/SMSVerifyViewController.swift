@@ -59,6 +59,7 @@ class SMSVerifyViewController: UIViewController {
         }
     }
     
+    //Stores all user info in Google firebase
     func storeUserData(){
         
         //Create the user

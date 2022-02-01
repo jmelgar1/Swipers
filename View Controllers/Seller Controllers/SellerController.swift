@@ -11,6 +11,7 @@ class SellerController: UIViewController {
     
     var diningHallType: String = ""
 
+    //Set diningHallType to Kennesaw Campus (important for later)
     @IBAction func theCommonsButtonPressed(_ sender: Any)
     {
         diningHallType = "The Commons"
@@ -18,6 +19,7 @@ class SellerController: UIViewController {
         self.performSegue(withIdentifier: "SellerCampusSegue", sender: self)
     }
 
+    //Set diningHallType to Marietta Campus (important for later)
     @IBAction func stingersButtonPressed(_ sender: Any)
     {
         diningHallType = "Stingers"
@@ -30,6 +32,7 @@ class SellerController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //Pass on the variable to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SellerCampusController
         

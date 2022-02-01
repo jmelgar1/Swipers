@@ -54,6 +54,7 @@ class LoginViewController: UIViewController {
         }
     }
     
+    //Go to password reset page is user clicks on forgot password
     @IBAction func passwordResetPressed(_ sender: Any)
     {
         self.performSegue(withIdentifier: "forgotPasswordSegue", sender: self)
