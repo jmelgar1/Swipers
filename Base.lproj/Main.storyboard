@@ -629,7 +629,7 @@
                     <connections>
                         <outlet property="averagePriceTextField" destination="KoW-nm-0Ln" id="zpe-An-9Ox"/>
                         <outlet property="enterPriceTextField" destination="ifp-1i-epo" id="Df9-BX-zkA"/>
-                        <segue destination="MPb-ZG-gFM" kind="show" identifier="KennesawSearchSegue" id="zn8-Fc-bgT"/>
+                        <segue destination="MPb-ZG-gFM" kind="show" identifier="SearchSegue" id="zn8-Fc-bgT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JxJ-YQ-YL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

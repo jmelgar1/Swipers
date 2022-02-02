@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import CoreLocation
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

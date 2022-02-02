@@ -8,6 +8,8 @@
 import UIKit
 import CoreLocation
 import ProgressHUD
+import FirebaseFirestore
+import FirebaseAuth
 
 class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
@@ -20,6 +22,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     @IBOutlet weak var enterPriceTextField: UITextField!
     
     var campusType: String = ""
+    var campus: String = ""
     
     //go to finding buyer screen when start selling button pressed
     @IBAction func startSellingPressed(_ sender: Any)
@@ -27,7 +30,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         let InBounds = UserDefaults.standard.bool(forKey: "InBounds")
         
         if(InBounds == true){
-            self.performSegue(withIdentifier: "KennesawSearchSegue", sender: self)
+            putSellerOnSellList()
         } else {
             showError("Please move closer to \(campusType)")
         }
@@ -45,8 +48,10 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         //check which campus the user is on
         if(campusType == "The Commons"){
             locationManager.startMonitoring(for: Utilities.getKennesawCampusCoords())
-        } else {
+        } else if (campusType == "Stingers") {
             locationManager.startMonitoring(for: Utilities.getMariettaCampusCoords())
+        } else {
+            showError("Can not find campus type. Contact support!")
         }
 
         //set background of text fields
@@ -103,6 +108,46 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
           numberFormatter.numberStyle = .none
           return numberFormatter.number(from: s)?.intValue != nil
      }
+    
+    func putSellerOnSellList(){
+        
+        if(campusType == "The Commons"){
+            campus = "Kennesaw"
+        } else {
+            campus = "Marietta"
+        }
+    
+        //get current user uid
+        let userID = Auth.auth().currentUser!.uid
+        
+        //assign database to variable
+        let db = Firestore.firestore()
+        
+        let docRef = db.collection("users").document(userID)
+        docRef.getDocument { [self] (document, error) in
+            if let document = document, document.exists {
+                let firstName = (document.get("first_name") as? String)!
+                let lastName = (document.get("last_name") as? String)!
+                let phoneNumber = (document.get("phone_number") as? String)!
+                
+                db.collection("sellers\(self.campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber]) { (error) in
+                    
+                    if error != nil {
+                        
+                        //go back to sell page if something fails
+                        self.showError("Error assigning user to sell list.")
+                        self.performSegue(withIdentifier: "SellerCampusSegue", sender: self)
+                    } else {
+                        
+                        //go to searching for buyer view
+                        self.performSegue(withIdentifier: "SearchSegue", sender: self)
+                    }
+                }
+            } else {
+                showError("Can not retrieve user data")
+            }
+        }
+    }
     
     func showError(_ message:String) {
         ProgressHUD.showError(message)
