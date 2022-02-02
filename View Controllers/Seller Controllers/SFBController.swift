@@ -8,14 +8,18 @@
 import UIKit
 import CoreLocation
 
-class SFBKennesawController: UIViewController, CLLocationManagerDelegate {
-    
-    let locationManager: CLLocationManager = CLLocationManager()
+class SFBController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
     }
-
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParent{
+            //unfinished. need to remove document once screen is exited
+        }
+    }
 }

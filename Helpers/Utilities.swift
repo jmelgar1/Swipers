@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 import FirebaseAuth
-import CoreLocation
 import FirebaseFirestore
+import CoreLocation
 
 class Utilities {
     
@@ -55,50 +55,5 @@ class Utilities {
     static func getMariettaCampusCoords() -> CLCircularRegion {
         let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 33.937379, longitude: -84.522307), radius: 400, identifier: "Stingers")
         return geoFenceRegion
-    }
-    
-    static func getFirstName() -> String{
-        
-        let db = Firestore.firestore()
-        let userID = Auth.auth().currentUser!.uid
-        var firstName: String = ""
-        
-        let docRef = db.collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                firstName = (document.get("first_name") as? String)!
-            }
-        }
-        return firstName
-    }
-    
-    static func getLastName() -> String{
-        
-        let db = Firestore.firestore()
-        let userID = Auth.auth().currentUser!.uid
-        var lastName: String = ""
-        
-        let docRef = db.collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                lastName = (document.get("last_name") as? String)!
-            }
-        }
-        return lastName
-    }
-    
-    static func getPhoneNumber() -> String{
-        
-        let db = Firestore.firestore()
-        let userID = Auth.auth().currentUser!.uid
-        var phoneNumber: String = ""
-        
-        let docRef = db.collection("users").document(userID)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                phoneNumber = (document.get("phone_number") as? String)!
-            }
-        }
-        return phoneNumber
     }
 }

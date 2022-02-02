@@ -21,6 +21,9 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     
     @IBOutlet weak var enterPriceTextField: UITextField!
     
+    let db = Firestore.firestore()
+    let userID = Auth.auth().currentUser!.uid
+    
     var campusType: String = ""
     var campus: String = ""
     
@@ -30,7 +33,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         let InBounds = UserDefaults.standard.bool(forKey: "InBounds")
         
         if(InBounds == true){
-            putSellerOnSellList()
+            addSellerToSellList()
         } else {
             showError("Please move closer to \(campusType)")
         }
@@ -44,7 +47,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100
-        
+
         //check which campus the user is on
         if(campusType == "The Commons"){
             locationManager.startMonitoring(for: Utilities.getKennesawCampusCoords())
@@ -62,6 +65,13 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         enterPriceTextField.delegate = self
         
         self.title = campusType
+        
+        //get campus variable for adding/removing to sell list
+        if(campusType == "The Commons"){
+            campus = "Kennesaw"
+        } else {
+            campus = "Marietta"
+        }
     }
     
     //gets current location (coordinates) of user
@@ -82,6 +92,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         print("Exited: \(region.identifier)")
         UserDefault.set(false, forKey: "InBounds")
+        removeSellerFromSellList()
     }
     
     //check if user is inside geofence when monitoring starts
@@ -109,20 +120,8 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
           return numberFormatter.number(from: s)?.intValue != nil
      }
     
-    func putSellerOnSellList(){
-        
-        if(campusType == "The Commons"){
-            campus = "Kennesaw"
-        } else {
-            campus = "Marietta"
-        }
-    
-        //get current user uid
-        let userID = Auth.auth().currentUser!.uid
-        
-        //assign database to variable
-        let db = Firestore.firestore()
-        
+    func addSellerToSellList(){
+
         let docRef = db.collection("users").document(userID)
         docRef.getDocument { [self] (document, error) in
             if let document = document, document.exists {
@@ -130,7 +129,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                 let lastName = (document.get("last_name") as? String)!
                 let phoneNumber = (document.get("phone_number") as? String)!
                 
-                db.collection("sellers\(self.campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber]) { (error) in
+                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber]) { (error) in
                     
                     if error != nil {
                         
@@ -145,6 +144,17 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                 }
             } else {
                 showError("Can not retrieve user data")
+            }
+        }
+    }
+    
+    func removeSellerFromSellList(){
+        
+        db.collection("sellers\(campus)").document(userID).delete() { err in
+            if let err = err {
+                self.showError("Error removing user from sell list")
+            } else {
+                print("Success on removing the document")
             }
         }
     }
