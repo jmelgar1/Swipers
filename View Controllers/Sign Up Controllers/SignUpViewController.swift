@@ -153,7 +153,3 @@ extension SignUpViewController : UITextFieldDelegate {
         return true
     }
 }
-
-protocol ErrorProtocol {
-    func showError(_ message:String)
-}

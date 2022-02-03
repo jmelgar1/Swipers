@@ -10,6 +10,9 @@ import CoreLocation
 
 class SFBController: UIViewController {
     
+    var locationData:CLLocationManager?
+    var campusType:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -19,7 +22,13 @@ class SFBController: UIViewController {
         super.viewWillDisappear(animated)
         
         if self.isMovingFromParent{
-            //unfinished. need to remove document once screen is exited
+            if(campusType == "The Commons"){
+                locationData!.stopMonitoring(for: Utilities.getKennesawCampusCoords())
+                //need to remove document
+            } else {
+                locationData!.stopMonitoring(for: Utilities.getMariettaCampusCoords())
+                //need to remove document
+            }
         }
     }
 }

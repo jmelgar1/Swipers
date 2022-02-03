@@ -11,7 +11,7 @@ import ProgressHUD
 import FirebaseFirestore
 import FirebaseAuth
 
-class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
+class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, ErrorProtocol {
     
     let UserDefault: UserDefaults = UserDefaults.standard
     
@@ -30,12 +30,18 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     //go to finding buyer screen when start selling button pressed
     @IBAction func startSellingPressed(_ sender: Any)
     {
+        startMonitoringRegions()
+        
         let InBounds = UserDefaults.standard.bool(forKey: "InBounds")
         
         if(InBounds == true){
+            
+            self.performSegue(withIdentifier: "SearchSegue", sender: self)
+            
             addSellerToSellList()
+            
         } else {
-            showError("Please move closer to \(campusType)")
+            showError("Please move closer to \(campusType) and try again.")
         }
     }
     
@@ -48,15 +54,6 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100
 
-        //check which campus the user is on
-        if(campusType == "The Commons"){
-            locationManager.startMonitoring(for: Utilities.getKennesawCampusCoords())
-        } else if (campusType == "Stingers") {
-            locationManager.startMonitoring(for: Utilities.getMariettaCampusCoords())
-        } else {
-            showError("Can not find campus type. Contact support!")
-        }
-
         //set background of text fields
         averagePriceTextField.background = UIImage(named: "priceField.png")
         
@@ -65,6 +62,8 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         enterPriceTextField.delegate = self
         
         self.title = campusType
+        
+        startMonitoringRegions()
         
         //get campus variable for adding/removing to sell list
         if(campusType == "The Commons"){
@@ -84,15 +83,15 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     
     //check if user has entered geofence
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion){
-        print("Entered: \(region.identifier)")
         UserDefault.set(true, forKey: "InBounds")
     }
     
     //check if user has exited the geofence
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("Exited: \(region.identifier)")
         UserDefault.set(false, forKey: "InBounds")
         removeSellerFromSellList()
+        showError("You have moved too far from \(campusType)")
+        
     }
     
     //check if user is inside geofence when monitoring starts
@@ -101,24 +100,13 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         switch state {
         case .inside:
             UserDefault.set(true, forKey: "InBounds")
-            print("inside region")
         case .outside:
             UserDefault.set(false, forKey: "InBounds")
-            print("outside region")
+            removeSellerFromSellList()
         default:
             UserDefault.set(true, forKey: "InBounds")
-            print("default case")
         }
     }
-    
-    //Only allow decimal numbers in the price text fields
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-          let s = NSString(string: textField.text ?? "").replacingCharacters(in: range, with: string)
-          guard !s.isEmpty else { return true }
-          let numberFormatter = NumberFormatter()
-          numberFormatter.numberStyle = .none
-          return numberFormatter.number(from: s)?.intValue != nil
-     }
     
     func addSellerToSellList(){
 
@@ -139,7 +127,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                     } else {
                         
                         //go to searching for buyer view
-                        self.performSegue(withIdentifier: "SearchSegue", sender: self)
+                        print("Searching for buyer")
                     }
                 }
             } else {
@@ -157,6 +145,33 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                 print("Success on removing the document")
             }
         }
+    }
+    
+    func startMonitoringRegions(){
+        if(campusType == "The Commons"){
+            locationManager.startMonitoring(for: Utilities.getKennesawCampusCoords())
+        } else if (campusType == "Stingers") {
+            locationManager.startMonitoring(for: Utilities.getMariettaCampusCoords())
+        } else {
+            showError("Can not find campus type. Contact support!")
+        }
+    }
+    
+    //Only allow decimal numbers in the price text fields
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+          let s = NSString(string: textField.text ?? "").replacingCharacters(in: range, with: string)
+          guard !s.isEmpty else { return true }
+          let numberFormatter = NumberFormatter()
+          numberFormatter.numberStyle = .none
+          return numberFormatter.number(from: s)?.intValue != nil
+     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SFBController
+        
+        vc.locationData = locationManager
+        vc.campusType = campusType
+
     }
     
     func showError(_ message:String) {

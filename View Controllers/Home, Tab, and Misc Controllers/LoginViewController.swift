@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import ProgressHUD
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, ErrorProtocol {
 
     @IBOutlet weak var emailTextField: UITextField!
     
@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
                     
                     if error != nil {
                         
-                        ProgressHUD.showError(error!.localizedDescription)
+                        self.showError(error!.localizedDescription)
                         
                         //1 is true 0 is false
                     } else if (isVerified! == 1){
@@ -44,12 +44,12 @@ class LoginViewController: UIViewController {
                         
                     } else {
                         
-                        ProgressHUD.showError("Your account is not verified yet!")
+                        self.showError("Your account is not verified yet!")
 
                     }
                 }
             } else {
-                ProgressHUD.showError("Incorrect login details")
+                self.showError("Incorrect login details")
             }
         }
     }
@@ -58,6 +58,10 @@ class LoginViewController: UIViewController {
     @IBAction func passwordResetPressed(_ sender: Any)
     {
         self.performSegue(withIdentifier: "forgotPasswordSegue", sender: self)
+    }
+    
+    func showError(_ message: String) {
+        ProgressHUD.showError(message)
     }
     
     override func viewDidLoad() {

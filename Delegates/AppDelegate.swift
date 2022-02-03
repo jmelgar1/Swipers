@@ -11,7 +11,7 @@ import FirebaseAuth
 import CoreLocation
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
 
     var window: UIWindow?
 
@@ -36,7 +36,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    //Check sign in on app launch
-
+    func applicationWillResignActive(_ application: UIApplication) {
+        
+        func removeSellerFromSellList() {
+        }
+    }
 }
-

@@ -57,3 +57,7 @@ class Utilities {
         return geoFenceRegion
     }
 }
+
+protocol ErrorProtocol {
+    func showError(_ message:String)
+}

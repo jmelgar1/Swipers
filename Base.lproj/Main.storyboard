@@ -482,11 +482,11 @@
             <objects>
                 <viewController storyboardIdentifier="SellerCampusController" title="Campus" id="i4q-NN-HoO" customClass="SellerCampusController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m5l-OX-2bS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mT-H7-vZG">
-                                <rect key="frame" x="89" y="279" width="236" height="22"/>
+                                <rect key="frame" x="89" y="191" width="236" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="U8t-yz-mKp"/>
                                     <constraint firstAttribute="width" constant="236" id="x8P-lo-EAL"/>
@@ -504,7 +504,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMG-7N-snq">
-                                <rect key="frame" x="89" y="489" width="236" height="22"/>
+                                <rect key="frame" x="89" y="401" width="236" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="236" id="LH3-Ig-0yh"/>
                                     <constraint firstAttribute="height" constant="22" id="NnI-cE-jiH"/>
@@ -522,7 +522,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DnO-xh-1B5">
-                                <rect key="frame" x="25.5" y="736" width="363" height="64"/>
+                                <rect key="frame" x="25.5" y="648" width="363" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="dmY-3Y-dVz"/>
                                 </constraints>
@@ -539,7 +539,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="712" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zS7-lQ-vBr">
-                                <rect key="frame" x="89" y="191" width="236" height="22"/>
+                                <rect key="frame" x="89" y="103" width="236" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="236" id="SXf-DF-LEF"/>
                                     <constraint firstAttribute="height" constant="22" id="Yaa-ib-Ebi"/>
@@ -557,7 +557,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKw-YT-00k">
-                                <rect key="frame" x="36.5" y="125" width="341" height="58"/>
+                                <rect key="frame" x="36.5" y="37" width="341" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="341" id="7QO-8G-hab"/>
                                     <constraint firstAttribute="height" constant="58" id="hcH-vJ-4nJ"/>
@@ -573,7 +573,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="KoW-nm-0Ln">
-                                <rect key="frame" x="87" y="309" width="240" height="128"/>
+                                <rect key="frame" x="87" y="221" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="cYv-xY-Fun"/>
                                     <constraint firstAttribute="width" constant="240" id="rE4-hM-nYp"/>
@@ -590,7 +590,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="swipePriceField" translatesAutoresizingMaskIntoConstraints="NO" id="ifp-1i-epo">
-                                <rect key="frame" x="87" y="519" width="240" height="128"/>
+                                <rect key="frame" x="87" y="431" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="RNc-AP-Fis"/>
                                     <constraint firstAttribute="height" constant="128" id="qe2-z0-ATS"/>
@@ -626,6 +626,7 @@
                             <constraint firstItem="KoW-nm-0Ln" firstAttribute="top" secondItem="0mT-H7-vZG" secondAttribute="bottom" constant="8" id="sWu-ev-iFr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="WIB-xK-OlB"/>
                     <connections>
                         <outlet property="averagePriceTextField" destination="KoW-nm-0Ln" id="zpe-An-9Ox"/>
                         <outlet property="enterPriceTextField" destination="ifp-1i-epo" id="Df9-BX-zkA"/>
@@ -641,12 +642,15 @@
             <objects>
                 <viewController storyboardIdentifier="SFBController" id="MPb-ZG-gFM" customClass="SFBController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jts-O2-pXb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="dcV-T0-ASY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Searching for a seller" id="ugt-RT-2k1"/>
+                    <connections>
+                        <segue destination="i4q-NN-HoO" kind="show" identifier="BackToSellerCampusSegue" id="z78-5S-K5m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtX-S6-wPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1337,6 +1341,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="uZD-2U-NK6"/>
+        <segue reference="z78-5S-K5m"/>
         <segue reference="ZnT-UA-poI"/>
     </inferredMetricsTieBreakers>
     <resources>
