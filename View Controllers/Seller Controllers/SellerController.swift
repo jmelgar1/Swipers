@@ -10,6 +10,10 @@ import UIKit
 class SellerController: UIViewController {
     
     var diningHallType: String = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
     //Set diningHallType to Kennesaw Campus (important for later)
     @IBAction func theCommonsButtonPressed(_ sender: Any)
@@ -25,11 +29,6 @@ class SellerController: UIViewController {
         diningHallType = "Stingers"
                 
         self.performSegue(withIdentifier: "SellerCampusSegue", sender: self)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     //Pass on the variable to next view

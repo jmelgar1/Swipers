@@ -28,6 +28,10 @@ class SignUpViewController2: UIViewController {
     
     let userDefault = UserDefaults.standard
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     //camera talon card picture function here
     
     @IBAction func submitButtonPressed(_ sender: Any)
@@ -56,10 +60,6 @@ class SignUpViewController2: UIViewController {
         picker.sourceType = .camera
         picker.delegate = self
         present(picker, animated: true)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     //Pass on variables to next view

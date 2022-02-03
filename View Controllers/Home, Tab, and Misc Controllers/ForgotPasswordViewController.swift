@@ -16,6 +16,10 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     @IBAction func resetButtonPressed(_ sender: Any)
     {
         let email = emailTextField.text!
@@ -31,10 +35,5 @@ class ForgotPasswordViewController: UIViewController {
                 Utilities.showError(errorMessage)
             }
         }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 }

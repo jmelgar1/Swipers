@@ -16,6 +16,10 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     @IBAction func loginButtonPressed(_ sender: Any)
     {
         
@@ -58,10 +62,5 @@ class LoginViewController: UIViewController {
     @IBAction func passwordResetPressed(_ sender: Any)
     {
         self.performSegue(withIdentifier: "forgotPasswordSegue", sender: self)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 }

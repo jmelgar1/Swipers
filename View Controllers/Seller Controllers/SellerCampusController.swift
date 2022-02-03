@@ -27,24 +27,6 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     var campusType: String = ""
     var campus: String = ""
     
-    //go to finding buyer screen when start selling button pressed
-    @IBAction func startSellingPressed(_ sender: Any)
-    {
-        startMonitoringRegions()
-        
-        let InBounds = UserDefaults.standard.bool(forKey: "InBounds")
-        
-        if(InBounds == true){
-            
-            self.performSegue(withIdentifier: "SearchSegue", sender: self)
-            
-            addSellerToSellList()
-            
-        } else {
-            Utilities.showError("Please move closer to \(campusType) and try again.")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,6 +54,24 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
             campus = "Kennesaw"
         } else {
             campus = "Marietta"
+        }
+    }
+    
+    //go to finding buyer screen when start selling button pressed
+    @IBAction func startSellingPressed(_ sender: Any)
+    {
+        startMonitoringRegions()
+        
+        let InBounds = UserDefaults.standard.bool(forKey: "InBounds")
+        
+        if(InBounds == true){
+            
+            self.performSegue(withIdentifier: "SearchSegue", sender: self)
+            
+            addSellerToSellList()
+            
+        } else {
+            Utilities.showError("Please move closer to \(campusType) and try again.")
         }
     }
     
@@ -111,6 +111,8 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     func addSellerToSellList(){
+        
+        var swipePrice: Double? = Double(enterPriceTextField.text!)
 
         let docRef = db.collection("users").document(userID)
         docRef.getDocument { [self] (document, error) in
@@ -119,7 +121,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                 let lastName = (document.get("last_name") as? String)!
                 let phoneNumber = (document.get("phone_number") as? String)!
                 
-                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber]) { (error) in
+                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber,"swipe_price":swipePrice]) { (error) in
                     
                     if error != nil {
                         
@@ -161,11 +163,23 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     
     //Only allow decimal numbers in the price text fields
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-          let s = NSString(string: textField.text ?? "").replacingCharacters(in: range, with: string)
-          guard !s.isEmpty else { return true }
-          let numberFormatter = NumberFormatter()
-          numberFormatter.numberStyle = .none
-          return numberFormatter.number(from: s)?.intValue != nil
+        
+        guard let oldText = enterPriceTextField.text, let r = Range(range, in: oldText) else {
+            return true
+        }
+        
+        let newText = oldText.replacingCharacters(in: r, with: string)
+        let isNumeric = newText.isEmpty || (Double(newText) != nil)
+        let numberOfDots = newText.components(separatedBy: ".").count - 1
+        
+        let numberOfDecimalDigits: Int
+        if let dotIndex = newText.index(of: ".") {
+            numberOfDecimalDigits = newText.distance(from: dotIndex, to: newText.endIndex) - 1
+        } else {
+                numberOfDecimalDigits = 0
+        }
+
+        return isNumeric && numberOfDots <= 1 && numberOfDecimalDigits <= 2
      }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

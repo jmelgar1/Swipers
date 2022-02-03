@@ -15,7 +15,6 @@ class SFBController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
     }
     
     @objc override func viewWillDisappear(_ animated: Bool) {

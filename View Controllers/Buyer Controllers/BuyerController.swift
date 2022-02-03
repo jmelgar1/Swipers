@@ -8,20 +8,32 @@
 import UIKit
 
 class BuyerController: UIViewController {
+    
+    var diningHallType: String = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 
     @IBAction func theCommonsButtonPressed(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "BuyerKennesawSegue", sender: self)
+        diningHallType = "The Commons"
+        
+        self.performSegue(withIdentifier: "BuyerSearchSegue", sender: self)
     }
     
     @IBAction func stingersButtonPressed(_ sender: Any)
     {
-        self.performSegue(withIdentifier: "BuyerMariettaSegue", sender: self)
+        diningHallType = "Stingers"
+        
+        self.performSegue(withIdentifier: "BuyerSearchSegue", sender: self)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    //Pass on the variable to next view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SFSController
+        
+        vc.campusType = diningHallType
+
     }
-
-
 }

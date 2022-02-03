@@ -22,6 +22,10 @@ class SMSVerifyViewController: UIViewController {
     
     let userDefault = UserDefaults.standard
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     @IBAction func resendButtonPressed(_ sender: Any)
     {
         //send SMS code to user again
@@ -91,10 +95,5 @@ class SMSVerifyViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
     }
 }
