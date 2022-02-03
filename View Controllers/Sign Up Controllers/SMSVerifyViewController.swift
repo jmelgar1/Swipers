@@ -34,7 +34,7 @@ class SMSVerifyViewController: UIViewController {
                 self.userDefault.synchronize()
                 
             } else {
-                self.showError("Unable to get secret verification code from firebase")
+                Utilities.showError("Unable to get secret verification code from firebase")
             }
         }
     }
@@ -68,7 +68,7 @@ class SMSVerifyViewController: UIViewController {
             //Check for errors
             if err != nil {
                 
-                showError("Error creating user")
+                Utilities.showError("Error creating user")
                 //There was an issue creating the user
             }
             else {
@@ -81,7 +81,7 @@ class SMSVerifyViewController: UIViewController {
                     if error != nil {
                         
                         //go back to login page if user data is already stored
-                        showError("Error saving user data")
+                        Utilities.showError("Error saving user data")
                         self.performSegue(withIdentifier: "userAlreadyCreatedSegue", sender: self)
                     } else {
                         
@@ -91,10 +91,6 @@ class SMSVerifyViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    func showError(_ message:String) {
-        ProgressHUD.showError(message)
     }
     
     override func viewDidLoad() {

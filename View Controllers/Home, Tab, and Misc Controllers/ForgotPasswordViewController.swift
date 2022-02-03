@@ -21,14 +21,14 @@ class ForgotPasswordViewController: UIViewController {
         let email = emailTextField.text!
         if Utilities.isEmailValid(email) == false{
             
-            ProgressHUD.showError(emailEmpty)
+            Utilities.showError(emailEmpty)
             return
         } else {
             Utilities.resetPassword(email: email, onSuccess: {
                 self.view.endEditing(true)
-                ProgressHUD.showSuccess(self.emailSuccess)
+                Utilities.showSuccess(self.emailSuccess)
             }) { (errorMessage) in
-                ProgressHUD.showError(errorMessage)
+                Utilities.showError(errorMessage)
             }
         }
     }

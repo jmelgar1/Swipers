@@ -10,7 +10,7 @@ import ProgressHUD
 import FirebaseFirestore
 import FirebaseAuth
 
-class SignUpViewController: UIViewController, UINavigationControllerDelegate, ErrorProtocol {
+class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -75,7 +75,7 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
 
         if error != nil {
             //If something is wrong with the fields this shows up
-            showError(error!)
+            Utilities.showError(error!)
         } else {
             self.performSegue(withIdentifier: "SignUpViewShow2", sender: self)
         }
@@ -89,7 +89,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
         vc.email = emailField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         vc.phoneNumber = phonenumberField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         vc.password = passwordField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        vc.delegate = self
 
     }
     
@@ -104,10 +103,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, Er
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         phonenumberField.resignFirstResponder()
-    }
-    
-    func showError(_ message:String) {
-        ProgressHUD.showError(message)
     }
     
     //Makes the users avatar appear circular

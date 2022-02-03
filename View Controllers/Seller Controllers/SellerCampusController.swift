@@ -11,7 +11,7 @@ import ProgressHUD
 import FirebaseFirestore
 import FirebaseAuth
 
-class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, ErrorProtocol {
+class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
     let UserDefault: UserDefaults = UserDefaults.standard
     
@@ -41,12 +41,14 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
             addSellerToSellList()
             
         } else {
-            showError("Please move closer to \(campusType) and try again.")
+            Utilities.showError("Please move closer to \(campusType) and try again.")
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeSellerFromSellList), name: Notification.Name.Action.CallRemoveMethod, object: nil)
         
         //geofencing setup
         locationManager.delegate = self
@@ -90,7 +92,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         UserDefault.set(false, forKey: "InBounds")
         removeSellerFromSellList()
-        showError("You have moved too far from \(campusType)")
+        Utilities.showError("You have moved too far from \(campusType)")
         
     }
     
@@ -122,7 +124,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                     if error != nil {
                         
                         //go back to sell page if something fails
-                        self.showError("Error assigning user to sell list.")
+                        Utilities.showError("Error assigning user to sell list.")
                         self.performSegue(withIdentifier: "SellerCampusSegue", sender: self)
                     } else {
                         
@@ -131,16 +133,16 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                     }
                 }
             } else {
-                showError("Can not retrieve user data")
+                Utilities.showError("Can not retrieve user data")
             }
         }
     }
     
-    func removeSellerFromSellList(){
+    @objc func removeSellerFromSellList(){
         
         db.collection("sellers\(campus)").document(userID).delete() { err in
             if let err = err {
-                self.showError("Error removing user from sell list")
+                Utilities.showError("Error removing user from sell list")
             } else {
                 print("Success on removing the document")
             }
@@ -153,7 +155,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         } else if (campusType == "Stingers") {
             locationManager.startMonitoring(for: Utilities.getMariettaCampusCoords())
         } else {
-            showError("Can not find campus type. Contact support!")
+            Utilities.showError("Can not find campus type. Contact support!")
         }
     }
     
@@ -174,7 +176,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
 
     }
     
-    func showError(_ message:String) {
-        ProgressHUD.showError(message)
+    deinit{
+        NotificationCenter.default.removeObserver(self)
     }
 }

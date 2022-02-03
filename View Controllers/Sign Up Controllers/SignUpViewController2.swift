@@ -26,17 +26,10 @@ class SignUpViewController2: UIViewController {
     var password: String = ""
     var verificationId: String = ""
     
-    var delegate: ErrorProtocol?
-    
     let userDefault = UserDefaults.standard
     
     //camera talon card picture function here
     
-    //show error message if for some reason there is an error
-    func showError(_ message:String) {
-        ProgressHUD.showError(message)
-    }
-
     @IBAction func submitButtonPressed(_ sender: Any)
     {
                 //send SMS code to user
@@ -49,7 +42,7 @@ class SignUpViewController2: UIViewController {
                         self.userDefault.synchronize()
                         
                     } else {
-                        self.delegate?.showError("Unable to get secret verification code from firebase")
+                        Utilities.showError("Unable to get secret verification code from firebase")
                     }
                 }
                 

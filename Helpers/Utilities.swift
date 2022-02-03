@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import CoreLocation
+import ProgressHUD
 
 class Utilities {
     
@@ -55,6 +56,15 @@ class Utilities {
     static func getMariettaCampusCoords() -> CLCircularRegion {
         let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 33.937379, longitude: -84.522307), radius: 400, identifier: "Stingers")
         return geoFenceRegion
+    }
+    
+    //progresshud error message template
+    static func showError(_ message: String) {
+        ProgressHUD.showError(message)
+    }
+    
+    static func showSuccess(_ message: String) {
+        ProgressHUD.showSuccess(message)
     }
 }
 
