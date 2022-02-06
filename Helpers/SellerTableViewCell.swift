@@ -15,10 +15,9 @@ class SellerTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var ratingStar: UIImageView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+    //make profile picture circular
+    //profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
+    //profilePicture.clipsToBounds = true
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

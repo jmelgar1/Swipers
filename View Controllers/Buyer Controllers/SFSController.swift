@@ -37,8 +37,6 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         self.title = campusType
         
-        let nib = UINib(nibName: "SellerTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "SellerTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -86,11 +84,11 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SellerTableViewCell", for: indexPath) as! SellerTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SellerTableViewCell
         
         cell.fullName.text = firstNamesList[indexPath.row]
         cell.rating.text = ratingsList[indexPath.row]
-        cell.swipePrice.text = swipePricesList[indexPath.row]
+        cell.swipePrice.text = "$" + swipePricesList[indexPath.row] + "/swipe"
         return cell
     }
 }
