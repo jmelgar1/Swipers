@@ -10,8 +10,8 @@ import UIKit
 class SellerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var fullName: UILabel!
-    @IBOutlet weak var rating: UILabel!
-    @IBOutlet weak var swipePrice: UILabel!
+    @IBOutlet weak var rating: UITextField!
+    @IBOutlet weak var swipePrice: UITextField!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var ratingStar: UIImageView!
     

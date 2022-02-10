@@ -6,10 +6,22 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import Firebase
 
 class BuyerController: UIViewController {
     
-    var diningHallType: String = ""
+    var campus: String = ""
+    
+    let db = Firestore.firestore()
+    
+    let UserDefault: UserDefaults = UserDefaults.standard
+    
+    var firstNames = [String]()
+    var lastNames = [String]()
+    var phoneNumbers = [String]()
+    var ratings = [String]()
+    var swipePrices = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,23 +29,60 @@ class BuyerController: UIViewController {
 
     @IBAction func theCommonsButtonPressed(_ sender: Any)
     {
-        diningHallType = "The Commons"
+        campus = "Kennesaw"
         
-        self.performSegue(withIdentifier: "BuyerSearchSegue", sender: self)
+        getCurrentSellerData()
+            
+        let seconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.performSegue(withIdentifier: "BuyerSearchSegue", sender: self)
+        }
     }
     
     @IBAction func stingersButtonPressed(_ sender: Any)
     {
-        diningHallType = "Stingers"
+        campus = "Marietta"
         
-        self.performSegue(withIdentifier: "BuyerSearchSegue", sender: self)
+        getCurrentSellerData()
+        
+        let seconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.performSegue(withIdentifier: "BuyerSearchSegue", sender: self)
+        }
     }
+    
+    func getCurrentSellerData(){
+        db.collection("sellers\(campus)").getDocuments { (snapshot, error) in
+            guard let snapshot = snapshot, error == nil else {
+                Utilities.showError("There are no active buyers.")
+            return
+            }
+                print("Number of documents: \(snapshot.documents.count ?? -1)")
+                snapshot.documents.forEach({ (documentSnapshot) in
+                let documentData = documentSnapshot.data()
+                    
+                //add firebase values to arrays
+                self.firstNames.append((documentData["first_name"] as? String)!)
+                self.lastNames.append((documentData["last_name"] as? String)!)
+                self.phoneNumbers.append((documentData["phone_number"] as? String)!)
+                self.ratings.append((documentData["rating"] as? String)!)
+                self.swipePrices.append((documentData["swipe_price"] as? String)!)
+                    
+                //assign arrays to user defaults
+                self.UserDefault.set(self.firstNames, forKey: "firstNames")
+                self.UserDefault.set(self.lastNames, forKey: "lastNames")
+                self.UserDefault.set(self.phoneNumbers, forKey: "phoneNumbers")
+                self.UserDefault.set(self.ratings, forKey: "ratings")
+                self.UserDefault.set(self.swipePrices, forKey: "swipePrices")
+            })
+        }
+    }
+
     
     //Pass on the variable to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! SFSController
         
-        vc.campusType = diningHallType
-
+        vc.campus = campus
     }
 }

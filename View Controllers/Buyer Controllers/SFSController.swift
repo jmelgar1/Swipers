@@ -13,69 +13,47 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     @IBOutlet weak var tableView: UITableView!
     
-    let db = Firestore.firestore()
+    //let db = Firestore.firestore()
+
+    // var numOfDocuments: Int = 0
     
-    let UserDefault: UserDefaults = UserDefaults.standard
+    var firstNamesList = UserDefaults.standard.stringArray(forKey: "firstNames")!
+    var lastNamesList = UserDefaults.standard.stringArray(forKey: "lastNames")!
+    var phoneNumbersList = UserDefaults.standard.stringArray(forKey: "phoneNumbers")!
+    var ratingsList = UserDefaults.standard.stringArray(forKey: "ratings")!
+    var swipePricesList = UserDefaults.standard.stringArray(forKey: "swipePrices")!
     
-    var firstNames = [String]()
-    var lastNames = [String]()
-    var phoneNumbers = [String]()
-    var ratings = [String]()
-    var swipePrices = [String]()
+    let documentCount = UserDefaults.standard.integer(forKey: "documentCount")
     
-    let firstNamesList = UserDefaults.standard.stringArray(forKey: "firstNames")!
-    let lastNamesList = UserDefaults.standard.stringArray(forKey: "lastNames")!
-    let phoneNumbersList = UserDefaults.standard.stringArray(forKey: "phoneNumbers")!
-    let ratingsList = UserDefaults.standard.stringArray(forKey: "ratings")!
-    let swipePricesList = UserDefaults.standard.stringArray(forKey: "swipePrices")!
-    
+    var diningHallType: String = ""
     var campusType: String = ""
     var campus: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = campusType
+        if (campus == "Kennesaw") {
+            diningHallType = "The Commons"
+        } else {
+            diningHallType = "Stingers"
+        }
+        
+        self.title = diningHallType
         
         tableView.delegate = self
         tableView.dataSource = self
         
         //get campus variable for retrieving user names for seller list
-        if(campusType == "The Commons"){
-            campus = "Kennesaw"
-        } else {
-            campus = "Marietta"
-        }
         
-        //get current user document data
-        getCurrentSellerData()
+        //THIS DOES NOT UPDATE UNTIL KT IS TOO LATE IT IS ALWAYS ONE CLIKC BEHIND
     }
     
-    func getCurrentSellerData(){
-        db.collection("sellers\(campus)").getDocuments { (snapshot, error) in
-            guard let snapshot = snapshot, error == nil else {
-                Utilities.showError("There are no active buyers.")
-            return
-            }
-                print("Number of documents: \(snapshot.documents.count ?? -1)")
-                snapshot.documents.forEach({ (documentSnapshot) in
-                let documentData = documentSnapshot.data()
-                    
-                //add firebase values to arrays
-                self.firstNames.append((documentData["first_name"] as? String)!)
-                self.lastNames.append((documentData["last_name"] as? String)!)
-                self.phoneNumbers.append((documentData["phone_number"] as? String)!)
-                self.ratings.append((documentData["rating"] as? String)!)
-                self.swipePrices.append((documentData["swipe_price"] as? String)!)
-                    
-                //assign arrays to user defaults
-                self.UserDefault.set(self.firstNames, forKey: "firstNames")
-                self.UserDefault.set(self.lastNames, forKey: "lastNames")
-                self.UserDefault.set(self.phoneNumbers, forKey: "phoneNumbers")
-                self.UserDefault.set(self.ratings, forKey: "ratings")
-                self.UserDefault.set(self.swipePrices, forKey: "swipePrices")
-            })
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+       
+        firstNamesList = []
+        tableView.reloadData()
+        print(" exited the scene eexited the scenenenenenen")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -86,9 +64,15 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SellerTableViewCell
         
+        cell.swipePrice.background = UIImage(named: "priceField.png")
+        cell.rating.background = UIImage(named: "priceField.png")
+        
         cell.fullName.text = firstNamesList[indexPath.row]
+        
         cell.rating.text = ratingsList[indexPath.row]
-        cell.swipePrice.text = "$" + swipePricesList[indexPath.row] + "/swipe"
+        
+        cell.swipePrice.text = "$" + swipePricesList[indexPath.row]
+        
         return cell
     }
 }
