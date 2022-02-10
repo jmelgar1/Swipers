@@ -489,11 +489,133 @@
                     <navigationItem key="navigationItem" id="6r2-tf-rlg"/>
                     <connections>
                         <outlet property="tableView" destination="wlW-K5-Rtw" id="kA6-A4-21V"/>
+                        <segue destination="KDz-Nb-8p4" kind="showDetail" identifier="SellerProfileSegue" id="Abh-Kr-hd6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svr-RS-nR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5244.9275362318849" y="-623.4375"/>
+        </scene>
+        <!--Seller Profile Controller-->
+        <scene sceneID="27f-oC-Sud">
+            <objects>
+                <viewController storyboardIdentifier="SellerProfileController" id="KDz-Nb-8p4" customClass="SellerProfileController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pFr-9u-cXW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarOutline" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdb-RB-ULt">
+                                <rect key="frame" x="132" y="63" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="4Mt-Nw-U0n"/>
+                                    <constraint firstAttribute="width" constant="150" id="kF7-O8-9lN"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlM-sJ-c14">
+                                <rect key="frame" x="119.5" y="243" width="176" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="bRs-ZK-DT3"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Josh Melgar">
+                                        <attributes>
+                                            <font key="NSFont" size="30" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingStar" translatesAutoresizingMaskIntoConstraints="NO" id="xpE-jN-43M">
+                                <rect key="frame" x="28" y="318" width="50" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="n2W-Jc-6FI"/>
+                                    <constraint firstAttribute="width" constant="50" id="sgR-wv-GCK"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="24I-X0-yUH">
+                                <rect key="frame" x="86" y="321" width="89" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="cx5-JN-FvG"/>
+                                    <constraint firstAttribute="width" constant="89" id="zDN-Wb-JCR"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="4.75">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="30" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="costPerSwipe" translatesAutoresizingMaskIntoConstraints="NO" id="ErV-Ho-mq7">
+                                <rect key="frame" x="240" y="315" width="50" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="iiJ-L2-61a"/>
+                                    <constraint firstAttribute="width" constant="50" id="paG-EJ-pN9"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="LaB-DG-0RO">
+                                <rect key="frame" x="298" y="321" width="89" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="MfP-3z-NJi"/>
+                                    <constraint firstAttribute="height" constant="34" id="bKm-bz-4Zm"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="$10.50">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="labelColor"/>
+                                            <font key="NSFont" size="30" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-YD-xz4">
+                                <rect key="frame" x="26" y="710" width="363" height="69.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69.5" id="auJ-dN-u5a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="31"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Buy From Name" backgroundImage="BlueButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="stingersButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="XDn-ld-J7m"/>
+                                    <action selector="stingersButtonPressed:" destination="jQE-TQ-IlD" eventType="touchUpInside" id="bgy-ix-rcZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EOg-wQ-S0e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LaB-DG-0RO" firstAttribute="leading" secondItem="ErV-Ho-mq7" secondAttribute="trailing" constant="8" id="3Rg-Pg-fCW"/>
+                            <constraint firstItem="Hdb-RB-ULt" firstAttribute="leading" secondItem="EOg-wQ-S0e" secondAttribute="leading" constant="132" id="3Ye-Fu-j0V"/>
+                            <constraint firstItem="xpE-jN-43M" firstAttribute="centerY" secondItem="LaB-DG-0RO" secondAttribute="centerY" id="6EM-xG-q1m"/>
+                            <constraint firstItem="ZlM-sJ-c14" firstAttribute="top" secondItem="Hdb-RB-ULt" secondAttribute="bottom" constant="30" id="AkP-83-4AM"/>
+                            <constraint firstItem="EOg-wQ-S0e" firstAttribute="bottom" secondItem="2qN-YD-xz4" secondAttribute="bottom" constant="28.5" id="HV3-7j-s7O"/>
+                            <constraint firstItem="24I-X0-yUH" firstAttribute="leading" secondItem="xpE-jN-43M" secondAttribute="trailing" constant="8" id="Hv0-ga-ebo"/>
+                            <constraint firstItem="2qN-YD-xz4" firstAttribute="centerX" secondItem="ZlM-sJ-c14" secondAttribute="centerX" id="LiI-yD-qKe"/>
+                            <constraint firstItem="Hdb-RB-ULt" firstAttribute="top" secondItem="EOg-wQ-S0e" secondAttribute="top" constant="63" id="MId-Pb-LOY"/>
+                            <constraint firstItem="2qN-YD-xz4" firstAttribute="leading" secondItem="EOg-wQ-S0e" secondAttribute="leading" constant="26" id="T9x-5y-JeF"/>
+                            <constraint firstItem="24I-X0-yUH" firstAttribute="leading" secondItem="xpE-jN-43M" secondAttribute="trailing" constant="8" id="Vvm-oO-Fg1"/>
+                            <constraint firstItem="xpE-jN-43M" firstAttribute="centerY" secondItem="24I-X0-yUH" secondAttribute="centerY" id="Z2x-s8-lxv"/>
+                            <constraint firstItem="xpE-jN-43M" firstAttribute="leading" secondItem="EOg-wQ-S0e" secondAttribute="leading" constant="28" id="bRM-S9-GBq"/>
+                            <constraint firstItem="ErV-Ho-mq7" firstAttribute="leading" secondItem="24I-X0-yUH" secondAttribute="trailing" constant="65" id="ea4-LK-7bP"/>
+                            <constraint firstItem="xpE-jN-43M" firstAttribute="top" secondItem="EOg-wQ-S0e" secondAttribute="top" constant="318" id="hnl-R9-KBB"/>
+                            <constraint firstItem="EOg-wQ-S0e" firstAttribute="trailing" secondItem="Hdb-RB-ULt" secondAttribute="trailing" constant="132" id="vZo-jg-gQV"/>
+                            <constraint firstItem="ErV-Ho-mq7" firstAttribute="top" secondItem="ZlM-sJ-c14" secondAttribute="bottom" constant="38" id="yZu-66-hIp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TtW-QJ-iRT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NOG-nw-0rU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6302.898550724638" y="-623.4375"/>
         </scene>
         <!--Buy-->
         <scene sceneID="zRQ-gZ-3n9">

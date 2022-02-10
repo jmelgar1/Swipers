@@ -37,6 +37,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self
     }
     
+    //clear the tableview when user clicks back button
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
@@ -44,12 +45,12 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.reloadData()
     }
     
+    //Set number of rows in the tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return firstNamesList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("List cell: \(firstNamesList)")
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SellerTableViewCell
         
@@ -57,11 +58,14 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.rating.background = UIImage(named: "priceField.png")
         
         cell.fullName.text = firstNamesList[indexPath.row]
-        
         cell.rating.text = ratingsList[indexPath.row]
-        
         cell.swipePrice.text = "$" + swipePricesList[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+        self.performSegue(withIdentifier: "SellerProfileSegue", sender: self)
     }
 }
