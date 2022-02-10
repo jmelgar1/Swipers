@@ -611,7 +611,12 @@
                             <constraint firstItem="ErV-Ho-mq7" firstAttribute="top" secondItem="ZlM-sJ-c14" secondAttribute="bottom" constant="38" id="yZu-66-hIp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="TtW-QJ-iRT"/>
+                    <connections>
+                        <outlet property="buyButton" destination="2qN-YD-xz4" id="hBf-88-0aQ"/>
+                        <outlet property="fullNameField" destination="ZlM-sJ-c14" id="tuT-pY-oOp"/>
+                        <outlet property="ratingField" destination="24I-X0-yUH" id="Ixa-JX-5EZ"/>
+                        <outlet property="swipePriceField" destination="LaB-DG-0RO" id="Wbh-d8-snu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOG-nw-0rU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

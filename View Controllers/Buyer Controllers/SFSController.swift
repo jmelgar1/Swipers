@@ -50,6 +50,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return firstNamesList.count
     }
     
+    //fill in all new/existing cells
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SellerTableViewCell
@@ -57,15 +58,29 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.swipePrice.background = UIImage(named: "priceField.png")
         cell.rating.background = UIImage(named: "priceField.png")
         
-        cell.fullName.text = firstNamesList[indexPath.row]
+        cell.fullName.text = "\(firstNamesList[indexPath.row]) \(lastNamesList[indexPath.row])"
         cell.rating.text = ratingsList[indexPath.row]
         cell.swipePrice.text = "$" + swipePricesList[indexPath.row]
         
         return cell
     }
     
+    //check which cell is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         
+        UserDefaults.standard.set(indexPath.row, forKey: "cellNum")
+        
         self.performSegue(withIdentifier: "SellerProfileSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SellerProfileController
+        
+        var cellNum = UserDefaults.standard.integer(forKey: "cellNum")
+        
+        vc.firstName = firstNamesList[cellNum]
+        vc.fullName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
+        vc.rating = ratingsList[cellNum]
+        vc.swipePrice = "$\(swipePricesList[cellNum])"
     }
 }
