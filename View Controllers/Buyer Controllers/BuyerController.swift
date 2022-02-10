@@ -60,7 +60,7 @@ class BuyerController: UIViewController {
                 print("Number of documents: \(snapshot.documents.count ?? -1)")
                 snapshot.documents.forEach({ (documentSnapshot) in
                 let documentData = documentSnapshot.data()
-                    
+                
                 //add firebase values to arrays
                 self.firstNames.append((documentData["first_name"] as? String)!)
                 self.lastNames.append((documentData["last_name"] as? String)!)
@@ -75,9 +75,18 @@ class BuyerController: UIViewController {
                 self.UserDefault.set(self.ratings, forKey: "ratings")
                 self.UserDefault.set(self.swipePrices, forKey: "swipePrices")
             })
+            //clearing arrays to prevent duplicates
+            self.emptyArrays()
         }
     }
-
+    
+    func emptyArrays(){
+        self.firstNames.removeAll()
+        self.lastNames.removeAll()
+        self.phoneNumbers.removeAll()
+        self.ratings.removeAll()
+        self.swipePrices.removeAll()
+    }
     
     //Pass on the variable to next view
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
