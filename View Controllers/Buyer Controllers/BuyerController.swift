@@ -51,7 +51,7 @@ class BuyerController: UIViewController {
         }
     }
     
-    func getCurrentSellerData(){
+    @objc func getCurrentSellerData(){
         db.collection("sellers\(campus)").getDocuments { (snapshot, error) in
             guard let snapshot = snapshot, error == nil else {
                 Utilities.showError("There are no active buyers.")

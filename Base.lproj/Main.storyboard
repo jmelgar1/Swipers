@@ -490,6 +490,7 @@
                     <connections>
                         <outlet property="tableView" destination="wlW-K5-Rtw" id="kA6-A4-21V"/>
                         <segue destination="KDz-Nb-8p4" kind="showDetail" identifier="SellerProfileSegue" id="Abh-Kr-hd6"/>
+                        <segue destination="DmT-jD-Suf" kind="show" identifier="ChatroomSegue" id="rxu-fX-wT9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svr-RS-nR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -585,6 +586,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="buyButtonPressed:" destination="KDz-Nb-8p4" eventType="touchUpInside" id="9z8-1Y-0aS"/>
                                     <action selector="stingersButtonPressed:" destination="nrI-KV-td7" eventType="touchUpInside" id="XDn-ld-J7m"/>
                                     <action selector="stingersButtonPressed:" destination="jQE-TQ-IlD" eventType="touchUpInside" id="bgy-ix-rcZ"/>
                                 </connections>
@@ -621,6 +623,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOG-nw-0rU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6302.898550724638" y="-623.4375"/>
+        </scene>
+        <!--Chatroom-->
+        <scene sceneID="SpE-8v-DKF">
+            <objects>
+                <viewController storyboardIdentifier="ChatroomController" id="DmT-jD-Suf" customClass="ChatroomController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ekN-Hx-5Gc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="TkU-2i-TCe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chatroom" id="vxb-er-4UE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r4X-eX-duy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5245" y="218"/>
         </scene>
         <!--Buy-->
         <scene sceneID="zRQ-gZ-3n9">

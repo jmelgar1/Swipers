@@ -30,9 +30,23 @@ class SellerProfileController: UIViewController {
         buyButton.setTitle("Buy From \(firstName)", for: .normal)
     }
     
+    @IBAction func buyButtonPressed(_ sender: Any) {
+        
+        //calls chatroom view controller when pressed
+        NotificationCenter.default.post(name: Notification.Name.Chatroom.CallChatroomMethod, object: nil)
+        
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func setBackgrounds(){
         ratingField.background = UIImage(named: "priceField.png")
         swipePriceField.background = UIImage(named: "priceField.png")
+        }
+    }
+
+extension Notification.Name {
+    struct Chatroom {
+        static let CallChatroomMethod = Notification.Name("CallChatRoomMethod")
     }
 }
 

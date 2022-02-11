@@ -25,6 +25,8 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(goToChatroom), name: Notification.Name.Chatroom.CallChatroomMethod, object: nil)
+        
         if (campus == "Kennesaw") {
             diningHallType = "The Commons"
         } else {
@@ -35,14 +37,6 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         tableView.delegate = self
         tableView.dataSource = self
-    }
-    
-    //clear the tableview when user clicks back button
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        tableView.dataSource = nil
-        tableView.reloadData()
     }
     
     //Set number of rows in the tableview
@@ -73,14 +67,27 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.performSegue(withIdentifier: "SellerProfileSegue", sender: self)
     }
     
+    @objc func goToChatroom(){
+        self.performSegue(withIdentifier: "ChatroomSegue", sender: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! SellerProfileController
-        
-        var cellNum = UserDefaults.standard.integer(forKey: "cellNum")
-        
-        vc.firstName = firstNamesList[cellNum]
-        vc.fullName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
-        vc.rating = ratingsList[cellNum]
-        vc.swipePrice = "$\(swipePricesList[cellNum])"
+        if segue.identifier == "SellerProfileSegue" {
+            let vc = segue.destination as! SellerProfileController
+            
+            var cellNum = UserDefaults.standard.integer(forKey: "cellNum")
+            
+            vc.firstName = firstNamesList[cellNum]
+            vc.fullName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
+            vc.rating = ratingsList[cellNum]
+            vc.swipePrice = "$\(swipePricesList[cellNum])"
+            
+        } else if segue.identifier == "ChatroomSegue" {
+            let vc = segue.destination as! ChatroomController
+        }
+    }
+    
+    deinit{
+        NotificationCenter.default.removeObserver(self)
     }
 }
