@@ -9,12 +9,14 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import ProgressHUD
+import JGProgressHUD
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    private let spinner = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
         super.viewDidLoad()

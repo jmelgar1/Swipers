@@ -18,6 +18,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var phoneNumbersList = UserDefaults.standard.stringArray(forKey: "phoneNumbers")!
     var ratingsList = UserDefaults.standard.stringArray(forKey: "ratings")!
     var swipePricesList = UserDefaults.standard.stringArray(forKey: "swipePrices")!
+    var emailsList = UserDefaults.standard.stringArray(forKey: "emails")!
     
     var diningHallType: String = ""
     var campus: String = ""
@@ -86,8 +87,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else if segue.identifier == "ChatroomSegue" {
             let vc = segue.destination as! ChatroomController
             
-            vc.sellerFirstName = firstNamesList[cellNum]
-            vc.sellerFullName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
+            vc.otherUserName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
         }
     }
     
