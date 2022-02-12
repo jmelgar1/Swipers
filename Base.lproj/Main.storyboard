@@ -638,7 +638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4X-eX-duy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5245" y="218"/>
+            <point key="canvasLocation" x="7236" y="-1349"/>
         </scene>
         <!--Buy-->
         <scene sceneID="zRQ-gZ-3n9">
@@ -906,6 +906,7 @@
                     <navigationItem key="navigationItem" title="Searching for a seller" id="ugt-RT-2k1"/>
                     <connections>
                         <segue destination="i4q-NN-HoO" kind="show" identifier="BackToSellerCampusSegue" id="z78-5S-K5m"/>
+                        <segue destination="DmT-jD-Suf" kind="show" identifier="ChatroomSegueSeller" id="zCv-TS-Iht"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtX-S6-wPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1598,6 +1599,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="uZD-2U-NK6"/>
         <segue reference="fWu-IP-TnZ"/>
+        <segue reference="rxu-fX-wT9"/>
         <segue reference="ZnT-UA-poI"/>
     </inferredMetricsTieBreakers>
     <resources>

@@ -72,10 +72,11 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        var cellNum = UserDefaults.standard.integer(forKey: "cellNum")
+        
         if segue.identifier == "SellerProfileSegue" {
             let vc = segue.destination as! SellerProfileController
-            
-            var cellNum = UserDefaults.standard.integer(forKey: "cellNum")
             
             vc.firstName = firstNamesList[cellNum]
             vc.fullName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
@@ -84,6 +85,9 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
         } else if segue.identifier == "ChatroomSegue" {
             let vc = segue.destination as! ChatroomController
+            
+            vc.sellerFirstName = firstNamesList[cellNum]
+            vc.sellerFullName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
         }
     }
     
