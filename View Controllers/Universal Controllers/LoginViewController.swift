@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToTabBar), name: Notification.Name.TabBar.CallTabBarSegue, object: nil)
     }
     
     @IBAction func loginButtonPressed(_ sender: Any)
@@ -33,39 +35,20 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         //Get is_verified value from users data document from firebase
-        let db = Firestore.firestore()
-        let docRef = db.collection("users").document(Auth.auth().currentUser?.uid ?? "")
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let isVerified = document.get("is_verified") as? Int
-                
-                //sign in the user and check for verification
-                Auth.auth().signIn(withEmail: email, password: password) { result, error in
-                    
-                    if error != nil {
-                        
-                        Utilities.showError(error!.localizedDescription)
-                        
-                        //1 is true 0 is false
-                    } else if (isVerified! == 1){
-                        
-                        self.performSegue(withIdentifier: "TabBarShow", sender: self)
-                        
-                    } else {
-                        
-                        Utilities.showError("Your account is not verified yet!")
-
-                    }
-                }
-            } else {
-                Utilities.showError("Incorrect login details")
-            }
-        }
+        DatabaseManager.isVerified(email: email, password: password)
     }
     
     //Go to password reset page is user clicks on forgot password
     @IBAction func passwordResetPressed(_ sender: Any)
     {
         self.performSegue(withIdentifier: "forgotPasswordSegue", sender: self)
+    }
+    
+    @objc func goToTabBar(){
+        self.performSegue(withIdentifier: "TabBarShow", sender: self)
+    }
+    
+    deinit{
+        NotificationCenter.default.removeObserver(self)
     }
 }

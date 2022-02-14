@@ -58,7 +58,6 @@ class BuyerController: UIViewController {
                 Utilities.showError("There are no active buyers.")
             return
             }
-                print("Number of documents: \(snapshot.documents.count ?? -1)")
                 snapshot.documents.forEach({ (documentSnapshot) in
                 let documentData = documentSnapshot.data()
                 

@@ -96,19 +96,41 @@ class DatabaseManager {
         }
     }
     
-    static func isVerified(completion: @escaping(Int)->()){
-        var isVerified: Int = 0
+    static func isVerified(email: String, password: String){
         
         let db = Firestore.firestore()
-        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-        
+        let docRef = db.collection("users").document(Auth.auth().currentUser?.uid ?? "")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                isVerified = (document.get("is_verified") as? Int)!
-                completion(isVerified)
+                let isVerified = document.get("is_verified") as? Int
+                
+                //sign in the user and check for verification
+                Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                    
+                    if error != nil {
+                        
+                        Utilities.showError(error!.localizedDescription)
+                        
+                        //1 is true 0 is false
+                    } else if (isVerified! == 1){
+                        
+                        NotificationCenter.default.post(name: Notification.Name.TabBar.CallTabBarSegue, object: nil)
+                        
+                    } else {
+                        
+                        Utilities.showError("Your account is not verified yet!")
+
+                    }
+                }
             } else {
-                Utilities.showError("Can not find user document")
+                Utilities.showError("Incorrect login details")
             }
         }
+    }
+}
+
+extension Notification.Name {
+    struct TabBar {
+        static let CallTabBarSegue = Notification.Name("CallTabBarSegue")
     }
 }
