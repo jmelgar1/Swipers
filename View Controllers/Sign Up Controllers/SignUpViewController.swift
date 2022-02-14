@@ -10,7 +10,7 @@ import ProgressHUD
 import FirebaseFirestore
 import FirebaseAuth
 
-class SignUpViewController: UIViewController, UINavigationControllerDelegate {
+class SignUpViewController: UIViewController{
     
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -22,11 +22,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //SAVING THIS FOR PROFILE PAGE HOME PAGE
-        //Make UIImage circular
-        //circularImageView.layer.cornerRadius = circularImageView.frame.size.width/2
-        //circularImageView.clipsToBounds = true
         
         //field delegates
         firstNameField.delegate = self
@@ -104,41 +99,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         phonenumberField.resignFirstResponder()
     }
-    
-    //Makes the users avatar appear circular
-    //@IBOutlet weak var circularImageView: UIImageView!
-    
-    /*
-    @IBAction func importImage(_ sender: Any)
-    {
-        let image = UIImagePickerController()
-        image.delegate = self
-        
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        
-        image.allowsEditing = false
-        
-        self.present(image, animated: true)
-        {
-            //After completed
-        }
-        
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
-    {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        {
-            circularImageView.image = image
-        }
-        else
-        {
-            //error message
-        }
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-     */
 }
 
 extension SignUpViewController : UITextFieldDelegate {

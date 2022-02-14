@@ -616,6 +616,7 @@
                     <connections>
                         <outlet property="buyButton" destination="2qN-YD-xz4" id="hBf-88-0aQ"/>
                         <outlet property="fullNameField" destination="ZlM-sJ-c14" id="tuT-pY-oOp"/>
+                        <outlet property="profilePicture" destination="Hdb-RB-ULt" id="Rbe-vv-Cjo"/>
                         <outlet property="ratingField" destination="24I-X0-yUH" id="Ixa-JX-5EZ"/>
                         <outlet property="swipePriceField" destination="LaB-DG-0RO" id="Wbh-d8-snu"/>
                     </connections>
@@ -1107,7 +1108,6 @@
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ai-YQ-1EM">
                                 <rect key="frame" x="91" y="320" width="297" height="19"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="297" id="dfw-Aq-TAu"/>
                                     <constraint firstAttribute="height" constant="19" id="lZT-NV-nmm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1140,12 +1140,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarOutline" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAe-Ua-FT1">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarOutline" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAe-Ua-FT1">
                                 <rect key="frame" x="132" y="129" width="150" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="pD5-k0-JJX"/>
-                                    <constraint firstAttribute="height" constant="150" id="phx-Xa-j7Z"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pnd-ps-kzh"/>
@@ -1174,7 +1170,6 @@
                             <constraint firstItem="YJA-QL-PJz" firstAttribute="top" secondItem="zUN-7E-XdB" secondAttribute="bottom" constant="39" id="MAT-PM-HCS"/>
                             <constraint firstItem="A51-5l-1hT" firstAttribute="top" secondItem="gPc-Mh-iKr" secondAttribute="bottom" constant="37" id="NAg-Pl-SVU"/>
                             <constraint firstItem="2E3-ky-KkP" firstAttribute="top" secondItem="A51-5l-1hT" secondAttribute="bottom" constant="3" id="OgO-iU-sFY"/>
-                            <constraint firstItem="0ai-YQ-1EM" firstAttribute="top" secondItem="WAe-Ua-FT1" secondAttribute="bottom" constant="41" id="PBP-TC-X9q"/>
                             <constraint firstItem="zUN-7E-XdB" firstAttribute="top" secondItem="cFo-xR-WGu" secondAttribute="bottom" constant="3" id="Qtq-YP-15n"/>
                             <constraint firstItem="hEg-ZK-RIz" firstAttribute="top" secondItem="zUN-7E-XdB" secondAttribute="bottom" constant="38" id="V9Y-9K-bZt"/>
                             <constraint firstItem="Pnd-ps-kzh" firstAttribute="trailing" secondItem="zUN-7E-XdB" secondAttribute="trailing" constant="26" id="WCz-aT-4XI"/>

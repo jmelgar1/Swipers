@@ -13,6 +13,7 @@ class SellerProfileController: UIViewController {
     @IBOutlet weak var ratingField: UITextField!
     @IBOutlet weak var swipePriceField: UITextField!
     @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var profilePicture: UIImageView!
     
     var firstName: String = ""
     var fullName: String = ""
