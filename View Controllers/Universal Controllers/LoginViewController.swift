@@ -16,7 +16,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    /*
+     //unused for now
     private let spinner = JGProgressHUD(style: .dark)
+     */
     
     override func viewDidLoad() {
         super.viewDidLoad()

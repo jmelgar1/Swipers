@@ -5,15 +5,13 @@
 //  Created by Josh Melgar on 1/22/22.
 //
 
-import Foundation
-import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import CoreLocation
 import ProgressHUD
 
 class Utilities {
-    
+
     //checks if users password is valid
     static func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
@@ -46,19 +44,18 @@ class Utilities {
         }
     }
     
-    //gets latitude/longitude for the commons (kennesaw campus)
+    //MARK: Geolocation Functions
     static func getKennesawCampusCoords() -> CLCircularRegion {
         let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 34.039902, longitude: -84.581810), radius: 400, identifier: "The Commons")
         return geoFenceRegion
     }
     
-    //gets latitude/longitude for stingers (marietta campus)
     static func getMariettaCampusCoords() -> CLCircularRegion {
         let geoFenceRegion:CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 33.937379, longitude: -84.522307), radius: 400, identifier: "Stingers")
         return geoFenceRegion
     }
     
-    //progresshud error message template
+    //MARK: ProgressHUD Functions
     static func showError(_ message: String) {
         ProgressHUD.showError(message)
     }
@@ -66,8 +63,4 @@ class Utilities {
     static func showSuccess(_ message: String) {
         ProgressHUD.showSuccess(message)
     }
-}
-
-protocol ErrorProtocol {
-    func showError(_ message:String)
 }
