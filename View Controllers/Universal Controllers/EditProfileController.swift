@@ -24,23 +24,7 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
-              let url = URL(string: urlString) else {
-                  return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                let image = UIImage(data: data)
-                self.profileImage.image = image
-            }
-        })
-        
-        task.resume()
+        DatabaseManager.getUserAvatar(profileImage: profileImage)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         profileImage.isUserInteractionEnabled = true
@@ -81,7 +65,6 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
     {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
@@ -92,16 +75,18 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
                 return
             }
             
-            let userID = Auth.auth().currentUser?.uid
+            //Store profile picture in database
+            DatabaseManager.getEmail() { (email) in
+                let userEmail = email
             
             //images/useruid to save image
-            storage.child("profilePictures/\(userID!).png").putData(imageData, metadata: nil) { _, error in
+                self.storage.child("profilePictures/\(userEmail).png").putData(imageData, metadata: nil) { _, error in
                 guard error == nil else {
                     Utilities.showError("Failed to upload photos to database")
                     return
                 }
                 
-                self.storage.child("profilePictures/\(userID!).png").downloadURL(completion: { url, error in
+                self.storage.child("profilePictures/\(userEmail).png").downloadURL(completion: { url, error in
                     guard let url = url, error == nil else {
                         return
                     }
@@ -109,7 +94,8 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
                     let urlString = url.absoluteString
                     print("Download URL: \(urlString)")
                     UserDefaults.standard.set(urlString, forKey: "url")
-                })
+                    })
+                }
             }
         }
         else

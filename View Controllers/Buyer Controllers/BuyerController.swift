@@ -23,6 +23,7 @@ class BuyerController: UIViewController {
     var ratings = [String]()
     var swipePrices = [String]()
     var emails = [String]()
+    var imageURLs = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +69,7 @@ class BuyerController: UIViewController {
                 self.ratings.append((documentData["rating"] as? String)!)
                 self.swipePrices.append((documentData["swipe_price"] as? String)!)
                 self.emails.append((documentData["email"] as? String)!)
+                    self.imageURLs.append(((documentData["image_url"]) as? String ?? ""))
                     
                 //assign arrays to user defaults
                 self.UserDefault.set(self.firstNames, forKey: "firstNames")
@@ -76,6 +78,7 @@ class BuyerController: UIViewController {
                 self.UserDefault.set(self.ratings, forKey: "ratings")
                 self.UserDefault.set(self.swipePrices, forKey: "swipePrices")
                 self.UserDefault.set(self.emails, forKey: "emails")
+                self.UserDefault.set(self.imageURLs, forKey: "image_urls")
             })
             //clearing arrays to prevent duplicates
             self.emptyArrays()
@@ -89,6 +92,7 @@ class BuyerController: UIViewController {
         self.ratings.removeAll()
         self.swipePrices.removeAll()
         self.emails.removeAll()
+        self.imageURLs.removeAll()
     }
     
     //Pass on the variable to next view

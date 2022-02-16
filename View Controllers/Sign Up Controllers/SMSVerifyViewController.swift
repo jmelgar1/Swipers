@@ -80,7 +80,7 @@ class SMSVerifyViewController: UIViewController {
                 //User can be created, store the data
                 let db = Firestore.firestore()
                 
-                db.collection("users").document(result!.user.uid).setData(["first_name":self.firstName,"last_name":self.lastName,"is_verified":false,"email":email,"phone_number":phoneNumber]) { (error) in
+                db.collection("users").document(result!.user.uid).setData(["first_name":self.firstName,"last_name":self.lastName,"is_verified":false,"email":email,"phone_number":phoneNumber,"image_url":""]) { (error) in
                     
                     if error != nil {
                         

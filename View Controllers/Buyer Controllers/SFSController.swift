@@ -19,6 +19,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var ratingsList = UserDefaults.standard.stringArray(forKey: "ratings")!
     var swipePricesList = UserDefaults.standard.stringArray(forKey: "swipePrices")!
     var emailsList = UserDefaults.standard.stringArray(forKey: "emails")!
+    var imageURLsList = UserDefaults.standard.stringArray(forKey: "image_urls")
     
     var diningHallType: String = ""
     var campus: String = ""
@@ -29,12 +30,10 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         NotificationCenter.default.addObserver(self, selector: #selector(goToChatroom), name: Notification.Name.Chatroom.CallChatroomMethod, object: nil)
         
         if (campus == "Kennesaw") {
-            diningHallType = "The Commons"
+            self.title = "The Commons"
         } else {
-            diningHallType = "Stingers"
+            self.title = "Stingers"
         }
-        
-        self.title = diningHallType
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -83,6 +82,11 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
             vc.fullName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
             vc.rating = ratingsList[cellNum]
             vc.swipePrice = "$\(swipePricesList[cellNum])"
+            
+            //convert urlstrings to images
+            DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList?[cellNum]) { (image) in
+                vc.profilePicture = image as? UIImageView
+            }
             
         } else if segue.identifier == "ChatroomSegue" {
             let vc = segue.destination as! ChatroomController

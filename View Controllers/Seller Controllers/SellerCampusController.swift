@@ -40,7 +40,6 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
 
         //set background of text fields
         averagePriceTextField.background = UIImage(named: "priceField.png")
-        
         enterPriceTextField.background = UIImage(named: "swipePriceField.png")
         
         enterPriceTextField.delegate = self
@@ -112,7 +111,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     
     func addSellerToSellList(){
         
-        var swipePrice: Double? = Double(enterPriceTextField.text!)
+        var swipePrice: String = enterPriceTextField.text!
 
         let docRef = db.collection("users").document(userID)
         docRef.getDocument { [self] (document, error) in
@@ -122,7 +121,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                 let phoneNumber = (document.get("phone_number") as? String)!
                 let email = (document.get("email") as? String)!
                 
-                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber,"swipe_price":swipePrice,"email":email as? String]) { (error) in
+                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber,"swipe_price":swipePrice,"email":email,"rating":"5" as? String]) { (error) in
                     
                     if error != nil {
                         

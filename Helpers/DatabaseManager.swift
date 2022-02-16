@@ -7,6 +7,8 @@
 
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
+import UIKit
 
 class DatabaseManager {
     
@@ -126,6 +128,67 @@ class DatabaseManager {
                 Utilities.showError("Incorrect login details")
             }
         }
+    }
+    
+    static func getUserAvatar(profileImage: UIImageView){
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+              let url = URL(string: urlString) else {
+                  return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                profileImage.image = image
+            }
+        })
+        
+        task.resume()
+        
+        DatabaseManager.getEmail() { (email)
+            in
+            let userEmail = email
+            let db = Firestore.firestore()
+            
+            db.collection("users")
+                .whereField("email", isEqualTo: userEmail)
+                .getDocuments() { (querySnapshot, err) in
+                    if let err = err {
+                        Utilities.showError("Error finding user")
+                    } else if querySnapshot!.documents.count != 1 {
+                        // Perhaps this is an error for you?
+                    } else {
+                        let document = querySnapshot!.documents.first
+                        document!.reference.updateData([
+                            "image_url": urlString
+                    ])
+                }
+            }
+        }
+    }
+    
+    static func getUserAvatarFromURLString(imageURL: String?, completion: @escaping(UIImage)->()){
+        guard let urlString = imageURL,
+              let url = URL(string: urlString) else {
+                  return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                completion(image!)
+            }
+        })
+        
+        task.resume()
     }
 }
 
