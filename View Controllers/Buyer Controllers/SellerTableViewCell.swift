@@ -15,9 +15,10 @@ class SellerTableViewCell: UITableViewCell {
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var ratingStar: UIImageView!
     
-    //make profile picture circular
-    //profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2
-    //profilePicture.clipsToBounds = true
+    override func layoutSubviews() {
+        profilePicture.layer.cornerRadius = profilePicture.bounds.height/2
+        profilePicture.clipsToBounds = true
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

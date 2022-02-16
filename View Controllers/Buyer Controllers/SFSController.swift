@@ -27,6 +27,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //call chatroom transition method
         NotificationCenter.default.addObserver(self, selector: #selector(goToChatroom), name: Notification.Name.Chatroom.CallChatroomMethod, object: nil)
         
         if (campus == "Kennesaw") {
@@ -55,6 +56,10 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.fullName.text = "\(firstNamesList[indexPath.row]) \(lastNamesList[indexPath.row])"
         cell.rating.text = ratingsList[indexPath.row]
         cell.swipePrice.text = "$" + swipePricesList[indexPath.row]
+        
+        DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList?[indexPath.row]) { (image) in
+            cell.profilePicture.image = image
+        }
         
         return cell
     }
@@ -85,7 +90,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             //convert urlstrings to images
             DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList?[cellNum]) { (image) in
-                vc.profilePicture = image as? UIImageView
+                vc.profilePicture.image = image
             }
             
         } else if segue.identifier == "ChatroomSegue" {

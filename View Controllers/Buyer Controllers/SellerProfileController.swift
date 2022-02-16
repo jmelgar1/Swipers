@@ -31,6 +31,11 @@ class SellerProfileController: UIViewController {
         buyButton.setTitle("Buy From \(firstName)", for: .normal)
     }
     
+    override func viewWillLayoutSubviews() {
+        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width/2
+        self.profilePicture.clipsToBounds = true
+    }
+    
     @IBAction func buyButtonPressed(_ sender: Any) {
         
         //calls chatroom view controller when pressed

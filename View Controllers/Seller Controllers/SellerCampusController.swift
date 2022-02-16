@@ -120,8 +120,9 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                 let lastName = (document.get("last_name") as? String)!
                 let phoneNumber = (document.get("phone_number") as? String)!
                 let email = (document.get("email") as? String)!
+                let profilePicture = (document.get("image_url") as? String)!
                 
-                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber,"swipe_price":swipePrice,"email":email,"rating":"5" as? String]) { (error) in
+                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber,"swipe_price":swipePrice,"email":email,"rating":"5","image_url":profilePicture as? String]) { (error) in
                     
                     if error != nil {
                         

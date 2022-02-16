@@ -69,7 +69,7 @@ class BuyerController: UIViewController {
                 self.ratings.append((documentData["rating"] as? String)!)
                 self.swipePrices.append((documentData["swipe_price"] as? String)!)
                 self.emails.append((documentData["email"] as? String)!)
-                    self.imageURLs.append(((documentData["image_url"]) as? String ?? ""))
+                self.imageURLs.append(((documentData["image_url"]) as? String ?? "no_url"))
                     
                 //assign arrays to user defaults
                 self.UserDefault.set(self.firstNames, forKey: "firstNames")
