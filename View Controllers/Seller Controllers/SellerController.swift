@@ -14,6 +14,11 @@ class SellerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.hidesBackButton = true
+    }
 
     //Set diningHallType to Kennesaw Campus (important for later)
     @IBAction func theCommonsButtonPressed(_ sender: Any)

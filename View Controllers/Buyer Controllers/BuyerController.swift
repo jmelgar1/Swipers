@@ -28,6 +28,11 @@ class BuyerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.hidesBackButton = true
+    }
 
     @IBAction func theCommonsButtonPressed(_ sender: Any)
     {

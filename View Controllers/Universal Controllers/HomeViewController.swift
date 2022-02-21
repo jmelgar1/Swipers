@@ -13,6 +13,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.navigationItem.hidesBackButton = true
+    }
+    
     //Go to login page if login button is pressed
     @IBAction func loginViewButtonPressed(_ sender: Any) {
         
