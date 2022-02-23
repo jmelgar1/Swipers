@@ -24,25 +24,14 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DatabaseManager.getUserAvatar(profileImage: profileImage)
+        loadAttributes()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
         profileImage.isUserInteractionEnabled = true
         profileImage.addGestureRecognizer(tapGestureRecognizer)
         
-        DatabaseManager.getFullName() { (fullName) in
-            self.editNameTextField.placeholder = fullName
-        }
-        
-        DatabaseManager.getEmail() { (email) in
-            self.editEmailTextField.text = email
-        }
-        
-        DatabaseManager.getPhoneNumber() { (phoneNumber) in
-            self.editPhoneNumberTextField.text = phoneNumber
-        }
-        
-        //will figure out password later
+        //will figure out how to show password later
+        //take length of password from login and send it here
     }
     
     override func viewWillLayoutSubviews() {
@@ -104,5 +93,21 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
         }
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func loadAttributes(){
+        DatabaseManager.getUserAvatar(profileImage: profileImage)
+        
+        DatabaseManager.getFullName() { (fullName) in
+            self.editNameTextField.placeholder = fullName
+        }
+        
+        DatabaseManager.getEmail() { (email) in
+            self.editEmailTextField.text = email
+        }
+        
+        DatabaseManager.getPhoneNumber() { (phoneNumber) in
+            self.editPhoneNumberTextField.text = phoneNumber
+        }
     }
 }

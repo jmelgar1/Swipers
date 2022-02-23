@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseFirestore
+import Kingfisher
 
 class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -91,6 +92,9 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
             //convert urlstrings to images
             DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList?[cellNum]) { (image) in
                 vc.profilePicture.image = image
+                
+                //need to cache other user profile pictures
+                //vc.profilePicture.kf.setImage(with: image)
             }
             
         } else if segue.identifier == "ChatroomSegue" {

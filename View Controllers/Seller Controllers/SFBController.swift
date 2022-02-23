@@ -33,9 +33,3 @@ class SFBController: UIViewController {
         }
     }
 }
-
-extension Notification.Name {
-    struct Action {
-        static let CallRemoveMethod = Notification.Name("CallRemoveMethod")
-    }
-}

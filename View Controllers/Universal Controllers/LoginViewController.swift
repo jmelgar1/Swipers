@@ -9,7 +9,6 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import ProgressHUD
-import JGProgressHUD
 
 class LoginViewController: UIViewController {
 

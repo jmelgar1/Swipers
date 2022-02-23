@@ -8,6 +8,7 @@
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
+import Kingfisher
 import UIKit
 
 class DatabaseManager {
@@ -136,6 +137,8 @@ class DatabaseManager {
                   return
         }
         
+        profileImage.kf.setImage(with: url)
+        
         let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
             guard let data = data, error == nil else {
                 return
@@ -189,11 +192,5 @@ class DatabaseManager {
         })
         
         task.resume()
-    }
-}
-
-extension Notification.Name {
-    struct TabBar {
-        static let CallTabBarSegue = Notification.Name("CallTabBarSegue")
     }
 }

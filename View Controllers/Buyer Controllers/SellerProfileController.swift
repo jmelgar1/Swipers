@@ -49,10 +49,3 @@ class SellerProfileController: UIViewController {
         swipePriceField.background = UIImage(named: "priceField.png")
         }
     }
-
-extension Notification.Name {
-    struct Chatroom {
-        static let CallChatroomMethod = Notification.Name("CallChatRoomMethod")
-    }
-}
-

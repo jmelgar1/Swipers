@@ -422,7 +422,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarOutline" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jUQ-gr-G7J">
-                                                    <rect key="frame" x="20" y="11" width="81" height="80"/>
+                                                    <rect key="frame" x="20" y="11" width="80" height="80"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfB-TV-E9v">
                                                     <rect key="frame" x="119.5" y="34" width="175.5" height="34"/>
@@ -446,7 +446,7 @@
                                                 <constraint firstItem="hfB-TV-E9v" firstAttribute="centerX" secondItem="WIZ-gN-Epj" secondAttribute="centerX" id="T5d-kf-LyW"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Qme-1h-kCz" secondAttribute="bottom" constant="5" id="Tsu-Ri-v1f"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ujC-wj-oJ8" secondAttribute="bottom" constant="8" id="bcc-RY-iIP"/>
-                                                <constraint firstItem="hfB-TV-E9v" firstAttribute="leading" secondItem="jUQ-gr-G7J" secondAttribute="trailing" constant="18.5" id="cip-x1-6pv"/>
+                                                <constraint firstItem="hfB-TV-E9v" firstAttribute="leading" secondItem="jUQ-gr-G7J" secondAttribute="trailing" constant="19.5" id="cip-x1-6pv"/>
                                                 <constraint firstItem="ujC-wj-oJ8" firstAttribute="leading" secondItem="Qme-1h-kCz" secondAttribute="trailing" constant="8" id="dzr-AP-gpi"/>
                                                 <constraint firstItem="Qme-1h-kCz" firstAttribute="leading" secondItem="qRf-yB-Wue" secondAttribute="trailing" constant="72" id="ev2-1P-kHH"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="qRf-yB-Wue" secondAttribute="bottom" constant="8" id="g2Q-Qu-w9C"/>
