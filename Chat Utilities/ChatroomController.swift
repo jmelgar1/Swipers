@@ -111,6 +111,9 @@ class ChatroomController: MessagesViewController {
                             return
                         }
                     }
+                    
+                    //this is a problem. It gets called too many times for some reason
+                    //might need to use realtime database
                     self.createNewChat()
                 } else {
                     print("Please dont print this ever")
@@ -119,6 +122,7 @@ class ChatroomController: MessagesViewController {
         }
     }
     
+    //this function is getting called too many times
     func createNewChat() {
         let users = [self.currentUser.uid, self.otherUserUID]
         let data: [String: Any] = [
@@ -194,7 +198,7 @@ extension ChatroomController: MessagesDataSource, MessagesLayoutDelegate, Messag
     
     func currentSender() -> SenderType {
         
-        //insteadf of auth get full name from firebase
+        //instead of auth get full name from firebase
         return Sender(id: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser?.displayName ?? "Name not found")
     }
     

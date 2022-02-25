@@ -110,7 +110,6 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     func addSellerToSellList(){
-        
         var swipePrice: String = enterPriceTextField.text!
 
         let docRef = db.collection("users").document(userID)
@@ -142,7 +141,6 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     @objc func removeSellerFromSellList(){
-        
         db.collection("sellers\(campus)").document(userID).delete() { err in
             if let err = err {
                 Utilities.showError("Error removing user from sell list")

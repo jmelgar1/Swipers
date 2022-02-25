@@ -15,6 +15,9 @@ class DatabaseManager {
     
     static var sharedSessionManager = DatabaseManager()
     
+    //MARK: Get Attributes
+    
+    //Get current user first name
     static func getFirstName(completion: @escaping(String)->()){
         var firstName: String = ""
         
@@ -31,6 +34,7 @@ class DatabaseManager {
         }
     }
     
+    //Get current user last name
     static func getLastName(completion: @escaping(String)->()){
         var lastName: String = ""
         
@@ -47,6 +51,7 @@ class DatabaseManager {
         }
     }
     
+    //Get current user full name
     static func getFullName(completion: @escaping(String)->()){
         var firstName: String = ""
         var lastName: String = ""
@@ -67,6 +72,7 @@ class DatabaseManager {
         }
     }
     
+    //Get current user email
     static func getEmail(completion: @escaping(String)->()){
         var email: String = ""
         
@@ -83,6 +89,7 @@ class DatabaseManager {
         }
     }
     
+    //Get current user phone number
     static func getPhoneNumber(completion: @escaping(String)->()){
         var phoneNumber: String = ""
         
@@ -99,38 +106,7 @@ class DatabaseManager {
         }
     }
     
-    static func isVerified(email: String, password: String){
-        
-        let db = Firestore.firestore()
-        let docRef = db.collection("users").document(Auth.auth().currentUser?.uid ?? "")
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let isVerified = document.get("is_verified") as? Int
-                
-                //sign in the user and check for verification
-                Auth.auth().signIn(withEmail: email, password: password) { result, error in
-                    
-                    if error != nil {
-                        
-                        Utilities.showError(error!.localizedDescription)
-                        
-                        //1 is true 0 is false
-                    } else if (isVerified! == 1){
-                        
-                        NotificationCenter.default.post(name: Notification.Name.TabBar.CallTabBarSegue, object: nil)
-                        
-                    } else {
-                        
-                        Utilities.showError("Your account is not verified yet!")
-
-                    }
-                }
-            } else {
-                Utilities.showError("Incorrect login details")
-            }
-        }
-    }
-    
+    //Get current user avatar
     static func getUserAvatar(profileImage: UIImageView){
         guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
               let url = URL(string: urlString) else {
@@ -174,6 +150,7 @@ class DatabaseManager {
         }
     }
     
+    //Get users avatar from URL String
     static func getUserAvatarFromURLString(imageURL: String?, completion: @escaping(UIImage)->()){
         guard let urlString = imageURL,
               let url = URL(string: urlString) else {
@@ -192,5 +169,56 @@ class DatabaseManager {
         })
         
         task.resume()
+    }
+    
+    //MARK: Change attributes
+    //Change user email
+    static func changeEmail(newEmail: String){
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        docRef.setData(["email" : newEmail])
+    }
+    
+    //Change user phone number
+    static func changePhoneNumber(newPhoneNumber: String){
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        docRef.setData(["phone_number" : newPhoneNumber])
+    }
+    
+    //MARK: Misc
+    //Check is current user is verified
+    static func isVerified(email: String, password: String){
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Auth.auth().currentUser?.uid ?? "")
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let isVerified = document.get("is_verified") as? Int
+                
+                //sign in the user and check for verification
+                Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                    
+                    if error != nil {
+                        
+                        Utilities.showError(error!.localizedDescription)
+                        
+                        //1 is true 0 is false
+                    } else if (isVerified! == 1){
+                        
+                        NotificationCenter.default.post(name: Notification.Name.TabBar.CallTabBarSegue, object: nil)
+                        
+                    } else {
+                        
+                        Utilities.showError("Your account is not verified yet!")
+
+                    }
+                }
+            } else {
+                Utilities.showError("Incorrect login details")
+            }
+        }
     }
 }

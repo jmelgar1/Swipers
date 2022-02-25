@@ -32,6 +32,8 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
         
         //will figure out how to show password later
         //take length of password from login and send it here
+        
+        //detect tap on textfield to go to new phone number confirmation
     }
     
     override func viewWillLayoutSubviews() {
