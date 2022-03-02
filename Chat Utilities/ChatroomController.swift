@@ -4,7 +4,7 @@
 //
 //  Created by Josh Melgar on 2/10/22.
 //
-
+/*
 import UIKit
 import MessageKit
 import InputBarAccessoryView
@@ -113,7 +113,6 @@ class ChatroomController: MessagesViewController {
                     }
                     
                     //this is a problem. It gets called too many times for some reason
-                    //might need to use realtime database
                     self.createNewChat()
                 } else {
                     print("Please dont print this ever")
@@ -142,6 +141,7 @@ class ChatroomController: MessagesViewController {
     
     private func insertNewMessage(_ message: Message) {
         //add messages to array and reload
+        
         messages.append(message)
         messagesCollectionView.reloadData()
         DispatchQueue.main.async {
@@ -243,3 +243,4 @@ extension ChatroomController: MessagesDataSource, MessagesLayoutDelegate, Messag
         return .bubbleTail(corner, .curved)
     }
 }
+*/

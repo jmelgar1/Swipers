@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import Firebase
 import MessageKit
-
+/*
 struct Message {
     var id: String
     var content: String
@@ -58,3 +58,4 @@ extension Message: MessageType {
         return .text(content)
     }
 }
+ */

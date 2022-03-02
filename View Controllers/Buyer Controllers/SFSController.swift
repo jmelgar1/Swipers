@@ -98,9 +98,9 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
             
         } else if segue.identifier == "ChatroomSegue" {
-            let vc = segue.destination as! ChatroomController
+            //let vc = segue.destination as! ChatroomController
             
-            vc.otherUserName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
+            //vc.otherUserName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
         }
     }
     
