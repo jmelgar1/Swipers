@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class SellerProfileController: UIViewController {
     
@@ -14,11 +15,15 @@ class SellerProfileController: UIViewController {
     @IBOutlet weak var swipePriceField: UITextField!
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var container: UIView!
     
     var firstName: String = ""
     var fullName: String = ""
     var rating: String = ""
     var swipePrice: String = ""
+    var userId: String = ""
+    
+    static let instance = SellerProfileController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,14 +43,19 @@ class SellerProfileController: UIViewController {
     
     @IBAction func buyButtonPressed(_ sender: Any) {
         
-        //calls chatroom view controller when pressed
-        NotificationCenter.default.post(name: Notification.Name.Chatroom.CallChatroomMethod, object: nil)
+        guard let sellerFullName = fullNameField.text else { return }
         
-        self.dismiss(animated: true, completion: nil)
+        let TitleRowData = TitleRowData()
+        TitleRowData.sellerFullName = sellerFullName
+                
+        let childView = UIHostingController(rootView: ContentView().environmentObject(TitleRowData))
+        childView.view.frame = container.bounds
+        container.addSubview(childView.view)
+        childView.didMove(toParent: self)
     }
     
     func setBackgrounds(){
         ratingField.background = UIImage(named: "priceField.png")
         swipePriceField.background = UIImage(named: "priceField.png")
-        }
     }
+}

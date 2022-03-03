@@ -609,7 +609,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="View" destination="pFr-9u-cXW" id="bCi-pk-urd"/>
                         <outlet property="buyButton" destination="2qN-YD-xz4" id="hBf-88-0aQ"/>
+                        <outlet property="container" destination="pFr-9u-cXW" id="JbL-Cy-x9I"/>
                         <outlet property="fullNameField" destination="ZlM-sJ-c14" id="tuT-pY-oOp"/>
                         <outlet property="profilePicture" destination="Hdb-RB-ULt" id="Rbe-vv-Cjo"/>
                         <outlet property="ratingField" destination="24I-X0-yUH" id="Ixa-JX-5EZ"/>

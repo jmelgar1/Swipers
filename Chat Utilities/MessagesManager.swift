@@ -10,6 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class MessagesManager: ObservableObject {
+    var otherUserId = ""
     @Published private(set) var messages: [Message] = []
     @Published private(set) var lastMessageId = ""
     let db = Firestore.firestore()
@@ -19,6 +20,9 @@ class MessagesManager: ObservableObject {
     }
     
     func getMessages() {
+        
+        print(otherUserId)
+        //current user and other user uid document name, find where name equals and get document name
         db.collection("messages").addSnapshotListener { QuerySnapshot, error in
             guard let documents = QuerySnapshot?.documents else {
                 print("Error fetching documents: \(String(describing: error))")
@@ -52,4 +56,8 @@ class MessagesManager: ObservableObject {
             print("Error adding message to Firestore: \(error)")
         }
     }
+}
+
+class MessagesManagerData: ObservableObject {
+    @Published var otherUserId: String  = ""
 }

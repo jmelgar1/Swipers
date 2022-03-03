@@ -21,15 +21,13 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var swipePricesList = UserDefaults.standard.stringArray(forKey: "swipePrices")!
     var emailsList = UserDefaults.standard.stringArray(forKey: "emails")!
     var imageURLsList = UserDefaults.standard.stringArray(forKey: "image_urls")
+    var userIdsList = UserDefaults.standard.stringArray(forKey: "userIds")!
     
     var diningHallType: String = ""
     var campus: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //call chatroom transition method
-        NotificationCenter.default.addObserver(self, selector: #selector(goToChatroom), name: Notification.Name.Chatroom.CallChatroomMethod, object: nil)
         
         if (campus == "Kennesaw") {
             self.title = "The Commons"
@@ -73,10 +71,6 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.performSegue(withIdentifier: "SellerProfileSegue", sender: self)
     }
     
-    @objc func goToChatroom(){
-        self.performSegue(withIdentifier: "ChatroomSegue", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         var cellNum = UserDefaults.standard.integer(forKey: "cellNum")
@@ -88,6 +82,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
             vc.fullName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
             vc.rating = ratingsList[cellNum]
             vc.swipePrice = "$\(swipePricesList[cellNum])"
+            vc.userId = userIdsList[cellNum]
             
             //convert urlstrings to images
             DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList?[cellNum]) { (image) in
@@ -96,15 +91,6 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 //need to cache other user profile pictures
                 //vc.profilePicture.kf.setImage(with: image)
             }
-            
-        } else if segue.identifier == "ChatroomSegue" {
-            //let vc = segue.destination as! ChatroomController
-            
-            //vc.otherUserName = "\(firstNamesList[cellNum]) \(lastNamesList[cellNum])"
         }
-    }
-    
-    deinit{
-        NotificationCenter.default.removeObserver(self)
     }
 }

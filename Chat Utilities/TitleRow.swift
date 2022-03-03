@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct TitleRow: View {
+    @EnvironmentObject private var text: TitleRowData
+    
     //other user imageurl
     var imageUrl = URL(string: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80")
-    
-    //other user full name
-    var name = "Other user name"
     
     var body: some View {
         HStack(spacing: 20){
@@ -26,7 +25,7 @@ struct TitleRow: View {
             }
             
             VStack(alignment: .leading){
-                Text(name).font(.title).bold()
+                Text(text.sellerFullName).font(.title).bold()
                 
                 Text("Online").font(.caption).foregroundColor(.gray)
             }
@@ -42,4 +41,8 @@ struct TitleRow_Previews: PreviewProvider {
     static var previews: some View {
         TitleRow().background(Color("LightBlueColor"))
     }
+}
+
+class TitleRowData: ObservableObject {
+    @Published var sellerFullName: String  = ""
 }
