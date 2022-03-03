@@ -52,6 +52,8 @@ class SellerProfileController: UIViewController {
         childView.view.frame = container.bounds
         container.addSubview(childView.view)
         childView.didMove(toParent: self)
+        
+        UserDefaults.standard.set(userId, forKey: "otherUserId")
     }
     
     func setBackgrounds(){

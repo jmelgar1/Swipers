@@ -8,9 +8,12 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseAuth
 
 class MessagesManager: ObservableObject {
-    var otherUserId = ""
+    
+    var otherUserId = UserDefaults.standard.string(forKey: "otherUserId")!
+    var currentUserId = Auth.auth().currentUser!.uid
     @Published private(set) var messages: [Message] = []
     @Published private(set) var lastMessageId = ""
     let db = Firestore.firestore()
@@ -20,10 +23,10 @@ class MessagesManager: ObservableObject {
     }
     
     func getMessages() {
+        var chatDocument = "\(currentUserId) & \(otherUserId) Chat"
         
-        print(otherUserId)
         //current user and other user uid document name, find where name equals and get document name
-        db.collection("messages").addSnapshotListener { QuerySnapshot, error in
+        db.collection(chatDocument).addSnapshotListener { QuerySnapshot, error in
             guard let documents = QuerySnapshot?.documents else {
                 print("Error fetching documents: \(String(describing: error))")
                 return
@@ -48,10 +51,12 @@ class MessagesManager: ObservableObject {
     }
     
     func sendMessage(text: String) {
+        var chatDocument = "\(currentUserId) & \(otherUserId) Chat"
+        
         do {
             let newMessage = Message(id: "\(UUID())", text: text, received: false, timestamp: Date())
             
-            try db.collection("messages").document().setData(from: newMessage)
+            try db.collection(chatDocument).document().setData(from: newMessage)
         } catch {
             print("Error adding message to Firestore: \(error)")
         }
