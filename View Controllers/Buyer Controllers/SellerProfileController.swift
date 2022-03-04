@@ -22,6 +22,7 @@ class SellerProfileController: UIViewController {
     var rating: String = ""
     var swipePrice: String = ""
     var userId: String = ""
+    var imageUrl: String = ""
     
     static let instance = SellerProfileController()
 
@@ -54,6 +55,7 @@ class SellerProfileController: UIViewController {
         childView.didMove(toParent: self)
         
         UserDefaults.standard.set(userId, forKey: "otherUserId")
+        UserDefaults.standard.set(imageUrl, forKey: "otherUserImageUrl")
     }
     
     func setBackgrounds(){

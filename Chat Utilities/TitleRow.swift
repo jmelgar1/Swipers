@@ -11,7 +11,8 @@ struct TitleRow: View {
     @EnvironmentObject private var text: TitleRowData
     
     //other user imageurl
-    var imageUrl = URL(string: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80")
+    var imageUrl = URL(string: UserDefaults.standard.string(forKey: "otherUserImageUrl")!)
+    var otherUserId = UserDefaults.standard.string(forKey: "otherUserId")!
     
     var body: some View {
         HStack(spacing: 20){
@@ -31,7 +32,14 @@ struct TitleRow: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            Image(systemName: "phone.fill").foregroundColor(.gray).padding(10).background(.white).cornerRadius(50)
+            //Go to payment screen button
+            Button(action: {
+                
+                //will lead to payment screen. will use stripe for payments between users
+                print("Button pressed")
+            }) {
+                Image(systemName: "dollarsign.circle.fill").foregroundColor(.green).padding(-10).background(.white).cornerRadius(50).font(.system(size: 60))
+            }
         }
         .padding()
     }

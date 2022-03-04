@@ -136,7 +136,7 @@ class DatabaseManager {
             db.collection("users")
                 .whereField("email", isEqualTo: userEmail)
                 .getDocuments() { (querySnapshot, err) in
-                    if let err = err {
+                    if err != nil {
                         Utilities.showError("Error finding user")
                     } else if querySnapshot!.documents.count != 1 {
                         // Perhaps this is an error for you?
@@ -150,6 +150,23 @@ class DatabaseManager {
         }
     }
     
+    //Gets other user's avatar by url string
+    static func getOtherUserAvatarURLString(otherUserId: String?, completion: @escaping(String)->()){
+        var urlString: String = ""
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(otherUserId!)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                urlString = (document.get("image_url") as? String)!
+                completion(urlString)
+            } else {
+                Utilities.showError("Can not find user document")
+            }
+        }
+    }
+
     //Get users avatar from URL String
     static func getUserAvatarFromURLString(imageURL: String?, completion: @escaping(UIImage)->()){
         guard let urlString = imageURL,

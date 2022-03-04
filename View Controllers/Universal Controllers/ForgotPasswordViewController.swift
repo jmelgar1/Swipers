@@ -11,7 +11,6 @@ import ProgressHUD
 class ForgotPasswordViewController: UIViewController {
 
     let emailSuccess = "We have sent you a password reset email. Please check your inbox and follow the instructions to reset your password"
-    
     let emailEmpty = "Please enter a valid email"
     
     @IBOutlet weak var emailTextField: UITextField!

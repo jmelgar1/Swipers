@@ -20,7 +20,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var ratingsList = UserDefaults.standard.stringArray(forKey: "ratings")!
     var swipePricesList = UserDefaults.standard.stringArray(forKey: "swipePrices")!
     var emailsList = UserDefaults.standard.stringArray(forKey: "emails")!
-    var imageURLsList = UserDefaults.standard.stringArray(forKey: "image_urls")
+    var imageURLsList = UserDefaults.standard.stringArray(forKey: "image_urls")!
     var userIdsList = UserDefaults.standard.stringArray(forKey: "userIds")!
     
     var diningHallType: String = ""
@@ -56,7 +56,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.rating.text = ratingsList[indexPath.row]
         cell.swipePrice.text = "$" + swipePricesList[indexPath.row]
         
-        DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList?[indexPath.row]) { (image) in
+        DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList[indexPath.row]) { (image) in
             cell.profilePicture.image = image
         }
         
@@ -73,7 +73,7 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        var cellNum = UserDefaults.standard.integer(forKey: "cellNum")
+        let cellNum = UserDefaults.standard.integer(forKey: "cellNum")
         
         if segue.identifier == "SellerProfileSegue" {
             let vc = segue.destination as! SellerProfileController
@@ -83,9 +83,10 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
             vc.rating = ratingsList[cellNum]
             vc.swipePrice = "$\(swipePricesList[cellNum])"
             vc.userId = userIdsList[cellNum]
+            vc.imageUrl = imageURLsList[cellNum]
             
             //convert urlstrings to images
-            DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList?[cellNum]) { (image) in
+            DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList[cellNum]) { (image) in
                 vc.profilePicture.image = image
                 
                 //need to cache other user profile pictures

@@ -42,8 +42,6 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer){
-        let tappedImage = tapGestureRecognizer.view as! UIImageView
-        
         let image = UIImagePickerController()
         image.delegate = self
         

@@ -14,16 +14,18 @@ class MessagesManager: ObservableObject {
     
     var otherUserId = UserDefaults.standard.string(forKey: "otherUserId")!
     var currentUserId = Auth.auth().currentUser!.uid
-    @Published private(set) var messages: [Message] = []
-    @Published private(set) var lastMessageId = ""
+    var urlString: String = ""
     let db = Firestore.firestore()
     
+    @Published private(set) var messages: [Message] = []
+    @Published private(set) var lastMessageId = ""
+
     init() {
         getMessages()
     }
     
     func getMessages() {
-        var chatDocument = "\(currentUserId) & \(otherUserId) Chat"
+        let chatDocument = "\(currentUserId) & \(otherUserId) Chat"
         
         //current user and other user uid document name, find where name equals and get document name
         db.collection(chatDocument).addSnapshotListener { QuerySnapshot, error in
@@ -51,7 +53,7 @@ class MessagesManager: ObservableObject {
     }
     
     func sendMessage(text: String) {
-        var chatDocument = "\(currentUserId) & \(otherUserId) Chat"
+        let chatDocument = "\(currentUserId) & \(otherUserId) Chat"
         
         do {
             let newMessage = Message(id: "\(UUID())", text: text, received: false, timestamp: Date())

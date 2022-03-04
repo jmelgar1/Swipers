@@ -110,7 +110,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     }
     
     func addSellerToSellList(){
-        var swipePrice: String = enterPriceTextField.text!
+        let swipePrice: String = enterPriceTextField.text!
 
         let docRef = db.collection("users").document(userID)
         docRef.getDocument { [self] (document, error) in
@@ -121,7 +121,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
                 let email = (document.get("email") as? String)!
                 let profilePicture = (document.get("image_url") as? String)!
             
-                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber,"swipe_price":swipePrice,"email":email,"rating":"5","image_url":profilePicture,"userId":userID as? String]) { (error) in
+                db.collection("sellers\(campus)").document(userID).setData(["first_name":firstName,"last_name":lastName,"phone_number":phoneNumber,"swipe_price":swipePrice,"email":email,"rating":"5","image_url":profilePicture,"userId":userID as? String?]) { (error) in
                     
                     if error != nil {
                         
@@ -142,7 +142,7 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     
     @objc func removeSellerFromSellList(){
         db.collection("sellers\(campus)").document(userID).delete() { err in
-            if let err = err {
+            if err != nil {
                 Utilities.showError("Error removing user from sell list")
             } else {
                 print("Success on removing the document")
