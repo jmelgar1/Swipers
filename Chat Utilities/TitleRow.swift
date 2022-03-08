@@ -9,6 +9,14 @@ import SwiftUI
 
 struct TitleRow: View {
     @EnvironmentObject private var text: TitleRowData
+    @State var presentingModal = false
+    
+    let rootViewController = UIApplication.shared.connectedScenes
+        .filter {$0.activationState == .foregroundActive }
+        .map {$0 as? UIWindowScene }
+        .compactMap { $0 }
+        .first?.windows
+        .filter({ $0.isKeyWindow }).first?.rootViewController
     
     //other user imageurl
     var imageUrl = URL(string: UserDefaults.standard.string(forKey: "otherUserImageUrl")!)
@@ -32,14 +40,22 @@ struct TitleRow: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
+            
+            /*
             //Go to payment screen button
             Button(action: {
-                
-                //will lead to payment screen. will use stripe for payments between users
-                print("Button pressed")
+                rootViewController?.dismiss(animated: true, completion: nil)
             }) {
-                Image(systemName: "dollarsign.circle.fill").foregroundColor(.green).padding(-10).background(.white).cornerRadius(50).font(.system(size: 60))
+                Image(systemName: "dollarsign.circle.fill")
+                    .foregroundColor(.green).padding(-10)
+                    .background(.white)
+                    .cornerRadius(50)
+                    .font(.system(size: 60))
             }
+             */
+            
+            Button("Pay here") { self.presentingModal = true }
+            .sheet(isPresented: $presentingModal) { PaymentView(presentedAsModal: self.$presentingModal) }
         }
         .padding()
     }
