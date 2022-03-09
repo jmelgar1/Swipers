@@ -61,9 +61,9 @@ class CheckoutRowView: UIView {
             self.backgroundColor = theme.primaryBackgroundColor
         }
         self.addSubview(self.backgroundView)
-        self.bottomSeparator.backgroundColor = UIColor(hexString: "#cccccc")
+        self.bottomSeparator.backgroundColor = UIColor(named: "#cccccc")
         self.addSubview(self.bottomSeparator)
-        self.topSeparator.backgroundColor = UIColor(hexString: "#cccccc")
+        self.topSeparator.backgroundColor = UIColor(named: "#cccccc")
         self.addSubview(self.topSeparator)
         self.titleLabel.text = title
         self.titleLabel.backgroundColor = UIColor.clear

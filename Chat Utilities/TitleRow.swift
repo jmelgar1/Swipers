@@ -39,9 +39,7 @@ struct TitleRow: View {
                 Text("Online").font(.caption).foregroundColor(.gray)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            
-            
-            /*
+    
             //Go to payment screen button
             Button(action: {
                 rootViewController?.dismiss(animated: true, completion: nil)
@@ -52,10 +50,6 @@ struct TitleRow: View {
                     .cornerRadius(50)
                     .font(.system(size: 60))
             }
-             */
-            
-            Button("Pay here") { self.presentingModal = true }
-            .sheet(isPresented: $presentingModal) { PaymentView(presentedAsModal: self.$presentingModal) }
         }
         .padding()
     }

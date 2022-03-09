@@ -43,7 +43,7 @@ class StripeViewController: UIViewController {
     }
 }
 
-extension ViewController: CheckoutViewControllerDelegate {
+extension StripeViewController: CheckoutViewControllerDelegate {
     func checkoutViewControllerDidCompleteCheckout(_ vc: CheckoutViewController) {
     }
 }
