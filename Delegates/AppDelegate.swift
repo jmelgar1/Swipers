@@ -7,8 +7,7 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-import CoreLocation
+import Stripe
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -16,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        StripeAPI.defaultPublishableKey = "pk_test_51Kar8XITdHoTvfpl54Bkhz1HQ5gYue2bMMa5FLgCPtqnuPAMW7rLvhMGEef4vctonNdFq5BQtD2ttuAFlqTGX1cY00EMd2y4Jg"
         
         FirebaseApp.configure()
         

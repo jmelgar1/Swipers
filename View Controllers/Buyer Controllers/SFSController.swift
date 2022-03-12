@@ -6,9 +6,22 @@
 //
 
 import UIKit
+import SwiftUI
 import Firebase
 import FirebaseFirestore
 import Kingfisher
+
+struct SFSControllerView: UIViewControllerRepresentable {
+    @Binding var clickedButton: Bool
+    
+    func makeUIViewController(context: Context) -> SFSController {
+        SFSController()
+    }
+    
+    func updateUIViewController(_ uiViewController: SFSController, context: Context) {
+        uiViewController.clickPayButton = clickedButton
+    }
+}
 
 class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -25,9 +38,13 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var diningHallType: String = ""
     var campus: String = ""
-
+    
+    var clickPayButton: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(clickPayButton)
         
         if (campus == "Kennesaw") {
             self.title = "The Commons"

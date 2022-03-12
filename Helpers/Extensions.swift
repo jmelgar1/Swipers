@@ -29,6 +29,13 @@ extension Notification.Name {
     }
 }
 
+//Go to stripe controller
+extension Notification.Name {
+    struct Stripe {
+        static let CallStripeController = Notification.Name("CallStripeController")
+    }
+}
+
 extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape(RoundedCorner(radius: radius, corners: corners))

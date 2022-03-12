@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TitleRow: View {
     @EnvironmentObject private var text: TitleRowData
-    @State var presentingModal = false
+    @State var clickedButton = false
     
     let rootViewController = UIApplication.shared.connectedScenes
         .filter {$0.activationState == .foregroundActive }
@@ -21,7 +21,6 @@ struct TitleRow: View {
     //other user imageurl
     var imageUrl = URL(string: UserDefaults.standard.string(forKey: "otherUserImageUrl")!)
     var otherUserId = UserDefaults.standard.string(forKey: "otherUserId")!
-    
     var body: some View {
         HStack(spacing: 20){
             AsyncImage(url: imageUrl) { image in
@@ -41,8 +40,11 @@ struct TitleRow: View {
             .frame(maxWidth: .infinity, alignment: .leading)
     
             //Go to payment screen button
+            
             Button(action: {
                 rootViewController?.dismiss(animated: true, completion: nil)
+                clickedButton = true
+                SFSControllerView(clickedButton: $clickedButton)
             }) {
                 Image(systemName: "dollarsign.circle.fill")
                     .foregroundColor(.green).padding(-10)

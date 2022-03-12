@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Stripe
 
 class HomeViewController: UIViewController {
     
