@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+//TO DO: HIDE BACK BUTTON
+
 struct TitleRow: View {
     @EnvironmentObject private var text: TitleRowData
     @State private var isActive = false
@@ -18,53 +20,53 @@ struct TitleRow: View {
         .first?.windows
         .filter({ $0.isKeyWindow }).first?.rootViewController
     
+    let buttonSize: CGFloat = 30
+    
     //other user imageurl
     var imageUrl = URL(string: UserDefaults.standard.string(forKey: "otherUserImageUrl")!)
     var otherUserId = UserDefaults.standard.string(forKey: "otherUserId")!
     var body: some View {
-        HStack(spacing: 20){
-            AsyncImage(url: imageUrl) { image in
-                image.resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 50, height: 50)
-                    .cornerRadius(50)
-            } placeholder: {
-                ProgressView()
-            }
-            
-            VStack(alignment: .leading){
-                Text(text.sellerFullName).font(.title).bold()
-                
-                Text("Online").font(.caption).foregroundColor(.gray)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-    
-            //Go to payment screen button
-            
-            Button("Pay with Stripe"){
-                isActive = true
-            }.padding(.all)
-                .background(Color("StripeBlueColor"))
-                .cornerRadius(16)
-                .foregroundColor(.white)
-                .font(Font.body.bold())
-            
-            NavigationLink(destination: ConnectOnboardViewControllerView(), isActive: $isActive) {
+        HStack(spacing: 10){
+            VStack{
+                CustomNavBar(left: {
+                    Button(action: {
+                        print("Tapped")
+                    }, label: {
+                        Image(systemName: "star")
+                            .resizable()
+                            .frame(width: self.buttonSize, height: self.buttonSize, alignment: .leading)
+                    }).padding()
+                }, center: {
+                    Text(text.sellerFullName).font(.body).bold()
+                    
+                    /*
+                    AsyncImage(url: imageUrl) { image in
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 50, height: 50)
+                                        .cornerRadius(50)
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                    */
+                    
+                }, right: {
+                    HStack {
+                        Button("Pay"){
+                            isActive = true
+                        }.padding(.all)
+                            .background(Color("StripeBlueColor"))
+                            .cornerRadius(16)
+                            .foregroundColor(.white)
+                            .font(Font.body.bold())
+                        
+                        NavigationLink(destination: ConnectOnboardViewControllerView(), isActive: $isActive) {
+                            }
+                        }
+                    })
                 }
             }
-        .padding()
-    }
-}
-
-struct SFSControllerView: UIViewControllerRepresentable {
-    @Binding var clickedButton: Bool
-    
-    func makeUIViewController(context: Context) -> SFSController {
-        SFSController()
-    }
-    
-    func updateUIViewController(_ uiViewController: SFSController, context: Context) {
-        uiViewController.clickPayButton = clickedButton
+        .padding(5)
     }
 }
 
