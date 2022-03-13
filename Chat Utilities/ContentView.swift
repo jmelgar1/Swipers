@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject var messagesManager = MessagesManager()
     
     var body: some View {
+        NavigationView {
             VStack {
                 VStack {
                     TitleRow()
@@ -34,6 +35,9 @@ struct ContentView: View {
                 .background(Color("LightBlueColor"))
                 
                 MessageField().environmentObject(messagesManager)
+            }
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
     }
 }

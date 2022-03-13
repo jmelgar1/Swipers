@@ -486,7 +486,7 @@
                     <navigationItem key="navigationItem" id="6r2-tf-rlg"/>
                     <connections>
                         <outlet property="tableView" destination="wlW-K5-Rtw" id="kA6-A4-21V"/>
-                        <segue destination="KDz-Nb-8p4" kind="showDetail" identifier="SellerProfileSegue" id="Abh-Kr-hd6"/>
+                        <segue destination="KDz-Nb-8p4" kind="show" identifier="SellerProfileSegue" id="Abh-Kr-hd6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svr-RS-nR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -498,21 +498,21 @@
             <objects>
                 <viewController storyboardIdentifier="SellerProfileController" id="KDz-Nb-8p4" customClass="SellerProfileController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pFr-9u-cXW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarOutline" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hdb-RB-ULt">
-                                <rect key="frame" x="132" y="46" width="150" height="150"/>
+                                <rect key="frame" x="132" y="134" width="150" height="150"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ratingStar" translatesAutoresizingMaskIntoConstraints="NO" id="xpE-jN-43M">
-                                <rect key="frame" x="28" y="318" width="50" height="40"/>
+                                <rect key="frame" x="28" y="406" width="50" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="n2W-Jc-6FI"/>
                                     <constraint firstAttribute="width" constant="50" id="sgR-wv-GCK"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="24I-X0-yUH">
-                                <rect key="frame" x="86" y="321" width="89" height="34"/>
+                                <rect key="frame" x="86" y="409" width="89" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="cx5-JN-FvG"/>
                                     <constraint firstAttribute="width" constant="89" id="zDN-Wb-JCR"/>
@@ -529,14 +529,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="costPerSwipe" translatesAutoresizingMaskIntoConstraints="NO" id="ErV-Ho-mq7">
-                                <rect key="frame" x="240" y="318" width="50" height="40"/>
+                                <rect key="frame" x="240" y="406" width="50" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="iiJ-L2-61a"/>
                                     <constraint firstAttribute="width" constant="50" id="paG-EJ-pN9"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="LaB-DG-0RO">
-                                <rect key="frame" x="298" y="321" width="89" height="34"/>
+                                <rect key="frame" x="298" y="409" width="89" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="89" id="MfP-3z-NJi"/>
                                     <constraint firstAttribute="height" constant="34" id="bKm-bz-4Zm"/>
@@ -553,7 +553,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qN-YD-xz4">
-                                <rect key="frame" x="26" y="710" width="362" height="69.5"/>
+                                <rect key="frame" x="26" y="764" width="362" height="69.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="69.5" id="auJ-dN-u5a"/>
                                 </constraints>
@@ -569,7 +569,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZlM-sJ-c14">
-                                <rect key="frame" x="119" y="223" width="176" height="34"/>
+                                <rect key="frame" x="119" y="311" width="176" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="bRs-ZK-DT3"/>
                                 </constraints>
@@ -607,6 +607,7 @@
                             <constraint firstItem="ZlM-sJ-c14" firstAttribute="top" secondItem="Hdb-RB-ULt" secondAttribute="bottom" constant="27" id="zYq-oY-78r"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4Wt-kx-tDy"/>
                     <connections>
                         <outlet property="View" destination="pFr-9u-cXW" id="bCi-pk-urd"/>
                         <outlet property="buyButton" destination="2qN-YD-xz4" id="hBf-88-0aQ"/>
@@ -902,6 +903,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DtX-S6-wPb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6304" y="-2083"/>
+        </scene>
+        <!--Connect Onboard View Controller-->
+        <scene sceneID="NWA-nx-Jyi">
+            <objects>
+                <viewController storyboardIdentifier="ConnectOnboardViewControllerView" id="54f-2e-LDs" customClass="ConnectOnboardViewController" customModule="Swipers" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="REj-yx-Gsz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFF-jk-7Vj">
+                                <rect key="frame" x="147" y="400" width="121" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Pay with Stripe"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="54f-2e-LDs" eventType="touchUpInside" id="2ds-df-DQz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Swo-8e-FFo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="payWithStripe" destination="IFF-jk-7Vj" id="eqK-F8-nmJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f3k-Ld-kDy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6303" y="-1363"/>
         </scene>
         <!--Sell-->
         <scene sceneID="SNn-AA-AJv">

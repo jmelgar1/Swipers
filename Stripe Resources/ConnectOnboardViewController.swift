@@ -9,25 +9,37 @@ import UIKit
 import SafariServices
 import SwiftUI
 
+struct ConnectOnboardViewControllerView: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: Context) -> ConnectOnboardViewController {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "ConnectOnboardViewControllerView") as! ConnectOnboardViewController
+        return vc
+    }
+    func updateUIViewController(_ uiViewController: ConnectOnboardViewController, context: Context) {
+    }
+    
+    typealias UIViewControllerType = ConnectOnboardViewController
+}
+
 class ConnectOnboardViewController: UIViewController {
     
+    @IBOutlet weak var payWithStripe: UIButton!
+    
     // Set to the URL of your backend server
-    let BackendAPIBaseURL: String = ""
+    let BackendAPIBaseURL: String = "https://swipers-4bd9a.firebaseapp.com/"
 
     // ...
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let connectWithStripeButton = UIButton(type: .system)
-        connectWithStripeButton.setTitle("Connect with Stripe", for: .normal)
-        connectWithStripeButton.addTarget(self, action: #selector(didSelectConnectWithStripe), for: .touchUpInside)
-        view.addSubview(connectWithStripeButton)
-
-        // ...
     }
 
-    @objc func didSelectConnectWithStripe() {
+    @IBAction func buttonPressed(_ sender: Any) {
+        didSelectConnectWithStripe()
+    }
+    
+    func didSelectConnectWithStripe() {
         if let url = URL(string: BackendAPIBaseURL)?.appendingPathComponent("onboard-user") {
           var request = URLRequest(url: url)
           request.httpMethod = "POST"

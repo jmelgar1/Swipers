@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TitleRow: View {
     @EnvironmentObject private var text: TitleRowData
-    @State var clickedButton = false
+    @State private var isActive = false
     
     let rootViewController = UIApplication.shared.connectedScenes
         .filter {$0.activationState == .foregroundActive }
@@ -41,19 +41,30 @@ struct TitleRow: View {
     
             //Go to payment screen button
             
-            Button(action: {
-                rootViewController?.dismiss(animated: true, completion: nil)
-                clickedButton = true
-                SFSControllerView(clickedButton: $clickedButton)
-            }) {
-                Image(systemName: "dollarsign.circle.fill")
-                    .foregroundColor(.green).padding(-10)
-                    .background(.white)
-                    .cornerRadius(50)
-                    .font(.system(size: 60))
+            Button("Pay with Stripe"){
+                isActive = true
+            }.padding(.all)
+                .background(Color("StripeBlueColor"))
+                .cornerRadius(16)
+                .foregroundColor(.white)
+                .font(Font.body.bold())
+            
+            NavigationLink(destination: ConnectOnboardViewControllerView(), isActive: $isActive) {
+                }
             }
-        }
         .padding()
+    }
+}
+
+struct SFSControllerView: UIViewControllerRepresentable {
+    @Binding var clickedButton: Bool
+    
+    func makeUIViewController(context: Context) -> SFSController {
+        SFSController()
+    }
+    
+    func updateUIViewController(_ uiViewController: SFSController, context: Context) {
+        uiViewController.clickPayButton = clickedButton
     }
 }
 

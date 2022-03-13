@@ -31,8 +31,6 @@ class SMSVerifyViewController: UIViewController {
         //send SMS code to user again
         PhoneAuthProvider.provider().verifyPhoneNumber("+1\(phoneNumber)", uiDelegate: nil) { verificationId, error in
             if error == nil {
-                
-                print(verificationId)
                 guard let verifyId = verificationId else { return }
                 self.userDefault.set(verifyId, forKey: "verificationId")
                 self.userDefault.synchronize()
