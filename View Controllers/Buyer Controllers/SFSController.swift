@@ -11,6 +11,19 @@ import Firebase
 import FirebaseFirestore
 import Kingfisher
 
+struct SFSControllerView: UIViewControllerRepresentable {
+    
+    func makeUIViewController(context: Context) -> SFSController {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "SFSController") as! SFSController
+        return vc
+    }
+    func updateUIViewController(_ uiViewController: SFSController, context: Context) {
+    }
+    
+    typealias UIViewControllerType = SFSController
+}
+
 class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!

@@ -13,13 +13,6 @@ struct TitleRow: View {
     @EnvironmentObject private var text: TitleRowData
     @State private var isActive = false
     
-    let rootViewController = UIApplication.shared.connectedScenes
-        .filter {$0.activationState == .foregroundActive }
-        .map {$0 as? UIWindowScene }
-        .compactMap { $0 }
-        .first?.windows
-        .filter({ $0.isKeyWindow }).first?.rootViewController
-    
     let buttonSize: CGFloat = 30
     
     //other user imageurl
@@ -29,29 +22,29 @@ struct TitleRow: View {
         HStack(spacing: 10){
             VStack{
                 CustomNavBar(left: {
-                    Button(action: {
-                        print("Tapped")
-                    }, label: {
-                        Image(systemName: "star")
-                            .resizable()
-                            .frame(width: self.buttonSize, height: self.buttonSize, alignment: .leading)
-                    }).padding()
+                    Button("<"){
+                        isActive = true
+                    }.padding(.all)
+                        .background(Color("StripeBlueColor"))
+                        .cornerRadius(16)
+                        .foregroundColor(.white)
+                        .font(Font.body.bold())
+                    
+                    NavigationLink(destination: SFSControllerView(), isActive: $isActive) {
+                        }
                 }, center: {
                     Text(text.sellerFullName).font(.body).bold()
-                    
-                    /*
-                    AsyncImage(url: imageUrl) { image in
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .frame(width: 50, height: 50)
-                                        .cornerRadius(50)
-                                } placeholder: {
-                                    ProgressView()
-                                }
-                    */
-                    
                 }, right: {
                     HStack {
+                        AsyncImage(url: imageUrl) { image in
+                            image.resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 30, height: 30)
+                                .cornerRadius(50)
+                            } placeholder: {
+                                ProgressView()
+                        }
+
                         Button("Pay"){
                             isActive = true
                         }.padding(.all)

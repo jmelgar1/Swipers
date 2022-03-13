@@ -23,8 +23,6 @@ class SellerProfileController: UIViewController {
     var swipePrice: String = ""
     var userId: String = ""
     var imageUrl: String = ""
-    
-    static let instance = SellerProfileController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +48,7 @@ class SellerProfileController: UIViewController {
         TitleRowData.sellerFullName = sellerFullName
                 
         let childView = UIHostingController(rootView: ContentView().environmentObject(TitleRowData))
+        self.navigationItem.hidesBackButton = true
         childView.view.frame = container.bounds
         container.addSubview(childView.view)
         childView.didMove(toParent: self)
