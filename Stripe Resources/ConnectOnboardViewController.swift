@@ -28,6 +28,7 @@ class ConnectOnboardViewController: UIViewController {
     
     // Set to the URL of your backend server
     let BackendAPIBaseURL: String = "https://swipers-4bd9a.firebaseapp.com/"
+    //maybe https://swipers-4bd9a.web.app
 
     // ...
 
@@ -40,14 +41,21 @@ class ConnectOnboardViewController: UIViewController {
     }
     
     func didSelectConnectWithStripe() {
+        print("test 0")
         if let url = URL(string: BackendAPIBaseURL)?.appendingPathComponent("onboard-user") {
+            
+            print("test 1")
           var request = URLRequest(url: url)
+            print("test 2")
           request.httpMethod = "POST"
+            print("test 3")
           let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+              print("test 4")
               guard let data = data,
                   let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
                   let accountURLString = json["url"] as? String,
                   let accountURL = URL(string: accountURLString) else {
+                      print("error test")
                       // handle error
                       return
               }
