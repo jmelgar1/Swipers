@@ -23,8 +23,16 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(goToTabBar), name: Notification.Name.TabBar.CallTabBarSegue, object: nil)
     }
+    
+    @objc func DismissKeyboard(){
+        view.endEditing(true)
+    }
+    
     
     @IBAction func loginButtonPressed(_ sender: Any)
     {

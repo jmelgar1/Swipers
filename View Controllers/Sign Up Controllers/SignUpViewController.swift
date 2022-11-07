@@ -23,12 +23,19 @@ class SignUpViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         //field delegates
         firstNameField.delegate = self
         lastNameField.delegate = self
         emailField.delegate = self
         phonenumberField.delegate = self
         passwordField.delegate = self
+    }
+    
+    @objc func DismissKeyboard(){
+        view.endEditing(true)
     }
     
     func validateFields() -> String? {

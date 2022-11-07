@@ -194,7 +194,7 @@ class DatabaseManager {
         let db = Firestore.firestore()
         let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         
-        docRef.setData(["email" : newEmail])
+        docRef.setData(["email" : newEmail], merge: true)
     }
     
     //Change user phone number
@@ -202,7 +202,7 @@ class DatabaseManager {
         let db = Firestore.firestore()
         let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         
-        docRef.setData(["phone_number" : newPhoneNumber])
+        docRef.setData(["phone_number" : newPhoneNumber], merge: true)
     }
     
     //MARK: Misc
@@ -235,6 +235,29 @@ class DatabaseManager {
                 }
             } else {
                 Utilities.showError("Incorrect login details")
+            }
+        }
+    }
+    
+    //change payment method balues
+    static func changePaymentMethod(paymentMethod: String, newValue: Bool) {
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        docRef.setData([paymentMethod : newValue], merge: true)
+    }
+    
+    //get used payment methods
+    static func checkForPaymentMethod(paymentMethod: String, completion: @escaping (Bool)->Void) {
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let enabled = (document.get(paymentMethod) as? Bool)!
+                completion(enabled)
+            } else {
+                completion(false)
             }
         }
     }

@@ -35,7 +35,8 @@ class ConnectOnboardViewController: UIViewController {
     }
 
     @IBAction func buttonPressed(_ sender: Any) {
-        didSelectConnectWithStripe()
+        //didSelectConnectWithStripe()
+        testFunction()
     }
     
     func didSelectConnectWithStripe() {
@@ -61,6 +62,26 @@ class ConnectOnboardViewController: UIViewController {
           }
         task.resume()
         }
+    }
+    
+    let acctNum = ""
+    
+    func testFunction(){
+        CloudFunctions.createAccountLink(accountID: "192381123")
+        { (acctNum, nil) in
+            
+        }
+        
+        /*
+        DatabaseManager.getUserAvatarFromURLString(imageURL: imageURLsList[cellNum]) { (image) in
+            vc.profilePicture.image = image
+            
+            //need to cache other user profile pictures
+            //vc.profilePicture.kf.setImage(with: image)
+        }
+
+        */
+        
     }
 
     // ...

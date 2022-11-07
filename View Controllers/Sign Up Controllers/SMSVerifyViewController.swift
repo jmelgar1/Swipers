@@ -24,6 +24,14 @@ class SMSVerifyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    @objc func DismissKeyboard(){
+        view.endEditing(true)
     }
     
     @IBAction func resendButtonPressed(_ sender: Any)
@@ -49,7 +57,7 @@ class SMSVerifyViewController: UIViewController {
         
         let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationId, verificationCode: SMSCode)
         
-        Auth.auth().signInAndRetrieveData(with: credential) { success, error in
+        Auth.auth().signIn(with: credential) { success, error in
             if error == nil {
                 
                 //store user data and determine which view to go to
@@ -78,7 +86,7 @@ class SMSVerifyViewController: UIViewController {
                 //User can be created, store the data
                 let db = Firestore.firestore()
                 
-                db.collection("users").document(result!.user.uid).setData(["first_name":self.firstName,"last_name":self.lastName,"is_verified":false,"email":email,"phone_number":phoneNumber,"image_url":""]) { (error) in
+                db.collection("users").document(result!.user.uid).setData(["first_name":self.firstName,"last_name":self.lastName,"is_verified":false,"email":email,"phone_number":phoneNumber,"image_url":"","venmo":false,"apple_pay":false,"cash_app":false,"zelle":false,"paypal":false]) { (error) in
                     
                     if error != nil {
                         

@@ -8,6 +8,19 @@
 import UIKit
 import SwiftUI
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround(){
+        let tap = UIGestureRecognizer(target: self, action: #selector(UIViewController.dismissMyKeyboard))
+        
+        //tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissMyKeyboard(){
+        view.endEditing(true)
+    }
+}
+
 //Remove seller from list method
 extension Notification.Name {
     struct Action {

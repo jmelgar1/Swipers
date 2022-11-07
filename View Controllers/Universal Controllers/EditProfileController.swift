@@ -21,8 +21,27 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet weak var editPhoneNumberTextField: UITextField!
     @IBOutlet weak var editPasswordTextField: UITextField!
     
+
+    @IBOutlet weak var venmoSwitch: UISwitch!
+    @IBOutlet weak var applepaySwitch: UISwitch!
+    @IBOutlet weak var cashappSwitch: UISwitch!
+    @IBOutlet weak var zelleSwitch: UISwitch!
+    @IBOutlet weak var paypalSwitch: UISwitch!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setSwitches(switchType: venmoSwitch, paymethod:"venmo")
+        setSwitches(switchType: applepaySwitch, paymethod:"apple_pay")
+        setSwitches(switchType: cashappSwitch, paymethod:"cash_app")
+        setSwitches(switchType: zelleSwitch, paymethod:"zelle")
+        setSwitches(switchType: paypalSwitch, paymethod:"paypal")
+        
+        venmoSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        applepaySwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        cashappSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        zelleSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        paypalSwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         
         loadAttributes()
         
@@ -34,6 +53,22 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
         //take length of password from login and send it here
         
         //detect tap on textfield to go to new phone number confirmation
+    }
+    
+    @objc func switchChanged(switchType: UISwitch){
+        let value = switchType.isOn
+        if(switchType == venmoSwitch){
+            DatabaseManager.changePaymentMethod(paymentMethod:"venmo", newValue: value)
+        } else if (switchType == applepaySwitch){
+            DatabaseManager.changePaymentMethod(paymentMethod:"apple_pay", newValue: value)
+        } else if (switchType == cashappSwitch){
+            DatabaseManager.changePaymentMethod(paymentMethod:"cash_app", newValue: value)
+        } else if (switchType == paypalSwitch){
+            DatabaseManager.changePaymentMethod(paymentMethod:"paypal", newValue: value)
+        } else if (switchType == zelleSwitch){
+            DatabaseManager.changePaymentMethod(paymentMethod:"zelle", newValue: value)
+        }
+        
     }
     
     override func viewWillLayoutSubviews() {
@@ -108,6 +143,16 @@ class EditProfileController: UIViewController, UINavigationControllerDelegate, U
         
         DatabaseManager.getPhoneNumber() { (phoneNumber) in
             self.editPhoneNumberTextField.text = phoneNumber
+        }
+    }
+    
+    func setSwitches(switchType: UISwitch, paymethod: String){
+        DatabaseManager.checkForPaymentMethod(paymentMethod: paymethod) { enabled in
+            if enabled {
+                switchType.setOn(true, animated: false)
+            } else {
+                switchType.setOn(false, animated: false)
+            }
         }
     }
 }
