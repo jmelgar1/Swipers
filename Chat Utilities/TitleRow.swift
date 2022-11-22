@@ -22,17 +22,16 @@ struct TitleRow: View {
         HStack(spacing: 10){
             VStack{
                 CustomNavBar(left: {
-                    Button("<"){
-                        isActive = true
-                    }.padding(.all)
-                        .background(Color("StripeBlueColor"))
-                        .cornerRadius(16)
-                        .foregroundColor(.white)
-                        .font(Font.body.bold())
-                    
-                    NavigationLink(destination: SFSControllerView(), isActive: $isActive) {
-                        }
-                }, center: {
+//                    Button("<"){
+//                        isActive = true
+//                    }.padding(.all)
+//                        .background(Color("StripeBlueColor"))
+//                        .cornerRadius(16)
+//                        .foregroundColor(.white)
+//                        .font(Font.body.bold())
+//
+//                    NavigationLink(destination: SFSControllerView(), isActive: $isActive) {
+//                        }
                     Text(text.sellerFullName).font(.body).bold()
                 }, right: {
                     HStack {
@@ -53,8 +52,8 @@ struct TitleRow: View {
                             .foregroundColor(.white)
                             .font(Font.body.bold())
                         
-                        NavigationLink(destination: ConnectOnboardViewControllerView(), isActive: $isActive) {
-                            }
+                        NavigationLink(destination: ConnectOnboardViewControllerView().navigationBarBackButtonHidden(true), isActive: $isActive) {
+                        }
                         }
                     })
                 }

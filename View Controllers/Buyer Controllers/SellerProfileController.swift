@@ -48,10 +48,11 @@ class SellerProfileController: UIViewController {
         TitleRowData.sellerFullName = sellerFullName
                 
         let childView = UIHostingController(rootView: ContentView().environmentObject(TitleRowData))
-        self.navigationItem.hidesBackButton = true
-        childView.view.frame = container.bounds
-        container.addSubview(childView.view)
-        childView.didMove(toParent: self)
+        self.navigationItem.hidesBackButton = false
+       navigationController?.pushViewController(childView, animated: true)
+//        childView.view.frame = container.bounds
+//        container.addSubview(childView.view)
+//        childView.didMove(toParent: self)
         
         UserDefaults.standard.set(userId, forKey: "otherUserId")
         UserDefaults.standard.set(imageUrl, forKey: "otherUserImageUrl")

@@ -49,6 +49,8 @@ class SFSController: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.title = "Stingers"
         }
         
+        tableView.backgroundColor = .white
+        
         tableView.delegate = self
         tableView.dataSource = self
     }

@@ -73,13 +73,17 @@ class SignUpViewController: UIViewController{
     //Brings user to secord screen for signing up
     @IBAction func nextStepButtonPressed(_ sender: Any)
     {
+        self.view.isUserInteractionEnabled = false
+        
         let error = validateFields()
 
         if error != nil {
             //If something is wrong with the fields this shows up
             Utilities.showError(error!)
+            self.view.isUserInteractionEnabled = true
         } else {
             self.performSegue(withIdentifier: "SignUpViewShow2", sender: self)
+            self.view.isUserInteractionEnabled = true
         }
     }
     

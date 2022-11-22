@@ -207,7 +207,9 @@ class DatabaseManager {
     
     //MARK: Misc
     //Check is current user is verified
-    static func isVerified(email: String, password: String){
+    static func isVerified(email: String, password: String, viewController: UIViewController){
+        
+        viewController.view.isUserInteractionEnabled = false
         
         let db = Firestore.firestore()
         let docRef = db.collection("users").document(Auth.auth().currentUser?.uid ?? "")
@@ -221,6 +223,7 @@ class DatabaseManager {
                     if error != nil {
                         
                         Utilities.showError(error!.localizedDescription)
+                        viewController.view.isUserInteractionEnabled = true
                         
                         //1 is true 0 is false
                     } else if (isVerified! == 1){
@@ -230,11 +233,13 @@ class DatabaseManager {
                     } else {
                         
                         Utilities.showError("Your account is not verified yet!")
+                        viewController.view.isUserInteractionEnabled = true
 
                     }
                 }
             } else {
                 Utilities.showError("Incorrect login details")
+                viewController.view.isUserInteractionEnabled = true
             }
         }
     }

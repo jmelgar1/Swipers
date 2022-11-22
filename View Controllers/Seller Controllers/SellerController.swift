@@ -23,17 +23,25 @@ class SellerController: UIViewController {
     //Set diningHallType to Kennesaw Campus (important for later)
     @IBAction func theCommonsButtonPressed(_ sender: Any)
     {
+        self.view.isUserInteractionEnabled = false
+        
         diningHallType = "The Commons"
                 
         self.performSegue(withIdentifier: "SellerCampusSegue", sender: self)
+        
+        self.view.isUserInteractionEnabled = true
     }
 
     //Set diningHallType to Marietta Campus (important for later)
     @IBAction func stingersButtonPressed(_ sender: Any)
     {
+        self.view.isUserInteractionEnabled = false
+        
         diningHallType = "Stingers"
                 
         self.performSegue(withIdentifier: "SellerCampusSegue", sender: self)
+        
+        self.view.isUserInteractionEnabled = true
     }
     
     //Pass on the variable to next view

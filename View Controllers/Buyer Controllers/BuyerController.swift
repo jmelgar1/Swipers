@@ -37,6 +37,8 @@ class BuyerController: UIViewController {
 
     @IBAction func theCommonsButtonPressed(_ sender: Any)
     {
+        self.view.isUserInteractionEnabled = false
+        
         campus = "Kennesaw"
         
         getCurrentSellerData()
@@ -44,11 +46,15 @@ class BuyerController: UIViewController {
         let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             self.performSegue(withIdentifier: "BuyerSearchSegue", sender: self)
+            
+            self.view.isUserInteractionEnabled = true
         }
     }
     
     @IBAction func stingersButtonPressed(_ sender: Any)
     {
+        self.view.isUserInteractionEnabled = false
+        
         campus = "Marietta"
         
         getCurrentSellerData()
@@ -56,6 +62,8 @@ class BuyerController: UIViewController {
         let seconds = 1.0
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
             self.performSegue(withIdentifier: "BuyerSearchSegue", sender: self)
+            
+            self.view.isUserInteractionEnabled = true
         }
     }
     
@@ -63,6 +71,9 @@ class BuyerController: UIViewController {
         db.collection("sellers\(campus)").getDocuments { (snapshot, error) in
             guard let snapshot = snapshot, error == nil else {
                 Utilities.showError("There are no active buyers.")
+                
+                self.view.isUserInteractionEnabled = true
+                
             return
             }
                 snapshot.documents.forEach({ (documentSnapshot) in

@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         //Get is_verified value from users data document from firebase
-        DatabaseManager.isVerified(email: email, password: password)
+        DatabaseManager.isVerified(email: email, password: password, viewController: self)
     }
     
     //Go to password reset page is user clicks on forgot password

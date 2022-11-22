@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="66.964285714285708"/>
+            <point key="canvasLocation" x="723" y="67"/>
         </scene>
         <!--Log In-->
         <scene sceneID="nv8-lh-PtW">
@@ -174,7 +174,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                        <color key="value" red="0.57045853140000002" green="0.57047235969999999" blue="0.57046490910000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -287,6 +287,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zKf-dL-6CH">
                                 <rect key="frame" x="95" y="481" width="230" height="18.5"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -354,7 +355,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="162" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wlW-K5-Rtw">
                                 <rect key="frame" x="0.0" y="92" width="414" height="770"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="gGU-dr-0AT" customClass="SellerTableViewCell" customModule="Swipers" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="162"/>
@@ -370,21 +375,14 @@
                                                         <constraint firstAttribute="width" constant="50" id="wM3-ue-Xmk"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="qRf-yB-Wue">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="4.75" textAlignment="center" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="qRf-yB-Wue">
                                                     <rect key="frame" x="78" y="109" width="89" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="89" id="CdR-5v-g9N"/>
                                                         <constraint firstAttribute="height" constant="34" id="jUE-WC-Npk"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="4.75">
-                                                            <attributes>
-                                                                <color key="NSColor" systemColor="labelColor"/>
-                                                                <font key="NSFont" size="30" name="ArialMT"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="30"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="costPerSwipe" translatesAutoresizingMaskIntoConstraints="NO" id="Qme-1h-kCz">
@@ -394,21 +392,14 @@
                                                         <constraint firstAttribute="height" constant="40" id="Ilm-o3-ZfY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="ujC-wj-oJ8">
+                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$10.50" textAlignment="center" minimumFontSize="17" background="priceField" translatesAutoresizingMaskIntoConstraints="NO" id="ujC-wj-oJ8">
                                                     <rect key="frame" x="297" y="109" width="89" height="34"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="34" id="Y6V-eb-71u"/>
                                                         <constraint firstAttribute="width" constant="89" id="oC2-Dq-qbG"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="$10.50">
-                                                            <attributes>
-                                                                <color key="NSColor" systemColor="labelColor"/>
-                                                                <font key="NSFont" size="30" name="ArialMT"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="30"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarOutline" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jUQ-gr-G7J">
@@ -417,19 +408,14 @@
                                                         <constraint firstAttribute="width" constant="80" id="OhW-zZ-hAG"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfB-TV-E9v">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Josh Melgar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfB-TV-E9v">
                                                     <rect key="frame" x="120" y="34" width="275" height="34"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Josh Melgar">
-                                                            <attributes>
-                                                                <font key="NSFont" size="30" name="Arial-BoldMT"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="30"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="hfB-TV-E9v" firstAttribute="leading" secondItem="jUQ-gr-G7J" secondAttribute="trailing" constant="20" id="4dD-ar-xUV"/>
                                                 <constraint firstItem="jUQ-gr-G7J" firstAttribute="leading" secondItem="c5c-d1-sEr" secondAttribute="leading" id="536-gg-k0Y"/>
@@ -452,6 +438,7 @@
                                                 <constraint firstItem="ujC-wj-oJ8" firstAttribute="leading" secondItem="Qme-1h-kCz" secondAttribute="trailing" constant="8" id="sUq-he-Xj1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="fullName" destination="hfB-TV-E9v" id="lbh-8m-ckg"/>
                                             <outlet property="profilePicture" destination="jUQ-gr-G7J" id="zoU-4n-hNv"/>
@@ -465,7 +452,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dgh-r4-ZVJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dgh-r4-ZVJ" firstAttribute="trailing" secondItem="wlW-K5-Rtw" secondAttribute="trailing" id="CBU-Qi-nlV"/>
                             <constraint firstItem="wlW-K5-Rtw" firstAttribute="leading" secondItem="dgh-r4-ZVJ" secondAttribute="leading" id="WwO-ra-r4L"/>
@@ -593,7 +580,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NOG-nw-0rU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6302.898550724638" y="-623.4375"/>
+            <point key="canvasLocation" x="6283" y="-625"/>
         </scene>
         <!--Buy-->
         <scene sceneID="zRQ-gZ-3n9">
@@ -821,7 +808,7 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="81h-L1-D4i"/>
@@ -900,7 +887,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3k-Ld-kDy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6303" y="-1363"/>
+            <point key="canvasLocation" x="6283" y="-1367"/>
         </scene>
         <!--Sell-->
         <scene sceneID="SNn-AA-AJv">
@@ -1440,6 +1427,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18.5" id="Sie-CE-SDg"/>
                                 </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1453,6 +1441,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18.5" id="eeg-QU-xYV"/>
                                 </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -1463,6 +1452,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WkY-U9-zsD">
                                 <rect key="frame" x="87" y="444" width="240" height="18.5"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                                 <userDefinedRuntimeAttributes>
@@ -1473,6 +1463,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uz2-7R-xrw">
                                 <rect key="frame" x="87" y="491.5" width="240" height="19"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                 <userDefinedRuntimeAttributes>
@@ -1501,6 +1492,7 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rpi-Uf-Rci">
                                 <rect key="frame" x="87" y="543.5" width="240" height="18.5"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="password"/>
                                 <userDefinedRuntimeAttributes>
@@ -1832,7 +1824,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dXQ-X1-s7g"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2Yb-hH-EEB" firstAttribute="top" secondItem="dXQ-X1-s7g" secondAttribute="top" constant="246" id="9p8-uO-kii"/>
                             <constraint firstItem="cMy-44-kBY" firstAttribute="centerX" secondItem="v9g-B9-KxD" secondAttribute="centerX" id="AN3-nV-ZE6"/>
@@ -1880,8 +1872,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18.5" id="HLa-Ok-hv5"/>
                                 </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                        <color key="value" red="0.56862745098039214" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SY6-qo-nMH">
                                 <rect key="frame" x="143" y="628.5" width="128" height="31"/>
@@ -1978,9 +1976,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uZD-2U-NK6"/>
+        <segue reference="lnP-Bs-cN6"/>
         <segue reference="z78-5S-K5m"/>
-        <segue reference="ZnT-UA-poI"/>
+        <segue reference="RPc-gq-7PH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ApplePay" width="100" height="100"/>
@@ -2001,9 +1999,6 @@
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

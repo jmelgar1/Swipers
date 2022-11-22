@@ -36,22 +36,26 @@ class SignUpViewController2: UIViewController {
     
     @IBAction func submitButtonPressed(_ sender: Any)
     {
-                //send SMS code to user
-                PhoneAuthProvider.provider().verifyPhoneNumber("+1\(phoneNumber)", uiDelegate: nil) { verificationId, error in
-                    if error == nil {
-                        
-                        print(verificationId!)
-                        guard let verifyId = verificationId else { return }
-                        self.userDefault.set(verifyId, forKey: "verificationId")
-                        self.userDefault.synchronize()
-                        
-                    } else {
-                        Utilities.showError("Unable to get secret verification code from firebase")
-                    }
+        self.view.isUserInteractionEnabled = false
+            //send SMS code to user
+            PhoneAuthProvider.provider().verifyPhoneNumber("+1\(phoneNumber)", uiDelegate: nil) { verificationId, error in
+                if error == nil {
+                    
+                    print(verificationId!)
+                    guard let verifyId = verificationId else { return }
+                    self.userDefault.set(verifyId, forKey: "verificationId")
+                    self.userDefault.synchronize()
+                    self.view.isUserInteractionEnabled = true
+                    
+                } else {
+                    Utilities.showError("Unable to get secret verification code from firebase")
+                    self.view.isUserInteractionEnabled = true
                 }
-                
-                //switch to sms confirm view controller
-                self.performSegue(withIdentifier: "VerifySegue", sender: self)
+            }
+            
+            //switch to sms confirm view controller
+            self.performSegue(withIdentifier: "VerifySegue", sender: self)
+            self.view.isUserInteractionEnabled = true
         }
     
     //Waits for user to click take a photo

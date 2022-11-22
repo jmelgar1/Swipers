@@ -30,6 +30,8 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        overrideUserInterfaceStyle = .light
+        
         NotificationCenter.default.addObserver(self, selector: #selector(removeSellerFromSellList), name: Notification.Name.Action.CallRemoveMethod, object: nil)
         
         //geofencing setup
@@ -54,6 +56,13 @@ class SellerCampusController: UIViewController, UITextFieldDelegate, CLLocationM
         } else {
             campus = "Marietta"
         }
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func DismissKeyboard(){
+        view.endEditing(true)
     }
     
     //go to finding buyer screen when start selling button pressed
